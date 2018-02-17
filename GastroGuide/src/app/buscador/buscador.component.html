@@ -7,14 +7,14 @@
           <option value="" disabled selected>Cocina</option>
           <option *ngFor="let tip of tipoDeCocina; index as i" value="{{i}}">{{tip}}</option>
         </select>
-        <label for="tipoCocina" data-error="Vacío" data-success="Correcto">Escoje tipo de cocina</label>
+        <label for="tipoCocina" data-error="Campo vacío" data-success="Correcto">Escoje tipo de cocina</label>
       </div>
       <div class="input-field col s4 l2">
         <select name="form" multiple materialize="material_select" [(ngModel)]="optionsAmbientes" id="ambiente" [class]="validarAmbiente" (change)="getValidarAmbiente()">
           <option value="" disabled selected>Ambiente</option>
           <option *ngFor="let amb of ambientes; index as i" value="{{i}}">{{amb}}</option>
         </select>
-        <label for="ambiente" data-error="Vacío" data-success="Correcto">Escoje tipo de ambiente</label>
+        <label for="ambiente" data-error="Campo vacío" data-success="Correcto">Escoje tipo de ambiente</label>
       </div>
       <div class="input-field col s4 l2">
         <input name="form" id="localidad" type="text" [class]="validarLocalidad" [(ngModel)]="localidad" (keyup)="getValidarLocalidad()">

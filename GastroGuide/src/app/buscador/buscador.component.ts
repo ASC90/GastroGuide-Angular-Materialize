@@ -34,9 +34,11 @@ const mockyCiudades = [
 })
 
 export class BuscadorComponent implements OnInit {
+  // Listas
   tipoDeCocina = mockyTipoCocina;
   ambientes = mockyAmbientes;
   ciudades = mockyCiudades;
+  // Captura de formulario
   optionsTipoCocina = [];
   optionsAmbientes = [];
   localidad = "";
