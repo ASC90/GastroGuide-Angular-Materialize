@@ -1,0 +1,16 @@
+.icon-social{
+  padding: 4px;
+}
+.img-logo {
+  width: 300px;
+}
+div > p > a{
+  color: white;
+}
+div > p > a:hover{
+  color: cornflowerblue;
+}
+div.col{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

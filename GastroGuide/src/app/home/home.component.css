@@ -1,0 +1,8 @@
+.img-portada {
+  background-image: url(../../assets/img/Large_portada.png);
+  width: 100vw;
+  height: 560px;
+  background-size: 1920px 498px;
+  background-repeat: no-repeat;
+  background-position-x: center;
+}

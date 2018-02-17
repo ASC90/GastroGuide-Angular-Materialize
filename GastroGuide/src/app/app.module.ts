@@ -1,16 +1,41 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MaterializeModule } from 'angular2-materialize';
+import { RouterModule, Routes } from '@angular/router';
+
 
 
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { CondicionesLegalesComponent } from './condiciones-legales/condiciones-legales.component';
+import { AvisoLegalComponent } from './aviso-legal/aviso-legal.component';
+import { HomeComponent } from './home/home.component';
+import { BuscadorComponent } from './buscador/buscador.component';
+
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'aviso-legal', component: AvisoLegalComponent },
+  { path: 'condiciones-legales', component: CondicionesLegalesComponent }
+];
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    CondicionesLegalesComponent,
+    AvisoLegalComponent,
+    HomeComponent,
+    BuscadorComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]

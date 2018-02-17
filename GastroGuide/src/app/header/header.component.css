@@ -1,0 +1,33 @@
+i.icon-dark {
+  color: #263238;
+}
+a.brand-logo img {
+  padding: 10px 36px;
+  width: auto;
+  height: 64px;
+}
+a.brand-logo img:hover {
+  background-color: #1d2022;
+  color: #bababa;
+}
+div.user-view a img {
+  background-color: rgba(38, 50, 56, 0.43);
+}
+div.user-view a img:hover {
+  background-color: #1d2022;
+  color: #bababa;
+}
+.btn:hover {
+  background-color: #ffdf75 !important;
+}
+div.background img {
+  width: 300px;
+  height: auto;
+  filter: saturate(200%);
+}
+
+ul li a span{
+  padding: 4px 10px;
+  text-shadow: 0px 0px 3px black;
+  background-color: rgba(0, 0, 0, 0.30);
+}
