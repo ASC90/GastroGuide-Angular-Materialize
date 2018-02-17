@@ -3,22 +3,25 @@
   <form name="form" action="/" method="">
     <div class="row">
       <div class="input-field col s4 l2">
-        <select name="form" multiple materialize="material_select" [(ngModel)]="optionsTipoCocina" id="tipoCocina">
+        <select name="form" multiple materialize="material_select" [(ngModel)]="optionsTipoCocina" id="tipoCocina" [class]="validarTipoCocina" (change)="getValidarTipoDeCocina()">
           <option value="" disabled selected>Cocina</option>
           <option *ngFor="let tip of tipoDeCocina; index as i" value="{{i}}">{{tip}}</option>
         </select>
-        <label>Escoje tipo de cocina</label>
+        <label for="tipoCocina" data-error="Vacío" data-success="Correcto">Escoje tipo de cocina</label>
       </div>
       <div class="input-field col s4 l2">
-        <select name="form" multiple materialize="material_select" [(ngModel)]="optionsAmbientes" id="ambiente">
+        <select name="form" multiple materialize="material_select" [(ngModel)]="optionsAmbientes" id="ambiente" [class]="validarAmbiente" (change)="getValidarAmbiente()">
           <option value="" disabled selected>Ambiente</option>
           <option *ngFor="let amb of ambientes; index as i" value="{{i}}">{{amb}}</option>
         </select>
-        <label>Escoje tipo de ambiente</label>
+        <label for="ambiente" data-error="Vacío" data-success="Correcto">Escoje tipo de ambiente</label>
       </div>
       <div class="input-field col s4 l2">
-        <input name="form" id="localidad" type="text" class="" [(ngModel)]="localidad">
-        <label for="localidad">Introduce localidad</label>
+        <input name="form" id="localidad" type="text" [class]="validarLocalidad" [(ngModel)]="localidad" (keyup)="getValidarLocalidad()">
+        <label for="localidad" [attr.data-error]="errorLocalidad" data-success="Correcto">Introduce localidad</label>
+        <ul [class]="visivilidad">
+          <li *ngFor="let ciudad of ciudades" class="collection-item" (click)="selectCity(ciudad)">{{ciudad}}</li>
+        </ul>
       </div>
       <div class="input-field col s4 l2">
         <input name="form" id="date" type="text" class="datepicker" format="dd/mm/yyyy" materialize-date-picker materialize="pickadate" readonly [(ngModel)]="fecha"/>
@@ -40,7 +43,7 @@
           <option value="7">7 personas</option>
           <option value="8">8 personas</option>
           <option value="9">9 personas</option>
-          <option value="10">10 personas</option>
+          <option value="10">10 pers.</option>
         </select>
         <label>Comensales</label>
       </div>

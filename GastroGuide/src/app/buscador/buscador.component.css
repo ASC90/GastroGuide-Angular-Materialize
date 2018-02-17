@@ -11,3 +11,27 @@ div.valign-wrapper {
 .center{
   margin: auto;
 }
+.input-field label {
+  width: 100%;
+}
+.collection {
+  position: absolute;
+  z-index: 3;
+}
+.invisible {
+  display: none;
+}
+.visible {
+  display: block;
+}
+.collection-item:hover{
+  background-color: lightgray;
+}
+div.col {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.collection{
+  max-height: 150px;
+  overflow-y: scroll;
+}
