@@ -1,5 +1,54 @@
-<div class="container">
-  <p>
-    buscador works!
-  </p>
+<div class="container z-depth-5">
+  <div class="row"></div>
+  <form name="form" action="/" method="">
+    <div class="row">
+      <div class="input-field col s4 l2">
+        <select name="form" multiple materialize="material_select" [(ngModel)]="optionsTipoCocina" id="tipoCocina">
+          <option value="" disabled selected>Cocina</option>
+          <option *ngFor="let tip of tipoDeCocina; index as i" value="{{i}}">{{tip}}</option>
+        </select>
+        <label>Escoje tipo de cocina</label>
+      </div>
+      <div class="input-field col s4 l2">
+        <select name="form" multiple materialize="material_select" [(ngModel)]="optionsAmbientes" id="ambiente">
+          <option value="" disabled selected>Ambiente</option>
+          <option *ngFor="let amb of ambientes; index as i" value="{{i}}">{{amb}}</option>
+        </select>
+        <label>Escoje tipo de ambiente</label>
+      </div>
+      <div class="input-field col s4 l2">
+        <input name="form" id="localidad" type="text" class="" [(ngModel)]="localidad">
+        <label for="localidad">Introduce localidad</label>
+      </div>
+      <div class="input-field col s4 l2">
+        <input name="form" id="date" type="text" class="datepicker" format="dd/mm/yyyy" materialize-date-picker materialize="pickadate" readonly [(ngModel)]="fecha"/>
+        <label for="date">Introduce fecha</label>
+      </div>
+      <div class="input-field col s2 l1">
+        <input name="form" id="time" type="text" class="timepicker" materialize-time-picker materialize="pickatime" readonly [(ngModel)]="hora">
+        <label for="time">Hora</label>
+      </div>
+      <div class="input-field col s2 l1">
+        <select name="form" materialize="material_select" [(ngModel)]="comensales" id="comensalesId">
+          <option value="" disabled selected>Personas</option>
+          <option value="1">1 persona</option>
+          <option value="2">2 personas</option>
+          <option value="3">3 personas</option>
+          <option value="4">4 personas</option>
+          <option value="5">5 personas</option>
+          <option value="6">6 personas</option>
+          <option value="7">7 personas</option>
+          <option value="8">8 personas</option>
+          <option value="9">9 personas</option>
+          <option value="10">10 personas</option>
+        </select>
+        <label>Comensales</label>
+      </div>
+      <div class="col s4 l2 valign-wrapper">
+        <button class="btn z-depth-5 center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4" (click)="getBuscador()"><i class="material-icons left">search</i>Buscar</button>
+      </div>
+    </div>
+  </form>
+  <div class="row"></div>
 </div>
+

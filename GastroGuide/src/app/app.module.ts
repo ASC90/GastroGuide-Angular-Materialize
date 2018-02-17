@@ -2,6 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MaterializeModule } from 'angular2-materialize';
 import { RouterModule, Routes } from '@angular/router';
+// ngModel
+import { FormsModule } from '@angular/forms';
+// Form select multiple
+import { MaterializeDirective } from "angular2-materialize";
+
 
 
 
@@ -28,14 +33,16 @@ const appRoutes: Routes = [
     CondicionesLegalesComponent,
     AvisoLegalComponent,
     HomeComponent,
-    BuscadorComponent
+    BuscadorComponent,
+    MaterializeDirective
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
-    )
+    ),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

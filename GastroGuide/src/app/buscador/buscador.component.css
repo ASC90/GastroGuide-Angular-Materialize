@@ -1,0 +1,13 @@
+.container {
+  width: 100% !important;
+  background-color: #eaf9ff;
+}
+.container form {
+  margin: 0px 20px;
+}
+div.valign-wrapper {
+  height: 81px;
+}
+.center{
+  margin: auto;
+}
