@@ -148,6 +148,14 @@ const guzzoMocky = JSON.parse(JSON.stringify({
 
 }));
 
+function arrayCompare(pArrA: Array<any>, pArrB: Array<any>) {
+  for (let i = 0; i < pArrA.length; i++) {
+    if (pArrB.includes(pArrA[i]))
+      return true;
+  }
+  return false;
+}
+
 @Component({
   selector: 'app-filtrar',
   templateUrl: './filtrar.component.html',
@@ -158,6 +166,7 @@ export class FiltrarComponent implements OnInit {
   restElCeller = elCellerMocky;
   restGuzzo = guzzoMocky;
   arrayRestaurantes = [];
+  flagTipoCocina: boolean;
   constructor() {
     this.busquedaObj = JSON.parse(localStorage.getItem("busqueda"));
     this.arrayRestaurantes.push(this.restElCeller);
@@ -171,6 +180,7 @@ export class FiltrarComponent implements OnInit {
   pintarRestaurantesFiltrados() {
     // Si en el array tipo de cocina del buscador existe una coincidencia con el array
     // de tipo de cocina del restaurante devuelve verdadero
-  
+    this.flagTipoCocina = arrayCompare(this.busquedaObj[0], this.restElCeller.tipoCocinaID);
+    console.log("TipoCocina", this.flagTipoCocina);
   }
 }
