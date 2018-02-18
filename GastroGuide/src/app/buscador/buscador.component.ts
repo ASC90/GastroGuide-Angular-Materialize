@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 declare var $: any;
 
 // JSON de tipo de cocina
@@ -56,7 +57,7 @@ export class BuscadorComponent implements OnInit {
   validarHora = "timepicker invalid";
   errorHora = "El campo está vacío";
   validarComensales = "invalid";
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     $(document).ready(function () {
@@ -93,12 +94,14 @@ export class BuscadorComponent implements OnInit {
     this.getValidarHora();
     this.getValidarComensales();
     console.log("options", this.optionsTipoCocina, this.optionsAmbientes, this.localidad, this.fecha, this.hora, this.comensales);
-    if (this.optionsTipoCocina && this.optionsAmbientes && this.localidad && this.fecha && this.hora && this.comensales) {
+    if (this.validarTipoCocina == "valid" && this.validarAmbiente == "valid" && this.validarLocalidad == "valid" && this.validarFecha == "datepicker valid" &&
+      this.validarHora == "timepicker valid" && this.validarComensales == "valid") {
       alert("todo correcto");
       let arr = [this.optionsTipoCocina, this.optionsAmbientes, this.localidad, this.fecha, this.hora, this.comensales, "5"];
       if (localStorage.getItem("busqueda"))
         localStorage.removeItem("busqueda");
       localStorage.setItem("busqueda", JSON.stringify(arr));
+      this.router.navigateByUrl("/filtrar");
     }
   }
   // Valida todos los inputs del formulario

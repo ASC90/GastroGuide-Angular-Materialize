@@ -17,11 +17,15 @@ import { CondicionesLegalesComponent } from './condiciones-legales/condiciones-l
 import { AvisoLegalComponent } from './aviso-legal/aviso-legal.component';
 import { HomeComponent } from './home/home.component';
 import { BuscadorComponent } from './buscador/buscador.component';
+import { FiltrarComponent } from './filtrar/filtrar.component';
+import { LoginSingupComponent } from './login-singup/login-singup.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'aviso-legal', component: AvisoLegalComponent },
-  { path: 'condiciones-legales', component: CondicionesLegalesComponent }
+  { path: 'condiciones-legales', component: CondicionesLegalesComponent },
+  { path: 'filtrar', component: FiltrarComponent },
+  { path: 'loginSingup', component: LoginSingupComponent }
 ];
 
 
@@ -34,7 +38,9 @@ const appRoutes: Routes = [
     AvisoLegalComponent,
     HomeComponent,
     BuscadorComponent,
-    MaterializeDirective
+    MaterializeDirective,
+    FiltrarComponent,
+    LoginSingupComponent
   ],
   imports: [
     BrowserModule,
