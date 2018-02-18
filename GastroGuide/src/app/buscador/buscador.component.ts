@@ -50,7 +50,12 @@ export class BuscadorComponent implements OnInit {
   validarTipoCocina = "invalid";
   validarAmbiente = "invalid";
   validarLocalidad = "invalid";
+  validarFecha = "datepicker invalid";
   errorLocalidad = "El campo está vacío";
+  errorFecha = "El campo está vacío";
+  validarHora = "timepicker invalid";
+  errorHora = "El campo está vacío";
+  validarComensales = "invalid";
   constructor() { }
 
   ngOnInit() {
@@ -79,16 +84,24 @@ export class BuscadorComponent implements OnInit {
       aftershow: function () { } //Function for after opening timepicker
     });
   }
+  // Cuando hago click para buscar (button)
   getBuscador() {
     this.getValidarTipoDeCocina();
+    this.getValidarAmbiente();
+    this.getValidarLocalidad();
+    this.getValidarFecha();
+    this.getValidarHora();
+    this.getValidarComensales();
     console.log("options", this.optionsTipoCocina, this.optionsAmbientes, this.localidad, this.fecha, this.hora, this.comensales);
     if (this.optionsTipoCocina && this.optionsAmbientes && this.localidad && this.fecha && this.hora && this.comensales) {
       alert("todo correcto");
-      let arr = [this.optionsTipoCocina, this.optionsAmbientes, this.localidad, this.fecha, this.hora, this.comensales];
-      localStorage.clear();
+      let arr = [this.optionsTipoCocina, this.optionsAmbientes, this.localidad, this.fecha, this.hora, this.comensales, "5"];
+      if (localStorage.getItem("busqueda"))
+        localStorage.removeItem("busqueda");
       localStorage.setItem("busqueda", JSON.stringify(arr));
     }
   }
+  // Valida todos los inputs del formulario
   getValidarTipoDeCocina() {
     if (this.optionsTipoCocina.length == 0 || !this.optionsTipoCocina) {
       this.validarTipoCocina = "invalid";
@@ -110,10 +123,6 @@ export class BuscadorComponent implements OnInit {
       if (arr.toUpperCase().includes(str.toUpperCase()))
         return arr;
     });
-    /*for (let i = 0; i < this.ciudades.length; i++) {
-      if (this.ciudades[i].toUpperCase().includes(this.localidad))
-        this.validarLocalidad = "valid";
-    }*/
     if (mockyCiudades.includes(this.localidad)) {
       this.validarLocalidad = "valid";
     }
@@ -134,6 +143,40 @@ export class BuscadorComponent implements OnInit {
       this.visivilidad = "visible collection";
     }
   }
+  getValidarFecha() {
+    let parseadoFecha = Date.parse(this.fecha);
+    let now = Date.now();
+    if (!this.fecha) {
+      this.errorFecha = "El campo está vacío";
+      this.validarFecha = "datepicker invalid";
+    }
+    else if (parseadoFecha < now) {
+      this.errorFecha = "Fecha pasada";
+      this.validarFecha = "datepicker invalid";
+    }
+    else {
+      this.validarFecha = "datepicker valid";
+    }
+  }
+  getValidarHora() {
+    if (!this.hora) {
+      this.errorHora = "El campo está vacío";
+      this.validarHora = "timepicker invalid";
+    }
+    else {
+      this.validarHora = "timepicker valid";
+    }
+  }
+  getValidarComensales() {
+    if (!this.comensales) {
+      this.validarComensales = "invalid";
+    }
+    else {
+      this.validarComensales = "valid";
+    }
+    
+  }
+  // Selecciona la ciudad para autocompletarla
   selectCity(ciudad: string) {
     console.log(ciudad);
     this.localidad = ciudad;
