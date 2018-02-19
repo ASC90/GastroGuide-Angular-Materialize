@@ -3,8 +3,10 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\buscador"
+    "\\src\\app\\buscador",
+    "\\src\\app\\filtrar",
+    "\\src\\assets"
   ],
-  "SelectedNode": "\\src\\app\\buscador",
+  "SelectedNode": "\\src\\app\\llamadas-mocky.service.ts",
   "PreviewInSolutionExplorer": false
 }
