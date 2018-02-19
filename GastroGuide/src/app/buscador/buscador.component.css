@@ -35,3 +35,8 @@ div.col {
   max-height: 150px;
   overflow-y: scroll;
 }
+@media (min-width:220px) and (max-width:600px) {
+  .hide-buscador {
+    display: none;
+  }
+}
