@@ -22,6 +22,7 @@ import { LoginSingupComponent } from './login-singup/login-singup.component';
 import { HomeresComponent } from './homeres/homeres.component';
 import { RegistroRestauranteComponent } from './registro-restaurante/registro-restaurante.component';
 
+
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'aviso-legal', component: AvisoLegalComponent },
