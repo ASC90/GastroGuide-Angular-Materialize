@@ -22,6 +22,8 @@ import { LoginSingupComponent } from './login-singup/login-singup.component';
 import { HomeresComponent } from './homeres/homeres.component';
 import { RegistroRestauranteComponent } from './registro-restaurante/registro-restaurante.component';
 import { RestauranteComponent } from './restaurante/restaurante.component';
+import { LogChefComponent } from './log-chef/log-chef.component';
+import { LogLoverComponent } from './log-lover/log-lover.component';
 
 
 const appRoutes: Routes = [
@@ -49,7 +51,9 @@ const appRoutes: Routes = [
     LoginSingupComponent,
     HomeresComponent,
     RegistroRestauranteComponent,
-    RestauranteComponent
+    RestauranteComponent,
+    LogChefComponent,
+    LogLoverComponent
   ],
   imports: [
     BrowserModule,

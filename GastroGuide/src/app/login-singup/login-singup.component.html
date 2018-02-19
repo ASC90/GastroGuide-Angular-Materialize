@@ -1,27 +1,4 @@
 <section class="row">
-  <div *ngFor="let gastro of tipoGastro; index as i" class="col s12 m6 center {{gastro.gastro}}">
-    <div class="row">
-      <img src="{{gastro.imgsrc}}" alt="">
-    </div>
-    <form name="login" (ngSubmit)="onSubmit()" #logForm="ngForm">
-      <div class="row">
-        <div class="input-field col s8 offset-s2">
-          <input name="login-mail" id="email{{gastro.gastro}}" type="email" [class]="validarmail" [(ngModel)]="mail">
-          <label for="email{{gastro.gastro}}" [attr.data-error]="errormail" data-success="Correcto">Email</label>
-        </div>
-        <div class="row">
-          <div class="input-field col s8 offset-s2">
-            <input name="login-pass" id="password{{gastro.gastro}}" type="password" [class]="validarpass" [(ngModel)]="pass">
-            <label for="password{{gastro.gastro}}" [attr.data-error]="errorpass" data-success="Correcto">Password</label>
-          </div>
-        </div>
-        <div class="row">
-          <button class="btn center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4" id="btnIn{{gastro.gastro}}">Inicia Sesión</button>
-        </div>
-      </div>
-    </form>
-    <div class="row">
-      <button class="btn center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4" id="btnReg{{gastro.gastro}}" (click)="getRegistro">Registrar-se</button>
-    </div>
-  </div>
+<app-log-lover></app-log-lover>
+<app-log-chef></app-log-chef>
 </section>
