@@ -7,7 +7,8 @@ declare var $: any;
 const mockyTipoCocina = [
   "Española", "India", "Japonesa", "China",
   "Italiana", "Mexicana", "Tailandesa", "Coreana",
-  "Mediterránea", "Americana", "Marroquí", "Escandinava"
+  "Mediterránea", "Americana", "Marroquí", "Escandinava",
+  "Fusión"
 ];
 // JSON de ambientes
 const mockyAmbientes = [

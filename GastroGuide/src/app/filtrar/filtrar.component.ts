@@ -87,9 +87,12 @@ const elCellerMocky = JSON.parse(JSON.stringify({
 
 const guzzoMocky = JSON.parse(JSON.stringify({
   "nombre": "Guzzo",
-  "valoracion": "7,3",
+  "valoracion": "7",
+  "tipoCocinaID": ["5","12"],
+  "tipoAmbienteID": ["1", "6"],
+  "localidad": "Barcelona",
   "adresa": "Carrer dels Arcs, 5 08002 Barcelona",
-  "tipo": ["Mexicano", "Fusión", "Romántico", "Grupos"],
+  "tipo": ["Mexicano", "Fusión", "Romántico", "Para grupos"],
   "imagen": "img/rest3.jpg",
   "menu": [
     {
@@ -167,9 +170,11 @@ export class FiltrarComponent implements OnInit {
   restGuzzo = guzzoMocky;
   arrayRestaurantes = [];
   flagTipoCocina: boolean;
+  flagAmbiente: boolean;
+  flagRange: boolean; 
   constructor() {
     this.busquedaObj = JSON.parse(localStorage.getItem("busqueda"));
-    this.arrayRestaurantes.push(this.restElCeller);
+    //this.arrayRestaurantes.push(this.restElCeller);
     this.arrayRestaurantes.push(this.restGuzzo);
   }
 
@@ -181,6 +186,10 @@ export class FiltrarComponent implements OnInit {
     // Si en el array tipo de cocina del buscador existe una coincidencia con el array
     // de tipo de cocina del restaurante devuelve verdadero
     this.flagTipoCocina = arrayCompare(this.busquedaObj[0], this.restElCeller.tipoCocinaID);
-    console.log("TipoCocina", this.flagTipoCocina);
+    this.flagAmbiente = arrayCompare(this.busquedaObj[1], this.restElCeller.tipoAmbienteID);
+    if (this.flagTipoCocina && this.flagAmbiente) {
+      this.arrayRestaurantes.push(this.restElCeller);
+    }
+    console.log("Boolean", this.flagTipoCocina, this.flagAmbiente);
   }
 }
