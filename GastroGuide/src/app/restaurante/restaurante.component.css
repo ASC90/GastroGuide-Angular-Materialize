@@ -14,8 +14,8 @@ img.image {
 }
 ul.tabs > li.tab > a.active {
   color: #ffc400 !important;
-  text-shadow: 0px 0px 2px black;
-  background-color: rgba(0,0,0,0.2);
+  /*text-shadow: 0px 0px 2px black;
+  background-color: rgba(0,0,0,0.2);*/
 }
 .tabs .indicator {
   background-color: #263238 !important;
