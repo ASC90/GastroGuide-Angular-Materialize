@@ -81,9 +81,7 @@ const elCellerMocky = JSON.parse(JSON.stringify({
     { "titulo": "Paso 5/5", "descripcion": "Servir en la misma paella, adornando las asas con servilletas. Se puede acompañar de salsa alioli elaborada con aceite de oliva." }
     ],
     "ingredientes": ["200g gambas", "300g calamar", "2 dientes de ajo", "1 pimiento verde", "150g cebolla", "1tsp pimentón", "10 ramitas azafrán", "1tbsp aceite de oliva", "150ml de pescado", "350g fideos nº3"]
-  },
-  "videos": [{ "videoUrl": "", "titulo": "", "descripcion": "" }]
-
+  }
 }));
 
 const guzzoMocky = JSON.parse(JSON.stringify({

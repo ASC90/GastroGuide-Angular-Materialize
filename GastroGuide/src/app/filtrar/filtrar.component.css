@@ -7,3 +7,6 @@
 .card-image{
   background-color: lightgray;
 }
+.container {
+  width: 90vw !important;
+}

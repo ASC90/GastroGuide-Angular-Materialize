@@ -60,7 +60,7 @@ export class FiltrarComponent implements OnInit {
     this.busquedaObj = JSON.parse(localStorage.getItem("busqueda"));
     this.inicializarRestaurantesLocalStorage();
     this.pintarRestaurantesFiltrados();
-    
+    console.log(this.arrayCheckTipoCocina);
   }
   pintarRestaurantesFiltrados() {
     this.arrayRestaurantesPintados = [];
@@ -74,6 +74,7 @@ export class FiltrarComponent implements OnInit {
     return this.arrayRestaurantesPintados;
   }
   inicializarRestaurantesLocalStorage() {
+    this.arrayCheckTipoCocina = [];
     this.busquedaObj = JSON.parse(localStorage.getItem("busqueda"));
     this.arrayTipoCocina = this.arrayRestaurantes.getTipoCocina();
     this.arrayAmbientes = this.arrayRestaurantes.getAmbientes();
