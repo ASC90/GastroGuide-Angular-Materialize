@@ -44,7 +44,7 @@ const appRoutes: Routes = [
     MaterializeDirective,
     FiltrarComponent,
     LoginSingupComponent,
-    HomeresComponent
+    HomeresComponent,
     RegistroRestauranteComponent
   ],
   imports: [
