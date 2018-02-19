@@ -21,6 +21,7 @@ import { FiltrarComponent } from './filtrar/filtrar.component';
 import { LoginSingupComponent } from './login-singup/login-singup.component';
 import { HomeresComponent } from './homeres/homeres.component';
 import { RegistroRestauranteComponent } from './registro-restaurante/registro-restaurante.component';
+import { RestauranteComponent } from './restaurante/restaurante.component';
 
 
 const appRoutes: Routes = [
@@ -29,7 +30,8 @@ const appRoutes: Routes = [
   { path: 'condiciones-legales', component: CondicionesLegalesComponent },
   { path: 'filtrar', component: FiltrarComponent },
   { path: 'loginSingup', component: LoginSingupComponent },
-  { path: 'homeres', component: HomeresComponent }
+  { path: 'homeres', component: HomeresComponent },
+  { path: 'restaurante/:id', component: RestauranteComponent}
 ];
 
 
@@ -46,7 +48,8 @@ const appRoutes: Routes = [
     FiltrarComponent,
     LoginSingupComponent,
     HomeresComponent,
-    RegistroRestauranteComponent
+    RegistroRestauranteComponent,
+    RestauranteComponent
   ],
   imports: [
     BrowserModule,

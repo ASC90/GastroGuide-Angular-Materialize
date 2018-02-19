@@ -17,30 +17,164 @@
 </ul>
 
 <!--//////////////////////////////////////////////////////////////////////////////////////-->
-<div id="test-swipe-1" class="col s12 blue">Publicar o modificar fotos
-</div>
-<div>
-  <form action="#">
-    <div class="file-field input-field">
-      <div class="btn">
-        <span>File</span>
-        <input type="file" multiple>
+<div id="test-swipe-1" class="col s12">
+  <h3 class="title">Publicar o modificar fotos</h3>
+  <div class="row">
+    <form class="col s6">
+      <div class="file-field input-field">
+        <div class="btn btn2">
+          <span>File</span>
+          <input type="file" multiple class="col s6">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text" placeholder="Subir una o más imagenes">
+        </div>
       </div>
-      <div class="file-path-wrapper">
-        <input class="file-path validate" type="text" placeholder="Upload one or more files">
+    </form>
+  </div>
+
+
+  <div id="content-imgs">
+    <div class="div-img">
+      <img class="responsive-img" src="../../assets/img/alex.jpg">
+      <img class="responsive-img" src="../../assets/img/roman.jpg">
+    </div>
+    <div class="div-img">
+      <img class="responsive-img" src="../../assets/img/chutter.jpg">
+      <img class="responsive-img" src="../../assets/img/jay.jpg">
+    </div>
+  </div>
+</div>
+
+
+<!--//////////////////////////////////////////////////////////////////////////////////////-->
+<div id="test-swipe-2" class="col s12">
+  <h3 class="title">Publicar videos</h3>
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Introduce un título" id="titulo" type="text" class="validate">
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Introduce una descripción" id="descripcion" type="text" class="validate">
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Introduce una URL" id="url" type="text" class="validate">
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <textarea placeholder="Introduce un texto..." id="textarea1" class="materialize-textarea"></textarea>
+        </div>
+      </div>
+      <div class="input-field col s6">
+        <button class="btn z-depth-5 center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4">Aplicar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!--//////////////////////////////////////////////////////////////////////////////////////-->
+<div id="test-swipe-3" class="col s12">
+  <h3 class="title">Menú</h3>
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <textarea placeholder="Introduce los entrantes..." id="textarea1" class="materialize-textarea"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <textarea placeholder="Introduce los primeros..." id="textarea1" class="materialize-textarea"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <textarea placeholder="Introduce los segundos..." id="textarea1" class="materialize-textarea"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <textarea placeholder="Introduce los postres..." id="textarea1" class="materialize-textarea"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Nombre del menú" id="titulo" type="text" class="validate">
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <textarea placeholder="Introduce algún aspecto destacado" id="textarea1" class="materialize-textarea"></textarea>
+        </div>
+      </div>
+      <div class="input-field col s6">
+        <button class="btn z-depth-5 center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4">Aplicar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!--//////////////////////////////////////////////////////////////////////////////////////-->
+<div id="test-swipe-4" class="col s12">
+  <h3 class="title">Ofertas</h3>
+  <div class="row">
+    <p>
+      <input class="with-gap" name="group3" type="radio" id="test5" checked />
+      <label for="test5">Promociones</label>
+    </p>
+    <p>
+      <input class="with-gap" name="group3" type="radio" id="test5" checked />
+      <label for="test5">Descuentos</label>
+    </p>
+  </div>
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <textarea placeholder="Describe la oferta..." id="textarea1" class="materialize-textarea"></textarea>
+        </div>
+      </div>
+      <div class="input-field col s6">
+        <button class="btn z-depth-5 center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4">Aplicar</button>
+      </div>
+    </form>
+  </div>
+</div>
+<!--//////////////////////////////////////////////////////////////////////////////////////-->
+<div id="test-swipe-5" class="col s12">Recetas
+  <h3 class="title">Ofertas</h3>
+  <div class="row">
+    <div class="row">
+      <div class="input-field col s6">
+        <input placeholder="Nombre de la receta" id="receta" type="text" class="validate">
       </div>
     </div>
-  </form>
+    <div class="row">
+      <div class="input-field col s6">
+        <input placeholder="Ingredientes" id="ingredientes" type="text" class="validate">
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <button class="btn z-depth-5 center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4">Añadir +</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <textarea placeholder="Introduce la preparación de la receta..." id="textarea1" class="materialize-textarea"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <button class="btn z-depth-5 center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4">Aplicar</button>
+      </div>
+    </div>
+  </div>
 </div>
-
-<!--//////////////////////////////////////////////////////////////////////////////////////-->
-<div id="test-swipe-2" class="col s12 red">Publicar videos</div>
-
-<!--//////////////////////////////////////////////////////////////////////////////////////-->
-<div id="test-swipe-3" class="col s12 green">Menú</div>
-
-<!--//////////////////////////////////////////////////////////////////////////////////////-->
-<div id="test-swipe-4" class="col s12 yellow">Ofertas</div>
-
-<!--//////////////////////////////////////////////////////////////////////////////////////-->
-<div id="test-swipe-5" class="col s12 orange">Recetas</div>

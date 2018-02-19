@@ -1,16 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { LlamadasMockyService } from '../llamadas-mocky.service';
+import { Injectable } from '@angular/core';
 
 const elCellerMocky = JSON.parse(JSON.stringify({
   "nombre": "El Celler",
-  "idRest":"0",
+  "idRest": "0",
   "valoracion": "5",
   "tipoCocinaID": ["8"],
   "tipoAmbienteID": ["0", "3"],
   "localidad": "Barcelona",
   "adresa": "Avinguda Diagonal, 423 08036 Barcelona",
   "tipo": ["Mediterránea", "Con Amigos", "Moderno"],
-  "imagen": "img/celler.jpg",
+  "imagen": "/assets/img/celler.jpg",
   "menu": [
     {
       "titol": "Entrantes",
@@ -91,12 +90,12 @@ const guzzoMocky = JSON.parse(JSON.stringify({
   "nombre": "Guzzo",
   "idRest": "1",
   "valoracion": "7",
-  "tipoCocinaID": ["5","12"],
+  "tipoCocinaID": ["5", "12"],
   "tipoAmbienteID": ["1", "6"],
   "localidad": "Barcelona",
   "adresa": "Carrer dels Arcs, 5 08002 Barcelona",
   "tipo": ["Mexicano", "Fusión", "Romántico", "Para grupos"],
-  "imagen": "img/rest3.jpg",
+  "imagen": "/assets/img/rest3.jpg",
   "menu": [
     {
       "titol": "Entrantes",
@@ -154,42 +153,14 @@ const guzzoMocky = JSON.parse(JSON.stringify({
 
 }));
 
-function arrayCompare(pArrA: Array<any>, pArrB: Array<any>) {
-  for (let i = 0; i < pArrA.length; i++) {
-    if (pArrB.includes(pArrA[i]))
-      return true;
-  }
-  return false;
-}
+@Injectable()
+export class LlamadasMockyService {
 
-@Component({
-  selector: 'app-filtrar',
-  providers: [ LlamadasMockyService ],
-  templateUrl: './filtrar.component.html',
-  styleUrls: ['./filtrar.component.css']
-})
-export class FiltrarComponent implements OnInit {
-  busquedaObj: Array<any>;
-  restElCeller = elCellerMocky;
-  restGuzzo = guzzoMocky;
-  // arrayRestaurantesMocky = [];
-  arrayRestaurantesPintados = [];
-  constructor(public arrayRestaurantes: LlamadasMockyService) {
-    this.busquedaObj = JSON.parse(localStorage.getItem("busqueda"));
-  }
-
-  ngOnInit() {
-    console.log("Mocky array restaurantes", this.arrayRestaurantes.getArrayRestaurantes());
-    this.pintarRestaurantesFiltrados();
-  }
-  pintarRestaurantesFiltrados() {
-    for (let i = 0; i < this.arrayRestaurantes.getArrayRestaurantes().length; i++) {
-      let arrTipCoc = arrayCompare(this.busquedaObj[0], this.arrayRestaurantes.getArrayRestaurantes()[i].tipoCocinaID);
-      let arrAmb = arrayCompare(this.busquedaObj[1], this.arrayRestaurantes.getArrayRestaurantes()[i].tipoAmbienteID);
-      let range = arrayCompare(this.busquedaObj[6], this.arrayRestaurantes.getArrayRestaurantes()[i].valoracion)
-      if (arrTipCoc && arrAmb && (parseInt(this.busquedaObj[6]) <= parseInt(this.arrayRestaurantes.getArrayRestaurantes()[i].valoracion))) {
-        this.arrayRestaurantesPintados.push(this.arrayRestaurantes.getArrayRestaurantes()[i]);
-      }
-    }
+  constructor() { }
+  getArrayRestaurantes() {
+    let arrayRestaurantes = [];
+    arrayRestaurantes.push(elCellerMocky);
+    arrayRestaurantes.push(guzzoMocky);
+    return arrayRestaurantes;
   }
 }
