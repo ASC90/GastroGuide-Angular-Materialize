@@ -9,7 +9,7 @@ const elCellerMocky = JSON.parse(JSON.stringify({
   "localidad": "Barcelona",
   "adresa": "Avinguda Diagonal, 423 08036 Barcelona",
   "tipo": ["Mediterránea", "Con Amigos", "Moderno"],
-  "imagen": "/src/assets/img/celler.jpg",
+  "imagen": "/assets/img/celler.jpg",
   "menu": [
     {
       "titol": "Entrantes",
@@ -95,7 +95,7 @@ const guzzoMocky = JSON.parse(JSON.stringify({
   "localidad": "Barcelona",
   "adresa": "Carrer dels Arcs, 5 08002 Barcelona",
   "tipo": ["Mexicano", "Fusión", "Romántico", "Para grupos"],
-  "imagen": "img/rest3.jpg",
+  "imagen": "/assets/img/rest3.jpg",
   "menu": [
     {
       "titol": "Entrantes",

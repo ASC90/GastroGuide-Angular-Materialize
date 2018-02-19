@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LlamadasMockyService } from '../llamadas-mocky.service'
+import { LlamadasMockyService } from '../llamadas-mocky.service';
 
 const elCellerMocky = JSON.parse(JSON.stringify({
   "nombre": "El Celler",
