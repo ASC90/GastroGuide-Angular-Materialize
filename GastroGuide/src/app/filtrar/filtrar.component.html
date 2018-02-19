@@ -1,10 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="container col s12 m4 l4">
-      <ul>
-        <li *ngFor="let it of busquedaObj; index as i">{{it}} --id--> {{i}}</li>
-      </ul>
-      <form action="/" method="">
+      <form action="/" method="" name="filtrar">
         <ul class="collapsible" data-collapsible="accordion">
           <li>
             <div class="collapsible-header amber accent-3"><h5>Filtrar la búsqueda</h5></div>
@@ -12,24 +9,42 @@
           <li>
             <div class="collapsible-header">Tipo de cocina</div>
             <div class="collapsible-body">
-
+              <ul>
+                <li *ngFor="let elem of arrayTipoCocina; index as i">
+                  <input name="filtrar" value={{i}} type="checkbox" id=tipo-cocina{{i}} [checked]="arrayCheckTipoCocina[i]" (change)="arrayCheckTipoCocina[i] = !arrayCheckTipoCocina[i]"/>
+                  <label for=tipo-cocina{{i}}>{{elem}}</label>
+                </li>
+              </ul>
             </div>
           </li>
           <li>
             <div class="collapsible-header">Ambientes</div>
             <div class="collapsible-body">
-
+              <ul>
+                <li *ngFor="let elem of arrayAmbientes; index as i">
+                  <input name="filtrar" value="{{i}}" type="checkbox" id=ambientes{{i}} [checked]="arrayCheckAmbientes[i]" (change)="arrayCheckAmbientes[i] = !arrayCheckAmbientes[i]"/>
+                  <label for="ambientes{{i}}">{{elem}}</label>
+                </li>
+              </ul>
             </div>
           </li>
           <li>
             <div class="collapsible-header">Valoración</div>
             <div class="collapsible-body">
-
+              <div class="range-field">
+                <input name="filtrar" type="range" id="range-valoracion" min="0" max="10" [(ngModel)]="range"/>
+                <div class="center-align">
+                  <h3>{{range}}</h3>
+                </div>
+              </div>
             </div>
           </li>
         </ul>
-        <button class="btn amber accent-3 waves-effect waves-orange blue-grey-text text-darken-4">Filtrar</button>
+        <button class="btn amber accent-3 waves-effect waves-orange blue-grey-text text-darken-4" (click)="getFiltrar()">Filtrar</button>
       </form>
+      <ul>
+        <li *ngFor="let it of busquedaObj; index as i">{{it}} --id--> {{i}}</li>
+      </ul>
     </div>
     <div class="col s12 m8 l8 center-align">
       <div *ngFor="let rest of arrayRestaurantesPintados" class="card horizontal">
