@@ -27,7 +27,7 @@ const appRoutes: Routes = [
   { path: 'aviso-legal', component: AvisoLegalComponent },
   { path: 'condiciones-legales', component: CondicionesLegalesComponent },
   { path: 'filtrar', component: FiltrarComponent },
-  { path: 'loginSingup', component: LoginSingupComponent }
+  { path: 'loginSingup', component: LoginSingupComponent },
   { path: 'homeres', component: HomeresComponent }
 ];
 
