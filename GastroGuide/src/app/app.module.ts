@@ -19,6 +19,7 @@ import { HomeComponent } from './home/home.component';
 import { BuscadorComponent } from './buscador/buscador.component';
 import { FiltrarComponent } from './filtrar/filtrar.component';
 import { LoginSingupComponent } from './login-singup/login-singup.component';
+import { HomeresComponent } from './homeres/homeres.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -26,6 +27,7 @@ const appRoutes: Routes = [
   { path: 'condiciones-legales', component: CondicionesLegalesComponent },
   { path: 'filtrar', component: FiltrarComponent },
   { path: 'loginSingup', component: LoginSingupComponent }
+  { path: 'homeres', component: HomeresComponent }
 ];
 
 
@@ -40,7 +42,8 @@ const appRoutes: Routes = [
     BuscadorComponent,
     MaterializeDirective,
     FiltrarComponent,
-    LoginSingupComponent
+    LoginSingupComponent,
+    HomeresComponent
   ],
   imports: [
     BrowserModule,
