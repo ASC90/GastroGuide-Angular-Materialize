@@ -1,0 +1,39 @@
+<div class="col s12 m6 center gastroLover">
+  <div class="row">
+    <img src="../../assets/img/GastroLover.png" alt="">
+  </div>
+  <form name="loginLOV" (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <div class="row">
+      <div class="input-field col s8 offset-s2">
+        <input name="emailGastroLover" id="emailGastroLover" type="email" class="validate" #mailLover="ngModel" [(ngModel)]="login.mailLover" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+        <label for="emailGastroLover" [attr.data-error]="errormail" data-success="Correcto">Email</label>
+        <div [hidden]="mailLover.valid || mailLover.untouched">
+          <div class="validatemail" *ngIf="mailLover.errors && mailLover.errors.required">
+            El email es necesario
+          </div>
+          <div class="validatemail" *ngIf="mailLover.errors && mailLover.errors.pattern">
+            Por favor introduzca una dirección correcta
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s8 offset-s2">
+          <input name="passwordGastroLover" id="passwordGastroLover" type="password" class="validate" #passLover="ngModel" [(ngModel)]="login.passLover"
+            required>
+          <label for="passwordGastroLover" [attr.data-error]="errorpass" data-success="Correcto">Password</label>
+          <div [hidden]="passLover.valid || passLover.untouched">
+            <div class="validatemail" *ngIf="passLover.errors && passLover.errors.required">
+              La contraseña es necesaria
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <button class="btn center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4" id="btnInGastroLover" [disabled]="form.pristine || !form.valid">Inicia Sesión</button>
+      </div>
+    </div>
+  </form>
+  <div class="row">
+    <button class="btn center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4" id="btnRegGastroLover" (click)="getRegistroLOV">Registrar-se</button>
+  </div>
+</div>
