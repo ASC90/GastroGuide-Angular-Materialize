@@ -1,0 +1,38 @@
+<div class="col s12 m6 center gastroChef">
+    <div class="row">
+      <img src="../../assets/img/GastroChef.png" alt="">
+    </div>
+    <form name="loginCHEF" (ngSubmit)="onSubmit(form)" #form="ngForm">
+      <div class="row">
+        <div class="input-field col s8 offset-s2">
+          <input name="emailGastroChef" id="emailGastroChef" type="email" class="validate" #mailChef="ngModel" [(ngModel)]="login.mailChef" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+          <label for="emailGastroChef" >Email</label>
+          <div [hidden]="mailChef.valid || mailChef.untouched">
+              <div class="validatemail" *ngIf="mailChef.errors && mailChef.errors.required">
+                  El email es necesario
+              </div>
+              <div class="validatemail" *ngIf="mailChef.errors && mailChef.errors.pattern">
+                  Por favor introduzca una dirección correcta
+              </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s8 offset-s2">
+            <input name="passwordGastroChef" id="passwordGastroChef" type="password" class="validate" #passChef="ngModel" [(ngModel)]="login.passChef" required>
+            <label for="passwordGastroChef" [attr.data-error]="errorpass" >Password</label>
+            <div [hidden]="passChef.valid || passChef.untouched">
+                <div class="validatemail" *ngIf="passChef.errors && passChef.errors.required">
+                    La contraseña es necesaria
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <button class="btn center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4" id="btnInGastroChef" [disabled]="form.pristine || !form.valid">Inicia Sesión</button>
+        </div>
+      </div>
+    </form>
+    <div class="row">
+      <button class="btn center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4" id="btnRegGastroChef" (click)="getRegistroCHF">Registrar-se</button>
+    </div>
+  </div>

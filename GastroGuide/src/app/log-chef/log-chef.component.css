@@ -1,0 +1,11 @@
+div.gastroChef{
+    padding-top: 3em;
+}
+label{
+    width: 100%;
+}
+.validatemail{
+color: red;
+text-align: left;
+font-size: 0.9em;
+}
