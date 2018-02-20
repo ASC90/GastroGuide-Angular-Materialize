@@ -88,13 +88,6 @@ export class BuscadorComponent implements OnInit {
   }
   // Cuando hago click para buscar (button)
   getBuscador() {
- /*    if (this.optionsTipoCocina.length < 1 && this.optionsAmbientes.length < 1 && !this.fecha && !this.hora && !this.comensales) {
-      this.optionsTipoCocina = ["0"];
-      this.optionsAmbientes = ["0"];
-      this.fecha = "30 December, 2018";
-      this.hora = "10:00PM";
-      this.comensales = "2";
-    } */
     this.getValidarTipoDeCocina();
     this.getValidarAmbiente();
     this.getValidarLocalidad();
@@ -103,7 +96,6 @@ export class BuscadorComponent implements OnInit {
     this.getValidarComensales();
     console.log("options", this.optionsTipoCocina, this.optionsAmbientes, this.localidad, this.fecha, this.hora, this.comensales);
     if (this.validarLocalidad == "valid") {
-      alert("todo correcto");
       let arr = [this.optionsTipoCocina, this.optionsAmbientes, this.localidad, this.fecha, this.hora, this.comensales, "5"];
       if (localStorage.getItem("busqueda"))
         localStorage.removeItem("busqueda");
@@ -133,33 +125,6 @@ export class BuscadorComponent implements OnInit {
     else
       this.validarLocalidad  = "valid";
   }
-/*   getValidarLocalidad() {
-    let str = this.localidad;
-    this.ciudades = mockyCiudades;
-    this.ciudades = this.ciudades.filter(function (arr) {
-      if (arr.toUpperCase().includes(str.toUpperCase()))
-        return arr;
-    });
-    if (mockyCiudades.includes(this.localidad)) {
-      this.validarLocalidad = "valid";
-    }
-    else if (this.localidad == "") {
-      this.errorLocalidad = "El campo está vacío";
-      this.validarLocalidad = "invalid";
-    }
-    else {
-      this.errorLocalidad = "Esta localidad no existe";
-      this.validarLocalidad = "invalid";
-    }
-      
-    console.log("ciudades", this.ciudades);
-    if (this.ciudades.length < 1 || this.localidad == "") {
-      this.visivilidad = "invisible collection";
-    }
-    else {
-      this.visivilidad = "visible collection";
-    }
-  } */
   getValidarFecha() {
     let parseadoFecha = Date.parse(this.fecha);
     let now = Date.now();
@@ -191,15 +156,5 @@ export class BuscadorComponent implements OnInit {
     else {
       this.validarComensales = "valid";
     }
-    
   }
-  // Selecciona la ciudad para autocompletarla
-  /* selectCity(ciudad: string) {
-    console.log(ciudad);
-    this.localidad = ciudad;
-    console.log(this.fecha);
-    this.visivilidad = "invisible collection";
-    if (mockyCiudades.includes(this.localidad))
-      this.validarLocalidad = "valid";
-  } */
 }

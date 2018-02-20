@@ -25,11 +25,6 @@
           <option *ngFor="let loc of ciudades; index as i" value="{{loc}}">{{loc}}</option>
         </select>
         <label for="localidad" [attr.data-error]="errorLocalidad" data-success="Correcto">Introduce localidad</label>
-<!--         <input name="form" id="localidad" type="text" [class]="validarLocalidad" [(ngModel)]="localidad" (keyup)="getValidarLocalidad()">
-        <label for="localidad" [attr.data-error]="errorLocalidad" data-success="Correcto">Introduce localidad</label>
-        <ul [class]="visivilidad">
-          <li *ngFor="let ciudad of ciudades" class="collection-item" (click)="selectCity(ciudad)">{{ciudad}}</li>
-        </ul> -->
       </div>
       <div class="input-field col hide-buscador m4 l2">
         <input name="form" id="date" type="text" [class]="validarFecha" materialize-date-picker materialize="pickadate" readonly

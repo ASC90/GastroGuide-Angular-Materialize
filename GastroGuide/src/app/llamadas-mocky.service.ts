@@ -278,7 +278,7 @@ const piazzaMocky = JSON.parse(JSON.stringify({
 
   "recetas":
   {
-    "imagen": "img/sardesaor.jpg",
+    "imagen": "/assets/img/sardesaor.jpg",
     "nombre": "Sarde in saor",
     "preparacion": [{ "titulo": "Paso 1/4", "descripcion": "Limpiar las sardinas y abrirlas quitándoles la espina central. Pasarlas por harina, sacudiéndolas para quitar el exceso. Freirlas y reservarlas." },
     { "titulo": "Paso 2/4", "descripcion": "Cortar las cebollas en tiras y freirlas a fuego lento durante unos 15 minutos hasta que estén transparentes y bien pochadas. Pasado este tiempo, subir el fuego y añadir el azúcar, el vinagre y un poco de sal, dejar cocer durante un par de minutos más." },
@@ -361,7 +361,7 @@ const rocaBarMocky = JSON.parse(JSON.stringify({
 
   "recetas":
   {
-    "imagen": "img/tacos.jpg",
+    "imagen": "/assets/img/tacos.jpg",
     "nombre": "Tacos Roca Bar",
     "preparacion": [{ "titulo": "Paso 1/5", "descripcion": "Picamos los ajos y los cocinamos a fuego muy suave durante 1 minuto. Que no coja color" },
     { "titulo": "Paso 2/5", "descripcion": "Añadimos el medio kilo de tomates, ya pelados y troceados y subimos la potencia del fuego. Salpimentamos y cocinamos durante un rato. El tomate soltará agua, debe evaporarse toda que, puede tartar un rato. Una vez evaporada dejamos cocinar a fuego suave mientras removemos constantemente, durante 5 minutos más, para que coja buen sabor." },

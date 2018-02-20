@@ -21,7 +21,6 @@ export class LogChefComponent implements OnInit {
   onSubmit(form: NgForm) {
     console.log('Formulario:', form);
     if (form.valid) {
-      alert("Todo correcto!");
       let val = this.login.mailChef;
       if (localStorage.getItem("loginCHEF"))
         localStorage.removeItem("loginCHEF");

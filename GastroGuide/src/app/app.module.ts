@@ -43,7 +43,7 @@ const appRoutes: Routes = [
   { path: 'aviso-legal', component: AvisoLegalComponent },
   { path: 'condiciones-legales', component: CondicionesLegalesComponent },
   { path: 'filtrar', component: FiltrarComponent },
-  { path: 'login-singup', component: LoginSingupComponent },
+  { path: 'login-signup', component: LoginSingupComponent },
   { path: 'registro-restaurante', component: RegistroRestauranteComponent },
   { path: 'homeres', component: HomeresComponent },
   { path: 'restaurante/:id', component: RestauranteComponent}
