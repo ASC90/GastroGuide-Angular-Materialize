@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators,NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-homeres',
@@ -6,10 +7,40 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./homeres.component.css']
 })
 export class HomeresComponent implements OnInit {
+  miVideo={
+    titulo:'',
+    descripcion:'',
+    url:'',
+    texto:''
+  };
 
+  miReceta={
+    entrantes:'',
+    primeros:'',
+    segundos:'',
+    postres:'',
+    nmenu:'',
+    destacado:''
+  };
+
+  miOferta={
+    ofertas:'',
+  };
+
+  
   constructor() { }
 
   ngOnInit() {
   }
+
+  onSubmit(form: NgForm, form2: NgForm, form3: NgForm) {
+    console.log("form:",form,this.miVideo, this.miReceta);
+		if (!form.valid && form2.valid && form3.valid) {
+      alert("HAY UN CAMPO INCORRECTO!!");
+			return;
+		}else{
+      alert("LOS CAMPOS SON CORRECTOS!!");
+		}
+	}
 
 }

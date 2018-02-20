@@ -1,0 +1,26 @@
+.tags-mat {
+  padding: 4px 8px;
+  margin: 4px 2px;
+  border-radius: 20px;
+  transition: background-color 0.5s ease;
+}
+.tags-mat:hover {
+  cursor: crosshair;
+  background-color: sandybrown !important;
+}
+img.image {
+  width: 100%;
+  border-radius: 30px;
+}
+ul.tabs > li.tab > a.active {
+  color: #ffc400 !important;
+  /*text-shadow: 0px 0px 2px black;
+  background-color: rgba(0,0,0,0.2);*/
+}
+.tabs .indicator {
+  background-color: #263238 !important;
+}
+.detalle-rest{
+  height: 500px;
+  overflow-y: scroll;
+}

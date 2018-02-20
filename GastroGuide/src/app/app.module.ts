@@ -20,6 +20,14 @@ import { BuscadorComponent } from './buscador/buscador.component';
 import { FiltrarComponent } from './filtrar/filtrar.component';
 import { LoginSingupComponent } from './login-singup/login-singup.component';
 import { RegistroRestauranteComponent } from './registro-restaurante/registro-restaurante.component';
+import { RestauranteComponent } from './restaurante/restaurante.component';
+import { RestauranteMenuComponent } from './restaurante-menu/restaurante-menu.component';
+import { RestauranteOpinionesComponent } from './restaurante-opiniones/restaurante-opiniones.component';
+import { RestaurantePromocionesComponent } from './restaurante-promociones/restaurante-promociones.component';
+import { RestauranteRecetasComponent } from './restaurante-recetas/restaurante-recetas.component';
+import { RestauranteVideosComponent } from './restaurante-videos/restaurante-videos.component';
+import { LogChefComponent } from './log-chef/log-chef.component';
+import { LogLoverComponent } from './log-lover/log-lover.component';
 
 
 const appRoutes: Routes = [
@@ -29,7 +37,8 @@ const appRoutes: Routes = [
   { path: 'filtrar', component: FiltrarComponent },
   { path: 'login-singup', component: LoginSingupComponent },
   { path: 'registro-restaurante', component: RegistroRestauranteComponent }
-  
+  { path: 'homeres', component: HomeresComponent },
+  { path: 'restaurante/:id', component: RestauranteComponent}
 ];
 
 
@@ -45,6 +54,17 @@ const appRoutes: Routes = [
     MaterializeDirective,
     FiltrarComponent,
     LoginSingupComponent,
+    HomeresComponent,
+    RegistroRestauranteComponent,
+    RestauranteComponent,
+    RestauranteMenuComponent,
+    RestauranteOpinionesComponent,
+    RestaurantePromocionesComponent,
+    RestauranteRecetasComponent,
+    RestauranteVideosComponent
+    RestauranteComponent,
+    LogChefComponent,
+    LogLoverComponent
     RegistroRestauranteComponent
   ],
   imports: [
