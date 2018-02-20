@@ -88,13 +88,13 @@ export class BuscadorComponent implements OnInit {
   }
   // Cuando hago click para buscar (button)
   getBuscador() {
-    if (this.optionsTipoCocina.length < 1 && this.optionsAmbientes.length < 1 && !this.fecha && !this.hora && !this.comensales) {
+ /*    if (this.optionsTipoCocina.length < 1 && this.optionsAmbientes.length < 1 && !this.fecha && !this.hora && !this.comensales) {
       this.optionsTipoCocina = ["0"];
       this.optionsAmbientes = ["0"];
       this.fecha = "30 December, 2018";
       this.hora = "10:00PM";
       this.comensales = "2";
-    }
+    } */
     this.getValidarTipoDeCocina();
     this.getValidarAmbiente();
     this.getValidarLocalidad();
@@ -102,8 +102,7 @@ export class BuscadorComponent implements OnInit {
     this.getValidarHora();
     this.getValidarComensales();
     console.log("options", this.optionsTipoCocina, this.optionsAmbientes, this.localidad, this.fecha, this.hora, this.comensales);
-    if (this.validarTipoCocina == "valid" && this.validarAmbiente == "valid" && this.validarLocalidad == "valid" && this.validarFecha == "datepicker valid" &&
-      this.validarHora == "timepicker valid" && this.validarComensales == "valid") {
+    if (this.validarLocalidad == "valid") {
       alert("todo correcto");
       let arr = [this.optionsTipoCocina, this.optionsAmbientes, this.localidad, this.fecha, this.hora, this.comensales, "5"];
       if (localStorage.getItem("busqueda"))

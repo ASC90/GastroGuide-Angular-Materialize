@@ -160,6 +160,18 @@ const mockyAmbientes = [
   "Tradicional", "De negocios", "Para grupos", "Família",
   "Tranquilo", "Ecológico"
 ];
+// JSON de localidades
+const mockyCiudades = [
+  "Albacete", "Alicante", "Almería", "Ávila", "Badajoz", "Barcelona",
+  "Bilbao", "Burgos", "Cáceres", "Cádiz", "Castellón de la Plana",
+  "Ceuta", "Ciudad Real", "Córdoba", "Cuenca", "Gerona", "Granada", "Guadalajara",
+  "Huelva", "Huesca", "Jaén", "La Coruña", "Las Palmas de Gran Canaria", "León",
+  "Lérida", "Logroño", "Lugo", "Madrid", "Málaga", "Melilla", "Mérida", "Murcia",
+  "Orense", "Oviedo", "Palencia", "Palma", "Pamplona", "Pontevedra", "Salamanca",
+  "San Sebastián", "Santa Cruz de Tenerife", "Santander", "Santiago de Compostela",
+  "Segovia", "Sevilla", "Soria", "Tarragona", "Teruel", "Toledo", "Valencia", "Valladolid",
+  "Vitoria-Gasteiz", "Zamora", "Zaragoza"
+];
 @Injectable()
 export class LlamadasMockyService {
 
@@ -175,5 +187,8 @@ export class LlamadasMockyService {
   }
   getAmbientes() {
     return mockyAmbientes;
+  }
+  getLocalidades(){
+    return mockyCiudades;
   }
 }
