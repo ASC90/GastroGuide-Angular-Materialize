@@ -31,3 +31,11 @@
     border: solid black 2px;
     margin-top:20px;
 }
+
+.container{
+    width: 90% !important;
+    margin:0 auto !important;
+}
+ul.tabs > li.tab > a.active {
+    color: #ffc400 !important;
+  }

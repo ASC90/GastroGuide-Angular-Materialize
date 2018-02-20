@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
+import { MaterializeDirective } from "angular2-materialize";
 
 @Component({
   selector: 'app-homeres',
