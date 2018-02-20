@@ -43,7 +43,7 @@ export class BuscadorComponent implements OnInit {
   // Captura de formulario
   optionsTipoCocina = [];
   optionsAmbientes = [];
-  localidad = "";
+  localidad = [];
   fecha;
   hora;
   comensales = "";
@@ -128,6 +128,13 @@ export class BuscadorComponent implements OnInit {
       this.validarAmbiente = "valid";
   }
   getValidarLocalidad() {
+    if (this.localidad.length == 0 || !this.localidad) {
+      this.validarLocalidad  = "invalid";
+    }
+    else
+      this.validarLocalidad  = "valid";
+  }
+/*   getValidarLocalidad() {
     let str = this.localidad;
     this.ciudades = mockyCiudades;
     this.ciudades = this.ciudades.filter(function (arr) {
@@ -153,7 +160,7 @@ export class BuscadorComponent implements OnInit {
     else {
       this.visivilidad = "visible collection";
     }
-  }
+  } */
   getValidarFecha() {
     let parseadoFecha = Date.parse(this.fecha);
     let now = Date.now();
@@ -188,12 +195,12 @@ export class BuscadorComponent implements OnInit {
     
   }
   // Selecciona la ciudad para autocompletarla
-  selectCity(ciudad: string) {
+  /* selectCity(ciudad: string) {
     console.log(ciudad);
     this.localidad = ciudad;
     console.log(this.fecha);
     this.visivilidad = "invisible collection";
     if (mockyCiudades.includes(this.localidad))
       this.validarLocalidad = "valid";
-  }
+  } */
 }

@@ -1,0 +1,16 @@
+<div class="div-img">
+  <img class="responsive-img" [src]="url">
+</div>
+<div class="row">
+  <form class="col s3">
+    <div class="file-field input-field">
+      <div class="btn">
+        <span>Cambiar imágen</span>
+        <input type="file" (change)="onFileSelection($event)">
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
+  </form>
+</div>

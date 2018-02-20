@@ -1,0 +1,65 @@
+<!--///////////////////////////////////MENÚ///////////////////////////////////////////////////-->
+<h3 class="title">Menú</h3>
+<div class="row">
+  <form #form2="ngForm" class="col s12" (ngSubmit)="onSubmit(form2)">
+    <div class="row">
+      <div class="input-field col s6">
+        <textarea placeholder="Introduce los entrantes..." name="textareaEntrantes" class="materialize-textarea" required #entrantes="ngModel"
+          [(ngModel)]="miMenu.entrantes"></textarea>
+        <div class="md-errors-spacer" [hidden]="entrantes.valid || entrantes.untouched">
+          <div class="error" *ngIf="entrantes.errors && entrantes.errors.required">
+            Por favor debes rellenar este campo
+          </div>
+          <div class="error" *ngIf="entrantes.errors && entrantes.errors.pattern">
+            Por favor debes rellenar este campo
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <textarea placeholder="Introduce los primeros..." name="textareaPrimeros" class="materialize-textarea" required #primeros="ngModel"
+          [(ngModel)]="miMenu.primeros"></textarea>
+        <div class="md-errors-spacer" [hidden]="primeros.valid || primeros.untouched">
+          <div class="error" *ngIf="primeros.errors && primeros.errors.required">
+            Por favor debes rellenar este campo
+          </div>
+          <div class="error" *ngIf="primeros.errors && primeros.errors.pattern">
+            Por favor debes rellenar este campo
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <textarea placeholder="Introduce los segundos..." name="textareaSegundos" class="materialize-textarea" required #segundos="ngModel"
+          [(ngModel)]="miMenu.segundos"></textarea>
+        <div class="md-errors-spacer" [hidden]="segundos.valid || segundos.untouched">
+          <div class="error" *ngIf="segundos.errors && segundos.errors.required">
+            Por favor debes rellenar este campo
+          </div>
+          <div class="error" *ngIf="segundos.errors && segundos.errors.pattern">
+            Por favor debes rellenar este campo
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <textarea placeholder="Introduce los postres..." name="textareaPostres" class="materialize-textarea" required #postres="ngModel"
+          [(ngModel)]="miMenu.postres"></textarea>
+        <div class="md-errors-spacer" [hidden]="postres.valid || postres.untouched">
+          <div class="error" *ngIf="postres.errors && postres.errors.required">
+            Por favor debes rellenar este campo
+          </div>
+          <div class="error" *ngIf="postres.errors && postres.errors.pattern">
+            Por favor debes rellenar este campo
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="input-field col s6">
+      <button class="btn z-depth-5 center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4" [disabled]="form2.pristine || !form2.valid">Aplicar</button>
+    </div>
+  </form>
+</div>
