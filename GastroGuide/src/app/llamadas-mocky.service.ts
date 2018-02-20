@@ -40,25 +40,25 @@ const elCellerMocky = JSON.parse(JSON.stringify({
   ],
   "opiniones": [
     {
-      "imagen": "img/GastroLover.png",
+      "imagen": "/assets/img/GastroLover.png",
       "nombre": "Enrique M.",
       "comentario": "El servicio bastante lento. La comida tanto los primeros para compartir como los provolone nada especial, al igual que los canelones que pedimos de segundo plato. La carne nada del otro mundo, muy normal todo. Es caro, calidad, servicio y precio no han estado a la altura de lo esperado.",
       "valoracion": "3,5"
     },
     {
-      "imagen": "img/GastroLover.png",
+      "imagen": "/assets/img/GastroLover.png",
       "nombre": "Mariona V.",
       "comentario": "Muy bueno todo, volveremos.",
       "valoracion": "6"
     },
     {
-      "imagen": "img/GastroLover.png",
+      "imagen": "/assets/img/GastroLover.png",
       "nombre": "Alba C.",
       "comentario": "Todo bueno. Justo lo que esperábamos encontrar de tantas veces que hemos ido a comer.",
       "valoracion": "10"
     },
     {
-      "imagen": "img/GastroLover.png",
+      "imagen": "/assets/img/GastroLover.png",
       "nombre": "Antonio P.",
       "comentario": "Lo mejor la ensalada de vino tinto y la Tagliata.",
       "valoracion": "7,3"
@@ -72,7 +72,7 @@ const elCellerMocky = JSON.parse(JSON.stringify({
 
   "recetas":
   {
-    "imagen": "img/fideua.jpg",
+    "imagen": "/assets/img/fideua.jpg",
     "nombre": "Fideua con gambas al estilo celler",
     "preparacion": [{ "titulo": "Paso 1/5", "descripcion": "Pelar las gambas reservando cabezas y cáscaras. Limpiar los calamares y cortarlos en anillas. Pelar y picar los ajos. Lavar, retirar las semillas, el tallo y los nervios de los pimientos. Picar en daditos pequeños. Pelar, lavar y picar en daditos pequeños la cebolla. Majar el azafrán en el mortero con un poco de sal. Cocer juntos los ingredientes para el caldo de pescado 15 minutos y colar." },
     { "titulo": "Paso 2/5", "descripcion": "Colocar una paella con el aceite al fuego a calentar. Cuando está caliente rehogar el ajo, antes de que tome color, incorporar el pimiento y la cebolla muy picados. Seguir rehogando a fuego lento hasta que estén bien blandos. Añadir ahora el calamar y continuar rehogando 6 minutos más." },
@@ -123,19 +123,19 @@ const guzzoMocky = JSON.parse(JSON.stringify({
   ],
   "opiniones": [
     {
-      "imagen": "img/GastroLover.png",
+      "imagen": "/assets/img/GastroLover.png",
       "nombre": "Marc R.",
       "comentario": "Carta extensa y variada, tacos muy buenos! Atencion perfecta, calidad-precio genial. Volveremos!",
       "valoracion": "8"
     },
     {
-      "imagen": "img/GastroLover.png",
+      "imagen": "/assets/img/GastroLover.png",
       "nombre": "Isisdro B.",
       "comentario": "Comida muy buena pero nos hicieron esperar muchísimo y solo había 3 mesas... Y cuando pedimos más tortillas para acompañar la comida nos dijeron que nos las cobrarían como suplemento. Cuando llevas más de media hora entre el 1ero y el 2do, se agradece un gesto de amabilidad. Además es que te dabas cuenta de que eran conscientes que no era normal la espera. En fin, supongo que no saben mucho de hostelería. Eso sí, claramente no fue con mala intención. Y por eso, bueno y porque la comida me encantó, pienso volver. Soy partidario de que a veces necesitamos segundas oportunidades.",
       "valoracion": "7,5"
     },
     {
-      "imagen": "img/GastroLover.png",
+      "imagen": "/assets/img/GastroLover.png",
       "nombre": "David C.",
       "comentario": "Servicio muy atento. Con el descuento una excelente calidad/precio.",
       "valoracion": "8"
@@ -146,9 +146,7 @@ const guzzoMocky = JSON.parse(JSON.stringify({
     "promocion": "-40% en Carta",
     "descripcion": "Menús y bebidas no incluidos. Esta promoción se aplica sin consumo mínimo, ni restricciones de platos, para que comas lo que te apetezca y solamente prestes atención a disfrutar. Válida en la franja horaria seleccionada."
   },
-
   "videos": [{ "videoUrl": "https://www.youtube.com/embed/6fhAchG-jcw", "titulo": "Como funciona nuestra cocina", "descripcion": "Estuvimos a la hora del almuerzo, en medio de fogones, ollas y cocineros apasionados por lo que hacen. Bladimir Tovar, chef encargado de la cocina, fue el guía." }]
-
 }));
 // JSON de tipo de cocina
 const mockyTipoCocina = [

@@ -12,6 +12,7 @@ declare var $: any;
 })
 export class RestauranteComponent implements OnInit, AfterViewInit{
   restaurantObj = {};
+  
   constructor(public arrayRestaurantes: LlamadasMockyService, private router: ActivatedRoute) {
     this.restaurantObj = this.arrayRestaurantes.getArrayRestaurantes()[+this.router.snapshot.paramMap.get('id')];
   }
@@ -23,6 +24,7 @@ export class RestauranteComponent implements OnInit, AfterViewInit{
         responsiveThreshold: 1920
       });
     });
+    console.log(this.restaurantObj);
   }
   ngAfterViewInit() {
     $(document).ready(function () {
