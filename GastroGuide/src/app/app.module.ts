@@ -28,6 +28,7 @@ import { RestauranteRecetasComponent } from './restaurante-recetas/restaurante-r
 import { RestauranteVideosComponent } from './restaurante-videos/restaurante-videos.component';
 import { LogChefComponent } from './log-chef/log-chef.component';
 import { LogLoverComponent } from './log-lover/log-lover.component';
+import { HomeresComponent } from './homeres/homeres.component';
 
 
 const appRoutes: Routes = [
@@ -61,8 +62,7 @@ const appRoutes: Routes = [
     RestauranteOpinionesComponent,
     RestaurantePromocionesComponent,
     RestauranteRecetasComponent,
-    RestauranteVideosComponent
-    RestauranteComponent,
+    RestauranteVideosComponent,
     LogChefComponent,
     LogLoverComponent,
     RegistroRestauranteComponent
