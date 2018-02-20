@@ -16,7 +16,7 @@
   </li>
 </ul>
 
-<!--//////////////////////////////////////////////////////////////////////////////////////-->
+<!--/////////////////////////////////IMÁGENES/////////////////////////////////////////////////////-->
 <div id="test-swipe-1" class="col s12">
   <h3 class="title">Publicar o modificar fotos</h3>
   <div class="row">
@@ -46,7 +46,7 @@
   </div>
 </div>
 
-<!--//////////////////////////////////////////////////////////////////////////////////////-->
+<!--///////////////////////////////////VÍDEOS///////////////////////////////////////////////////-->
 <div id="test-swipe-2" class="col s12">
   <h3 class="title">Publicar videos</h3>
   <div class="row">
@@ -118,7 +118,7 @@
   </div>
 </div>
 
-<!--//////////////////////////////////////////////////////////////////////////////////////-->
+<!--///////////////////////////////////MENÚ///////////////////////////////////////////////////-->
 <div id="test-swipe-3" class="col s12">
   <h3 class="title">Menú</h3>
   <div class="row">
@@ -126,7 +126,7 @@
       <div class="row">
         <div class="input-field col s6">
           <textarea placeholder="Introduce los entrantes..." name="textareaEntrantes" class="materialize-textarea" required #entrantes="ngModel"
-            [(ngModel)]="miReceta.entrantes"></textarea>
+            [(ngModel)]="miMenu.entrantes"></textarea>
           <div class="md-errors-spacer" [hidden]="entrantes.valid || entrantes.untouched">
             <div class="error" *ngIf="entrantes.errors && entrantes.errors.required">
               Por favor debes rellenar este campo
@@ -140,7 +140,7 @@
       <div class="row">
         <div class="input-field col s6">
           <textarea placeholder="Introduce los primeros..." name="textareaPrimeros" class="materialize-textarea" required #primeros="ngModel"
-            [(ngModel)]="miReceta.primeros"></textarea>
+            [(ngModel)]="miMenu.primeros"></textarea>
           <div class="md-errors-spacer" [hidden]="primeros.valid || primeros.untouched">
             <div class="error" *ngIf="primeros.errors && primeros.errors.required">
               Por favor debes rellenar este campo
@@ -154,7 +154,7 @@
       <div class="row">
         <div class="input-field col s6">
           <textarea placeholder="Introduce los segundos..." name="textareaSegundos" class="materialize-textarea" required #segundos="ngModel"
-            [(ngModel)]="miReceta.segundos"></textarea>
+            [(ngModel)]="miMenu.segundos"></textarea>
           <div class="md-errors-spacer" [hidden]="segundos.valid || segundos.untouched">
             <div class="error" *ngIf="segundos.errors && segundos.errors.required">
               Por favor debes rellenar este campo
@@ -168,7 +168,7 @@
       <div class="row">
         <div class="input-field col s6">
           <textarea placeholder="Introduce los postres..." name="textareaPostres" class="materialize-textarea" required #postres="ngModel"
-            [(ngModel)]="miReceta.postres"></textarea>
+            [(ngModel)]="miMenu.postres"></textarea>
           <div class="md-errors-spacer" [hidden]="postres.valid || postres.untouched">
             <div class="error" *ngIf="postres.errors && postres.errors.required">
               Por favor debes rellenar este campo
@@ -180,13 +180,13 @@
         </div>
       </div>
       <div class="input-field col s6">
-        <button class="btn z-depth-5 center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4" [disabled]="form.pristine || !form2.valid">Aplicar</button>
+        <button class="btn z-depth-5 center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4" [disabled]="form2.pristine || !form2.valid">Aplicar</button>
       </div>
     </form>
   </div>
 </div>
 
-<!--//////////////////////////////////////////////////////////////////////////////////////-->
+<!--////////////////////////////////OFERTAS//////////////////////////////////////////////////////-->
 <div id="test-swipe-4" class="col s12">
   <h3 class="title">Ofertas</h3>
   <div class="row">
@@ -203,7 +203,8 @@
       </div>
       <div class="row">
         <div class="input-field col s6">
-          <textarea placeholder="Describe la oferta..." name="textareaOferta" class="materialize-textarea" required #oferta="ngModel" [(ngModel)]="miOferta.ofertas"></textarea>
+          <textarea placeholder="Describe la oferta..." name="textareaOferta" class="materialize-textarea" required #oferta="ngModel"
+            [(ngModel)]="miOferta.ofertas"></textarea>
           <div class="md-errors-spacer" [hidden]="oferta.valid || oferta.untouched">
             <div class="error" *ngIf="oferta.errors && oferta.errors.required">
               Por favor debes rellenar este campo
@@ -215,8 +216,73 @@
         </div>
       </div>
       <div class="input-field col s6">
-        <button class="btn z-depth-5 center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4" [disabled]="form.pristine || !form3.valid">Aplicar</button>
+        <button class="btn z-depth-5 center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4" [disabled]="form3.pristine || !form3.valid">Aplicar</button>
       </div>
     </form>
   </div>
+</div>
+
+<!--//////////////////////////////RECETAS////////////////////////////////////////////////////////-->
+<div id="test-swipe-5" class="col s12">
+  <h3 class="title">Recetas</h3>
+  <div class="row">
+    <form #form4="ngForm" class="col s12" (ngSubmit)="onSubmit(form4)">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Nombre de la receta" name="receta" type="text" class="validate" minlength="3" required #nomreceta="ngModel"
+            [(ngModel)]="miReceta.nombre">
+          <div class="md-errors-spacer" [hidden]="nomreceta.valid || nomreceta.untouched">
+            <div class="error" *ngIf="nomreceta.errors && nomreceta.errors.required">
+              Por favor debes rellenar este campo
+            </div>
+            <div class="error" *ngIf="nomreceta.errors && nomreceta.errors.pattern">
+              Por favor debes rellenar este campo
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Ingredientes" name="ingredientes" type="text" class="validate" [(ngModel)]="miReceta.ingredientes">
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <button class="btn z-depth-5 center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4" (click)="addIngredientes()">Añadir +</button>
+        </div>
+      </div>
+      <div>
+        <ul>
+          <li *ngFor="let ing of ingredient">{{ing}} </li>
+        </ul>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <textarea placeholder="Introduce la preparación de la receta..." name="textareaPreparacion" class="materialize-textarea"
+            required #prepreceta="ngModel" [(ngModel)]="miReceta.preparacion"></textarea>
+          <div class="md-errors-spacer" [hidden]="prepreceta.valid || prepreceta.untouched">
+            <div class="error" *ngIf="prepreceta.errors && prepreceta.errors.required">
+              Por favor debes rellenar este campo
+            </div>
+            <div class="error" *ngIf="prepreceta.errors && prepreceta.errors.pattern">
+              Por favor debes rellenar este campo
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <button class="btn z-depth-5 center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4" [disabled]="form4.pristine || !form4.valid">Aplicar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <!--//////////////////////////////////////////////////////////////////////////////////////-->
+  <h4>Add/Remove experience</h4>
+  <div #parent></div>
+  <div>
+    <button type="button" (click)="addComponent()" class="btn btn-default">Add Experience </button>
+  </div>
+
+  <!--/////////////////////////////////////////////////////////////////////////////////////-->
 </div>
