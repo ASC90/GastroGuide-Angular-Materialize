@@ -19,10 +19,10 @@
         <label for="ambiente" data-error="Campo vacío" data-success="Correcto">Escoje tipo de ambiente</label>
       </div>
       <div class="input-field col s8 m4 l2">
-        <select name="form" multiple materialize="material_select" [(ngModel)]="localidad" id="localidad" [class]="validarLocalidad"
+        <select name="form"  materialize="material_select" [(ngModel)]="localidad" id="localidad" [class]="validarLocalidad"
           (change)="getValidarLocalidad()">
           <option value="" disabled selected>Localidad</option>
-          <option *ngFor="let loc of ciudades; index as i" value="{{i}}">{{loc}}</option>
+          <option *ngFor="let loc of ciudades; index as i" value="{{loc}}">{{loc}}</option>
         </select>
         <label for="localidad" [attr.data-error]="errorLocalidad" data-success="Correcto">Introduce localidad</label>
 <!--         <input name="form" id="localidad" type="text" [class]="validarLocalidad" [(ngModel)]="localidad" (keyup)="getValidarLocalidad()">

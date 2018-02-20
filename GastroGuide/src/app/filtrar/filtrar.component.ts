@@ -22,6 +22,7 @@ export class FiltrarComponent implements OnInit {
   arrayTipoCocina = [];
   arrayAmbientes = [];
   arrayRestaurantesPintados = [];
+  arraylocalidad = []
   // Inputs
   range: number;
   arrayCheckTipoCocina = [];
@@ -67,7 +68,11 @@ export class FiltrarComponent implements OnInit {
     for (let i = 0; i < this.arrayRestaurantes.getArrayRestaurantes().length; i++) {
       let arrTipCoc = arrayCompare(this.busquedaObj[0], this.arrayRestaurantes.getArrayRestaurantes()[i].tipoCocinaID);
       let arrAmb = arrayCompare(this.busquedaObj[1], this.arrayRestaurantes.getArrayRestaurantes()[i].tipoAmbienteID);
-      if (arrTipCoc && arrAmb && (parseInt(this.busquedaObj[6]) <= parseInt(this.arrayRestaurantes.getArrayRestaurantes()[i].valoracion))) {
+      let Loc = this.arrayRestaurantes.getArrayRestaurantes()[i].localidad.includes(this.busquedaObj[2]);
+      let nota = parseInt(this.busquedaObj[6]) <= parseInt(this.arrayRestaurantes.getArrayRestaurantes()[i].valoracion);
+      if(this.busquedaObj[0].length <1){arrTipCoc = true};
+      if(this.busquedaObj[1].length <1){arrAmb = true};
+      if (arrTipCoc && arrAmb && Loc && nota) {
         this.arrayRestaurantesPintados.push(this.arrayRestaurantes.getArrayRestaurantes()[i]);
       }
     }
