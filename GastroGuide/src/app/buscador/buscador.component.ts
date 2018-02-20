@@ -191,6 +191,7 @@ export class BuscadorComponent implements OnInit {
   selectCity(ciudad: string) {
     console.log(ciudad);
     this.localidad = ciudad;
+    console.log(this.fecha);
     this.visivilidad = "invisible collection";
     if (mockyCiudades.includes(this.localidad))
       this.validarLocalidad = "valid";
