@@ -23,5 +23,5 @@ export class OfertasComponent implements OnInit {
       alert("LOS CAMPOS SON CORRECTOS!!");
       form3.resetForm();
     }
-
+  }
 }
