@@ -1,10 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="container col s12 m4 l4">
-      <ul>
-        <li *ngFor="let it of busquedaObj; index as i">{{it}} --id--> {{i}}</li>
-      </ul>
-      <form action="/" method="">
+    <div class="col s12 m4 l4">
+      <form action="/" method="" name="filtrar">
         <ul class="collapsible" data-collapsible="accordion">
           <li>
             <div class="collapsible-header amber accent-3"><h5>Filtrar la búsqueda</h5></div>
@@ -12,27 +9,45 @@
           <li>
             <div class="collapsible-header">Tipo de cocina</div>
             <div class="collapsible-body">
-
+              <ul>
+                <li *ngFor="let elem of arrayTipoCocina; index as i">
+                  <input name="filtrar" value={{i}} type="checkbox" id=tipo-cocina{{i}} [checked]="arrayCheckTipoCocina[i]" (change)="arrayCheckTipoCocina[i] = !arrayCheckTipoCocina[i]"/>
+                  <label for=tipo-cocina{{i}}>{{elem}}</label>
+                </li>
+              </ul>
             </div>
           </li>
           <li>
             <div class="collapsible-header">Ambientes</div>
             <div class="collapsible-body">
-
+              <ul>
+                <li *ngFor="let elem of arrayAmbientes; index as i">
+                  <input name="filtrar" value="{{i}}" type="checkbox" id=ambientes{{i}} [checked]="arrayCheckAmbientes[i]" (change)="arrayCheckAmbientes[i] = !arrayCheckAmbientes[i]"/>
+                  <label for="ambientes{{i}}">{{elem}}</label>
+                </li>
+              </ul>
             </div>
           </li>
           <li>
             <div class="collapsible-header">Valoración</div>
             <div class="collapsible-body">
-
+              <div class="range-field">
+                <input name="filtrar" type="range" id="range-valoracion" min="0" max="10" [(ngModel)]="range"/>
+                <div class="center-align">
+                  <h3>{{range}}</h3>
+                </div>
+              </div>
             </div>
           </li>
         </ul>
-        <button class="btn amber accent-3 waves-effect waves-orange blue-grey-text text-darken-4">Filtrar</button>
+        <button class="btn amber accent-3 waves-effect waves-orange blue-grey-text text-darken-4" (click)="getFiltrar()">Filtrar</button>
       </form>
+      <ul>
+        <li *ngFor="let it of busquedaObj; index as i">{{it}} --id--> {{i}}</li>
+      </ul>
     </div>
     <div class="col s12 m8 l8 center-align">
-      <div *ngFor="let rest of arrayRestaurantesPintados" class="card horizontal">
+      <div *ngFor="let rest of arrayRestaurantesPintados" class="card horizontal z-depth-3">
         <div class="card-image valign-wrapper">
           <img [src]="rest.imagen">
           <span class="card-title">{{rest.nombre}}</span>
@@ -41,9 +56,15 @@
           <div class="card-content">
             <div class="row">
               <div class="col s8">
+                <div>
+                  <h5>{{rest.nombre}}</h5>
+                </div>
                 <p>
                   Adresa: {{rest.adresa}}
                 </p>
+                <div *ngFor="let tipo of rest.tipo" class="amber-text text-accent-3">
+                  {{tipo}}
+                </div>
               </div>
               <div class="col s4 separador">
                 <h2>{{rest.valoracion}}</h2>

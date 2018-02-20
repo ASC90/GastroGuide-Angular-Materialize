@@ -49,15 +49,15 @@ export class BuscadorComponent implements OnInit {
   comensales = "";
   visivilidad = "invisible collection";
   // Validaciones
-  validarTipoCocina = "invalid";
-  validarAmbiente = "invalid";
-  validarLocalidad = "invalid";
-  validarFecha = "datepicker invalid";
+  validarTipoCocina = "";
+  validarAmbiente = "";
+  validarLocalidad = "";
+  validarFecha = "datepicker";
   errorLocalidad = "El campo está vacío";
   errorFecha = "El campo está vacío";
-  validarHora = "timepicker invalid";
+  validarHora = "timepicker";
   errorHora = "El campo está vacío";
-  validarComensales = "invalid";
+  validarComensales = "";
   constructor(private router: Router) { }
 
   ngOnInit() {

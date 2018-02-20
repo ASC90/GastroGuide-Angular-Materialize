@@ -81,9 +81,7 @@ const elCellerMocky = JSON.parse(JSON.stringify({
     { "titulo": "Paso 5/5", "descripcion": "Servir en la misma paella, adornando las asas con servilletas. Se puede acompañar de salsa alioli elaborada con aceite de oliva." }
     ],
     "ingredientes": ["200g gambas", "300g calamar", "2 dientes de ajo", "1 pimiento verde", "150g cebolla", "1tsp pimentón", "10 ramitas azafrán", "1tbsp aceite de oliva", "150ml de pescado", "350g fideos nº3"]
-  },
-  "videos": [{ "videoUrl": "", "titulo": "", "descripcion": "" }]
-
+  }
 }));
 
 const guzzoMocky = JSON.parse(JSON.stringify({
@@ -152,7 +150,19 @@ const guzzoMocky = JSON.parse(JSON.stringify({
   "videos": [{ "videoUrl": "https://www.youtube.com/embed/6fhAchG-jcw", "titulo": "Como funciona nuestra cocina", "descripcion": "Estuvimos a la hora del almuerzo, en medio de fogones, ollas y cocineros apasionados por lo que hacen. Bladimir Tovar, chef encargado de la cocina, fue el guía." }]
 
 }));
-
+// JSON de tipo de cocina
+const mockyTipoCocina = [
+  "Española", "India", "Japonesa", "China",
+  "Italiana", "Mexicana", "Tailandesa", "Coreana",
+  "Mediterránea", "Americana", "Marroquí", "Escandinava",
+  "Fusión"
+];
+// JSON de ambientes
+const mockyAmbientes = [
+  "Con amigos", "Romántico", "De fiesta", "Moderno",
+  "Tradicional", "De negocios", "Para grupos", "Família",
+  "Tranquilo", "Ecológico"
+];
 @Injectable()
 export class LlamadasMockyService {
 
@@ -162,5 +172,11 @@ export class LlamadasMockyService {
     arrayRestaurantes.push(elCellerMocky);
     arrayRestaurantes.push(guzzoMocky);
     return arrayRestaurantes;
+  }
+  getTipoCocina() {
+    return mockyTipoCocina;
+  }
+  getAmbientes() {
+    return mockyAmbientes;
   }
 }
