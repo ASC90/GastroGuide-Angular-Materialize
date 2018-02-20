@@ -23,15 +23,19 @@ export class HomeresComponent implements OnInit {
     destacado:''
   };
 
+  miOferta={
+    ofertas:'',
+  };
+
   
   constructor() { }
 
   ngOnInit() {
   }
 
-  onSubmit(form: NgForm, form2: NgForm) {
+  onSubmit(form: NgForm, form2: NgForm, form3: NgForm) {
     console.log("form:",form,this.miVideo, this.miReceta);
-		if (!form.valid && form2.valid) {
+		if (!form.valid && form2.valid && form3.valid) {
       alert("HAY UN CAMPO INCORRECTO!!");
 			return;
 		}else{
