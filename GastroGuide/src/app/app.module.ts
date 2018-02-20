@@ -29,7 +29,12 @@ import { RestauranteVideosComponent } from './restaurante-videos/restaurante-vid
 import { LogChefComponent } from './log-chef/log-chef.component';
 import { LogLoverComponent } from './log-lover/log-lover.component';
 import { HomeresComponent } from './homeres/homeres.component';
-
+import { VideosComponent } from './homeres/videos/videos.component';
+import { MenuComponent } from './homeres/menu/menu.component';
+import { OfertasComponent } from './homeres/ofertas/ofertas.component';
+import { RecetasComponent } from './homeres/recetas/recetas.component';
+import { ImagenesComponent } from './homeres/imagenes/imagenes.component';
+import { ImageService } from '../app/homeres/imagenes/image.service'
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -65,7 +70,12 @@ const appRoutes: Routes = [
     RestauranteVideosComponent,
     LogChefComponent,
     LogLoverComponent,
-    RegistroRestauranteComponent
+    RegistroRestauranteComponent,
+    VideosComponent,
+    MenuComponent,
+    OfertasComponent,
+    RecetasComponent,
+    ImagenesComponent
   ],
   imports: [
     BrowserModule,
@@ -73,11 +83,10 @@ const appRoutes: Routes = [
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
     ),
-    ReactiveFormsModule
-    MaterializeModule
-    FormsModule,
+    ReactiveFormsModule,
+    MaterializeModule,
+    FormsModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

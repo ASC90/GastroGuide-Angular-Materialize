@@ -1,0 +1,54 @@
+<!-- //////////////////////////////RECETAS//////////////////////////////////////////////////////// -->
+<h3 class="title">Recetas</h3>
+<div class="row">
+  <form #form4="ngForm" class="col s12" (ngSubmit)="onSubmit(form4)">
+    <div class="row">
+      <div class="input-field col s6">
+        <input placeholder="Nombre de la receta" name="receta" type="text" class="validate" minlength="3" required #nomreceta="ngModel"
+          [(ngModel)]="miReceta.nombre">
+        <div class="md-errors-spacer" [hidden]="nomreceta.valid || nomreceta.untouched">
+          <div class="error" *ngIf="nomreceta.errors && nomreceta.errors.required">
+            Por favor debes rellenar este campo
+          </div>
+          <div class="error" *ngIf="nomreceta.errors && nomreceta.errors.pattern">
+            Por favor debes rellenar este campo
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <input placeholder="Ingredientes" name="ingredientes" type="text" class="validate" [(ngModel)]="miReceta.ingredientes">
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <button class="btn z-depth-5 center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4" (click)="addIngredientes()">Añadir +</button>
+      </div>
+    </div>
+    <div>
+      <ul>
+        <li *ngFor="let ing of ingredient">{{ing}} </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <textarea placeholder="Introduce la preparación de la receta..." name="textareaPreparacion" class="materialize-textarea"
+          required #prepreceta="ngModel" [(ngModel)]="miReceta.preparacion"></textarea>
+        <div class="md-errors-spacer" [hidden]="prepreceta.valid || prepreceta.untouched">
+          <div class="error" *ngIf="prepreceta.errors && prepreceta.errors.required">
+            Por favor debes rellenar este campo
+          </div>
+          <div class="error" *ngIf="prepreceta.errors && prepreceta.errors.pattern">
+            Por favor debes rellenar este campo
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <button class="btn z-depth-5 center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4" [disabled]="form4.pristine || !form4.valid">Aplicar</button>
+      </div>
+    </div>
+  </form>
+</div>
