@@ -1,41 +1,7 @@
-.s12{
-    margin-left:60px;
-}
-
-.title{
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-.file-field{
-    margin-left:60px;
-}
-
-.btn{
-    float: right;
-}
-
-.btn2{
-    float:left !important;
-    margin-right: 20px;
-}
-
-.error{
-    color:red;
-    font-weight: bold;
-}
-
-.ing{
-    font-weight: bold;
-    display: block;
-    border: solid black 2px;
-    margin-top:20px;
-}
-
-.container{
-    width: 90% !important;
-    margin:0 auto !important;
-}
-ul.tabs > li.tab > a.active {
+ul.tabs>li.tab>a.active {
     color: #ffc400 !important;
-  }
+}
+
+.tabs {
+    margin-bottom: 2em;
+}
