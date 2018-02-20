@@ -61,7 +61,7 @@ const appRoutes: Routes = [
     RestauranteOpinionesComponent,
     RestaurantePromocionesComponent,
     RestauranteRecetasComponent,
-    RestauranteVideosComponent
+    RestauranteVideosComponent,
     RestauranteComponent,
     LogChefComponent,
     LogLoverComponent
