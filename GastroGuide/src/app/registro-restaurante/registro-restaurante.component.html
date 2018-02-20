@@ -8,19 +8,8 @@
   </div>
 
   <form name="formularioRestaurantes" [formGroup]="form" (ngSubmit)="onSubmit()">
-    {{form.valid}}
     <div class="row">
-      <!-- <div class="col s12 xl3 center-align mb-5">
-              <div class="col s12">
-                  <img src="img/GastroChef.png" alt="" class="img-thumbnail" id="resImagePreview">
-              </div>
-              <div class="col s12">
-                  <div class="custom-file" id="form_res_image_label">
-                      <input type="file" class="custom-file-input" id="res-anadir" accept="image/*">
-                      <label class="boton nopadd" for="res-anadir">Añadir foto de perfil</label>
-                  </div>
-              </div>
-          </div> -->
+      <app-imagen-perfil class="col s12 xl3"></app-imagen-perfil>
       <div class="col s12 xl7">
 
         <div class="input-field">
