@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators,NgForm } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-homeres',
@@ -7,40 +7,60 @@ import { FormGroup, FormBuilder, Validators,NgForm } from '@angular/forms';
   styleUrls: ['./homeres.component.css']
 })
 export class HomeresComponent implements OnInit {
-  miVideo={
-    titulo:'',
-    descripcion:'',
-    url:'',
-    texto:''
+  ingredient = [];
+
+  miVideo = {
+    titulo: '',
+    descripcion: '',
+    url: '',
+    texto: ''
   };
 
-  miReceta={
-    entrantes:'',
-    primeros:'',
-    segundos:'',
-    postres:'',
-    nmenu:'',
-    destacado:''
+  miMenu = {
+    entrantes: '',
+    primeros: '',
+    segundos: '',
+    postres: '',
+    nmenu: '',
+    destacado: ''
   };
 
-  miOferta={
-    ofertas:'',
+  miOferta = {
+    ofertas: '',
   };
 
-  
+  miReceta = {
+    nombre: '',
+    ingredientes: '',
+    preparacion: ''
+  };
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  onSubmit(form: NgForm, form2: NgForm, form3: NgForm) {
-    console.log("form:",form,this.miVideo, this.miReceta);
-		if (!form.valid && form2.valid && form3.valid) {
+  onSubmit(form: NgForm, form2: NgForm, form3: NgForm, form4: NgForm) {
+    console.log("form:", form, this.miVideo, this.miReceta);
+    if (!form.valid && form2.valid && form3.valid && form4.valid) {
       alert("HAY UN CAMPO INCORRECTO!!");
-			return;
-		}else{
+      return;
+    } else {
       alert("LOS CAMPOS SON CORRECTOS!!");
-		}
-	}
 
+      form.resetForm();
+      form2.resetForm();
+      form3.resetForm();
+      form4.resetForm();
+
+    }
+  }
+  addIngredientes() {
+    let palabra = this.miReceta.ingredientes;
+    this.ingredient.push(palabra);
+    console.log(this.ingredient);
+    this.miReceta.ingredientes = "";
+    console.log(this.miReceta.ingredientes);
+
+  }
 }
