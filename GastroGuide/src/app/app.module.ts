@@ -22,6 +22,11 @@ import { LoginSingupComponent } from './login-singup/login-singup.component';
 import { HomeresComponent } from './homeres/homeres.component';
 import { RegistroRestauranteComponent } from './registro-restaurante/registro-restaurante.component';
 import { RestauranteComponent } from './restaurante/restaurante.component';
+import { RestauranteMenuComponent } from './restaurante-menu/restaurante-menu.component';
+import { RestauranteOpinionesComponent } from './restaurante-opiniones/restaurante-opiniones.component';
+import { RestaurantePromocionesComponent } from './restaurante-promociones/restaurante-promociones.component';
+import { RestauranteRecetasComponent } from './restaurante-recetas/restaurante-recetas.component';
+import { RestauranteVideosComponent } from './restaurante-videos/restaurante-videos.component';
 
 
 const appRoutes: Routes = [
@@ -49,7 +54,12 @@ const appRoutes: Routes = [
     LoginSingupComponent,
     HomeresComponent,
     RegistroRestauranteComponent,
-    RestauranteComponent
+    RestauranteComponent,
+    RestauranteMenuComponent,
+    RestauranteOpinionesComponent,
+    RestaurantePromocionesComponent,
+    RestauranteRecetasComponent,
+    RestauranteVideosComponent
   ],
   imports: [
     BrowserModule,

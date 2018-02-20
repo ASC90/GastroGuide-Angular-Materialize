@@ -1,0 +1,7 @@
+.border-left {
+  border-left: 3px solid rgba(0, 0, 0, 0.4);
+}
+img {
+  width: 100%;
+  padding: 10px;
+}
