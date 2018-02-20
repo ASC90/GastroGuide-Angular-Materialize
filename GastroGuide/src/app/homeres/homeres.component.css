@@ -11,20 +11,6 @@
     margin-left:60px;
 }
 
-.responsive-img{
-    width: 300px;
-    height:200px;
-    margin-left:80px;
-    border:2px solid #fff;
-	color:white;
-	font-size:50px;
-	-webkit-box-shadow: 5px 5px 5px #ccc;
-}
-
-.div-img{
-    margin: 60px;
-}
-
 .btn{
     float: right;
 }
@@ -37,4 +23,11 @@
 .error{
     color:red;
     font-weight: bold;
+}
+
+.ing{
+    font-weight: bold;
+    display: block;
+    border: solid black 2px;
+    margin-top:20px;
 }

@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 // ngModel
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 // Form select multiple
-import { MaterializeDirective } from "angular2-materialize";
+// import { MaterializeDirective } from "angular2-materialize";
 
 
 
@@ -29,6 +29,13 @@ import { RestauranteVideosComponent } from './restaurante-videos/restaurante-vid
 import { LogChefComponent } from './log-chef/log-chef.component';
 import { LogLoverComponent } from './log-lover/log-lover.component';
 import { HomeresComponent } from './homeres/homeres.component';
+import { VideosComponent } from './homeres/videos/videos.component'; 
+import { MenuComponent } from './homeres/menu/menu.component'; 
+import { OfertasComponent } from './homeres/ofertas/ofertas.component'; 
+import { RecetasComponent } from './homeres/recetas/recetas.component'; 
+import { ImagenesComponent } from './homeres/imagenes/imagenes.component';
+import { ImagenPerfilComponent } from './imagen-perfil/imagen-perfil.component'; 
+
 
 
 const appRoutes: Routes = [
@@ -52,7 +59,7 @@ const appRoutes: Routes = [
     AvisoLegalComponent,
     HomeComponent,
     BuscadorComponent,
-    MaterializeDirective,
+    // MaterializeDirective,
     FiltrarComponent,
     LoginSingupComponent,
     HomeresComponent,
@@ -63,9 +70,16 @@ const appRoutes: Routes = [
     RestaurantePromocionesComponent,
     RestauranteRecetasComponent,
     RestauranteVideosComponent,
+    RestauranteComponent,
     LogChefComponent,
     LogLoverComponent,
-    RegistroRestauranteComponent
+    RegistroRestauranteComponent,
+    RegistroRestauranteComponent, 
+    VideosComponent, 
+    MenuComponent, 
+    OfertasComponent, 
+    RecetasComponent, 
+    ImagenesComponent, ImagenPerfilComponent 
   ],
   imports: [
     BrowserModule,
@@ -73,8 +87,9 @@ const appRoutes: Routes = [
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
     ),
+    ReactiveFormsModule,
+    MaterializeModule,
     FormsModule,
-    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

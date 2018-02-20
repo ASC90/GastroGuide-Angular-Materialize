@@ -1,0 +1,33 @@
+<!--////////////////////////////////OFERTAS//////////////////////////////////////////////////////-->
+    <h3 class="title">Ofertas</h3>
+    <div class="row">
+      <form #form3="ngForm" class="col s12" (ngSubmit)="onSubmit(form3)">
+        <div class="row">
+          <p>
+            <input class="with-gap" name="group3" type="radio" id="test5" checked />
+            <label for="test5">Promociones</label>
+          </p>
+          <p>
+            <input class="with-gap" name="group3" type="radio" id="test5" checked />
+            <label for="test5">Descuentos</label>
+          </p>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <textarea placeholder="Describe la oferta..." name="textareaOferta" class="materialize-textarea" required #oferta="ngModel"
+              [(ngModel)]="miOferta.ofertas"></textarea>
+            <div class="md-errors-spacer" [hidden]="oferta.valid || oferta.untouched">
+              <div class="error" *ngIf="oferta.errors && oferta.errors.required">
+                Por favor debes rellenar este campo
+              </div>
+              <div class="error" *ngIf="oferta.errors && oferta.errors.pattern">
+                Por favor debes rellenar este campo
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="input-field col s6">
+          <button class="btn z-depth-5 center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4" [disabled]="form3.pristine || !form3.valid">Aplicar</button>
+        </div>
+      </form>
+    </div>

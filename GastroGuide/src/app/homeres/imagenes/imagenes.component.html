@@ -1,0 +1,29 @@
+<!--/////////////////////////////////IMÁGENES/////////////////////////////////////////////////////-->
+<h3 class="title">Publicar o modificar fotos</h3>
+<div class="row">
+  <form class="col s6"> 
+    <div class="file-field input-field">
+      <div class="btn">
+    <span>Añadir imágen</span>
+    <input type="file" (change)="onFileSelection($event)">
+  </div>
+  <div class="file-path-wrapper">
+    <input class="file-path validate" type="text">
+  </div>
+    </div>
+  </form>
+</div>
+<!--//////////////////////////////////////////////////////////////////////////-->
+<div id="content-imgs">
+  <div class="div-img">
+    <img class="responsive-img" src="../../assets/img/alex.jpg">
+    <img class="responsive-img" src="../../assets/img/roman.jpg">
+  </div>
+  <div class="div-img">
+    <img class="responsive-img" src="../../assets/img/chutter.jpg">
+    <img class="responsive-img" src="../../assets/img/jay.jpg">
+  </div>
+  <div class="div-img" *ngIf="imagen.url">
+    <img *ngFor="let img of imagen.url; index as i" class="responsive-img" [src]="imagen.url[i]">
+  </div>
+</div>

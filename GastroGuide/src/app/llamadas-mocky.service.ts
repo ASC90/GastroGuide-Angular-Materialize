@@ -146,7 +146,6 @@ const guzzoMocky = JSON.parse(JSON.stringify({
     "promocion": "-40% en Carta",
     "descripcion": "Menús y bebidas no incluidos. Esta promoción se aplica sin consumo mínimo, ni restricciones de platos, para que comas lo que te apetezca y solamente prestes atención a disfrutar. Válida en la franja horaria seleccionada."
   },
-  "videos": [{ "videoUrl": "https://www.youtube.com/embed/6fhAchG-jcw", "titulo": "Como funciona nuestra cocina", "descripcion": "Estuvimos a la hora del almuerzo, en medio de fogones, ollas y cocineros apasionados por lo que hacen. Bladimir Tovar, chef encargado de la cocina, fue el guía." }]
 }));
 // JSON de tipo de cocina
 const mockyTipoCocina = [
@@ -167,8 +166,8 @@ export class LlamadasMockyService {
   constructor() { }
   getArrayRestaurantes() {
     let arrayRestaurantes = [];
-    arrayRestaurantes.push(elCellerMocky);
-    arrayRestaurantes.push(guzzoMocky);
+    arrayRestaurantes.push(elCellerMocky);// id 0
+    arrayRestaurantes.push(guzzoMocky);// id 1
     return arrayRestaurantes;
   }
   getTipoCocina() {

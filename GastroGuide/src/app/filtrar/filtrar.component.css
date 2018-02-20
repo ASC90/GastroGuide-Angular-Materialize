@@ -10,3 +10,6 @@
 .container {
   width: 90vw !important;
 }
+div.card{
+  cursor: pointer;
+}

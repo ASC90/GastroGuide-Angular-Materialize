@@ -11,7 +11,7 @@
             <div class="collapsible-body">
               <ul>
                 <li *ngFor="let elem of arrayTipoCocina; index as i">
-                  <input name="filtrar" value={{i}} type="checkbox" id=tipo-cocina{{i}} [checked]="arrayCheckTipoCocina[i]" (change)="arrayCheckTipoCocina[i] = !arrayCheckTipoCocina[i]"/>
+                  <input name="filtrar" value={{i}} type="checkbox" id=tipo-cocina{{i}} [checked]="arrayCheckTipoCocina[i]" (change)="arrayCheckTipoCocina[i] = !arrayCheckTipoCocina[i]" />
                   <label for=tipo-cocina{{i}}>{{elem}}</label>
                 </li>
               </ul>
@@ -22,7 +22,7 @@
             <div class="collapsible-body">
               <ul>
                 <li *ngFor="let elem of arrayAmbientes; index as i">
-                  <input name="filtrar" value="{{i}}" type="checkbox" id=ambientes{{i}} [checked]="arrayCheckAmbientes[i]" (change)="arrayCheckAmbientes[i] = !arrayCheckAmbientes[i]"/>
+                  <input name="filtrar" value="{{i}}" type="checkbox" id=ambientes{{i}} [checked]="arrayCheckAmbientes[i]" (change)="arrayCheckAmbientes[i] = !arrayCheckAmbientes[i]" />
                   <label for="ambientes{{i}}">{{elem}}</label>
                 </li>
               </ul>
@@ -32,7 +32,7 @@
             <div class="collapsible-header">Valoración</div>
             <div class="collapsible-body">
               <div class="range-field">
-                <input name="filtrar" type="range" id="range-valoracion" min="0" max="10" [(ngModel)]="range"/>
+                <input name="filtrar" type="range" id="range-valoracion" min="0" max="10" [(ngModel)]="range" />
                 <div class="center-align">
                   <h3>{{range}}</h3>
                 </div>
@@ -42,12 +42,12 @@
         </ul>
         <button class="btn amber accent-3 waves-effect waves-orange blue-grey-text text-darken-4" (click)="getFiltrar()">Filtrar</button>
       </form>
-      <ul>
-        <li *ngFor="let it of busquedaObj; index as i">{{it}} --id--> {{i}}</li>
-      </ul>
+      <!--<ul>
+        <li *ngFor="let it of busquedaObj; index as i">{{it}} --id-- {{i}}</li>
+      </ul>-->
     </div>
     <div class="col s12 m8 l8 center-align">
-      <div *ngFor="let rest of arrayRestaurantesPintados" class="card horizontal z-depth-3">
+      <div *ngFor="let rest of arrayRestaurantesPintados" class="card horizontal z-depth-3" routerLink="/restaurante/{{rest.idRest}}">
         <div class="card-image valign-wrapper">
           <img [src]="rest.imagen">
           <span class="card-title">{{rest.nombre}}</span>

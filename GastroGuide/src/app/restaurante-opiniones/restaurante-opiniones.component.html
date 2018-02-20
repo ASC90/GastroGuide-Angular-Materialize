@@ -1,12 +1,13 @@
 <div class="container">
   <div *ngFor="let opi of opiniones" class="row">
-    <div class="col m3 center-align"><img [src]="opi.imagen" alt="Alternate Text" /></div>
-    <div class="col m6">
-      <ul>
-        <li><h5>{{opi.nombre}}</h5></li>
-        <li>{{opi.comentario}}</li>
-      </ul>
+    <div class="col s4 m4 center-align">
+      <img [src]="opi.imagen" alt="Alternate Text" />
     </div>
-    <div class="col m3 border-left"><h4 class="right">{{opi.valoracion}}</h4></div>
+    <div class="col s6 m6">
+      <h5>{{opi.nombre}}</h5>
+        
+    </div>
+    <div class="col s2 m2 border-left"><h4>{{opi.valoracion}}</h4></div>
+    <div class="container"><div class="row">{{opi.comentario}}</div></div>
   </div>
 </div>

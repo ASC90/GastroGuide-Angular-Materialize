@@ -1,0 +1,17 @@
+.responsive-img{
+    width: 90px;
+    height:auto;
+    margin-left:80px;
+    border:2px solid #fff;
+	color:white;
+	font-size:50px;
+	-webkit-box-shadow: 5px 5px 5px #ccc;
+}
+
+.div-img{
+    margin-left: 60px;
+}
+
+.row{
+    margin-left: 60px; 
+}
