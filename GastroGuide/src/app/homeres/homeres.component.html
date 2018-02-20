@@ -51,29 +51,69 @@
 <div id="test-swipe-2" class="col s12">
   <h3 class="title">Publicar videos</h3>
   <div class="row">
-    <form class="col s12">
+    <form #form="ngForm" class="col s12" (ngSubmit)="onSubmit(form)">
+      <!-- <pre>{{form.valid}}</pre>
+      <pre>{{miVideo|json}}</pre> -->
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="Introduce un título" id="titulo" type="text" class="validate">
+          <input placeholder="Introduce un título" name="titulovideo" type="text" class="validate" minlength="3" required #titvideo="ngModel"
+            [(ngModel)]="miVideo.titulo">
+          <div class="md-errors-spacer" [hidden]="titvideo.valid || titvideo.untouched">
+            <div class="error" *ngIf="titvideo.errors && titvideo.errors.required">
+              Por favor debes rellenar este campo
+            </div>
+            <div class="error" *ngIf="titvideo.errors && titvideo.errors.pattern">
+              Por favor debes rellenar este campo
+            </div>
+          </div>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="Introduce una descripción" id="descripcion" type="text" class="validate">
+          <input placeholder="Introduce una descripción" name="descripcionVideo" type="text" minlength="3" class="validate" required
+            #descripcion="ngModel" [(ngModel)]="miVideo.descripcion">
+          <div class="md-errors-spacer" [hidden]="descripcion.valid || descripcion.untouched">
+            <div class="error" *ngIf="descripcion.errors && descripcion.errors.required">
+              Por favor debes rellenar este campo
+            </div>
+            <div class="error" *ngIf="descripcion.errors && descripcion.errors.pattern">
+              Por favor debes rellenar este campo
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Introduce una URL" name="urlVideo" type="url" minlength="3" class="validate" required pattern="https?://.+"
+            #url="ngModel" [(ngModel)]="miVideo.url">
+          <div class="md-errors-spacer" [hidden]="url.valid || url.untouched">
+            <div class="error" *ngIf="url.errors && url.errors.required">
+              La URL no es correcta
+            </div>
+            <div class="error" *ngIf="url.errors && url.errors.pattern">
+              La URL no es correcta
+            </div>
+          </div>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="Introduce una URL" id="url" type="text" class="validate">
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
-          <textarea placeholder="Introduce un texto..." id="textarea1" class="materialize-textarea"></textarea>
+          <textarea placeholder="Introduce un texto..." name="textareaVideo" class="materialize-textarea" required #textVideo="ngModel"
+            [(ngModel)]="miVideo.texto"></textarea>
+          <div class="md-errors-spacer" [hidden]="textVideo.valid || textVideo.untouched">
+            <div class="error" *ngIf="textVideo.errors && textVideo.errors.required">
+              Por favor debes rellenar este campo
+            </div>
+            <div class="error" *ngIf="textVideo.errors && textVideo.errors.pattern">
+              Por favor debes rellenar este campo
+            </div>
+          </div>
         </div>
       </div>
       <div class="input-field col s6">
-        <button class="btn z-depth-5 center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4">Aplicar</button>
+        <button class="btn z-depth-5 center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4" [disabled]="form.pristine || !form.valid">Aplicar</button>
       </div>
     </form>
   </div>
@@ -83,42 +123,71 @@
 <div id="test-swipe-3" class="col s12">
   <h3 class="title">Menú</h3>
   <div class="row">
-    <form class="col s12">
+    <form #form2="ngForm" class="col s12" (ngSubmit)="onSubmit(form)">
       <div class="row">
         <div class="input-field col s6">
-          <textarea placeholder="Introduce los entrantes..." id="textarea1" class="materialize-textarea"></textarea>
+          <textarea placeholder="Introduce los entrantes..." name="textareaEntrantes" class="materialize-textarea" required #entrantes="ngModel"
+            [(ngModel)]="miReceta.entrantes"></textarea>
+          <div class="md-errors-spacer" [hidden]="entrantes.valid || entrantes.untouched">
+            <div class="error" *ngIf="entrantes.errors && entrantes.errors.required">
+              Por favor debes rellenar este campo
+            </div>
+            <div class="error" *ngIf="entrantes.errors && entrantes.errors.pattern">
+              Por favor debes rellenar este campo
+            </div>
+          </div>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s6">
-          <textarea placeholder="Introduce los primeros..." id="textarea1" class="materialize-textarea"></textarea>
+          <textarea placeholder="Introduce los primeros..." name="textareaPrimeros" class="materialize-textarea" required #primeros="ngModel"
+            [(ngModel)]="miReceta.primeros"></textarea>
+          <div class="md-errors-spacer" [hidden]="primeros.valid || primeros.untouched">
+            <div class="error" *ngIf="primeros.errors && primeros.errors.required">
+              Por favor debes rellenar este campo
+            </div>
+            <div class="error" *ngIf="primeros.errors && primeros.errors.pattern">
+              Por favor debes rellenar este campo
+            </div>
+          </div>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s6">
-          <textarea placeholder="Introduce los segundos..." id="textarea1" class="materialize-textarea"></textarea>
+          <textarea placeholder="Introduce los segundos..." name="textareaSegundos" class="materialize-textarea" required #segundos="ngModel"
+            [(ngModel)]="miReceta.segundos"></textarea>
+          <div class="md-errors-spacer" [hidden]="segundos.valid || segundos.untouched">
+            <div class="error" *ngIf="segundos.errors && segundos.errors.required">
+              Por favor debes rellenar este campo
+            </div>
+            <div class="error" *ngIf="segundos.errors && segundos.errors.pattern">
+              Por favor debes rellenar este campo
+            </div>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="input-field col s6">
-          <textarea placeholder="Introduce los postres..." id="textarea1" class="materialize-textarea"></textarea>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="Nombre del menú" id="titulo" type="text" class="validate">
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
-          <textarea placeholder="Introduce algún aspecto destacado" id="textarea1" class="materialize-textarea"></textarea>
-        </div>
-      </div>
-      <div class="input-field col s6">
-        <button class="btn z-depth-5 center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4">Aplicar</button>
-      </div>
-    </form>
   </div>
+  <div class="row">
+    <div class="input-field col s6">
+      <textarea placeholder="Introduce los postres..." name="textareaPostres" class="materialize-textarea" required #postres="ngModel"
+        [(ngModel)]="miReceta.postres"></textarea>
+      <div class="md-errors-spacer" [hidden]="postres.valid || postres.untouched">
+        <div class="error" *ngIf="postres.errors && postres.errors.required">
+          Por favor debes rellenar este campo
+        </div>
+        <div class="error" *ngIf="postres.errors && postres.errors.pattern">
+          Por favor debes rellenar este campo
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="input-field col s6">
+  <button class="btn z-depth-5 center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4" [disabled]="form.pristine || !form2.valid">Aplicar</button>
+</div>
+</form>
+</div>
 </div>
 
 <!--//////////////////////////////////////////////////////////////////////////////////////-->
