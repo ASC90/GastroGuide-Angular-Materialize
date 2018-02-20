@@ -30,14 +30,14 @@
         <li class="tab col s2"><a class="blue-grey-text text-darken-4" href="#menu">menu</a></li>
         <li class="tab col s2"><a class="blue-grey-text text-darken-4" href="#opiniones">opiniones</a></li>
         <li class="tab col s2"><a class="blue-grey-text text-darken-4" href="#promociones">promociones</a></li>
-        <li class="tab col s2"><a class="blue-grey-text text-darken-4" href="#recetas">recetas</a></li>
+        <li *ngIf="restaurantObj.recetas" class="tab col s2"><a class="blue-grey-text text-darken-4" href="#recetas">recetas</a></li>
         <li *ngIf="restaurantObj.videos" class="tab col s2"><a class="blue-grey-text text-darken-4" href="#videos">videos</a></li>
       </ul>
     </div>
-    <div id="menu" class="col s12">menu</div>
-    <div id="opiniones" class="col s12">opiniones</div>
-    <div id="promociones" class="col s12">promociones</div>
-    <div id="recetas" class="col s12">recetas</div>
-    <div *ngIf="restaurantObj.videos" id="videos" class="col s12">videos</div>
+    <div id="menu" class="col s12 detalle-rest"><app-restaurante-menu [menu]="restaurantObj.menu"></app-restaurante-menu></div>
+    <div id="opiniones" class="col s12 detalle-rest"><app-restaurante-opiniones [opiniones]="restaurantObj.opiniones"></app-restaurante-opiniones></div>
+    <div id="promociones" class="col s12 detalle-rest"><app-restaurante-promociones [promociones]="restaurantObj.promociones"></app-restaurante-promociones></div>
+    <div *ngIf="restaurantObj.recetas" id="recetas" class="col s12 detalle-rest"><app-restaurante-recetas [recetas]="restaurantObj.recetas"></app-restaurante-recetas></div>
+    <div *ngIf="restaurantObj.videos" id="videos" class="col s12 detalle-rest"><app-restaurante-videos [video]="restaurantObj.videos"></app-restaurante-videos></div>
   </div>
 </div>

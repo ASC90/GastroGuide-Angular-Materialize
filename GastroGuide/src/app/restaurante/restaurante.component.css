@@ -20,3 +20,7 @@ ul.tabs > li.tab > a.active {
 .tabs .indicator {
   background-color: #263238 !important;
 }
+.detalle-rest{
+  height: 500px;
+  overflow-y: scroll;
+}

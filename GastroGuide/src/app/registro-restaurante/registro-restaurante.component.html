@@ -1,3 +1,99 @@
-<p>
-  registro-restaurante works!
-</p>
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col s12">
+      <h1 class="center-align mb-5">
+        <u>Registro Gastro Chef</u>
+      </h1>
+    </div>
+  </div>
+
+  <form name="formularioRestaurantes" [formGroup]="form">
+    {{form.valid}}
+    <div class="row">
+      <!-- <div class="col s12 xl3 center-align mb-5">
+              <div class="col s12">
+                  <img src="img/GastroChef.png" alt="" class="img-thumbnail" id="resImagePreview">
+              </div>
+              <div class="col s12">
+                  <div class="custom-file" id="form_res_image_label">
+                      <input type="file" class="custom-file-input" id="res-anadir" accept="image/*">
+                      <label class="boton nopadd" for="res-anadir">Añadir foto de perfil</label>
+                  </div>
+              </div>
+          </div> -->
+      <div class="col s12 xl7">
+
+        <div class="input-field">
+          <input required id="restaurante" type="text" class="validate" name="restaurante" formControlName="restaurante" > 
+          <label for="restaurante">Nombre del restaurante</label>
+          
+        </div>
+        <div class="input-field">
+          <input required id="nombre" type="text" class="validate" name="nombre" formControlName="nombre" >
+          <label for="nombre" [attr.data-error]="errornombre">Nombre</label>
+         
+        </div>
+        <div class="input-field">
+          <input  required id="apellidos" type="text" class="validate" name="apellidos" formControlName="apellidos" >
+          <label for="apellidos" [attr.data-error]="errorapellidos">Apellidos</label>
+        </div>
+
+        <span>
+          <input required name="genero" formControlName="genero" value="hombre" type="radio" id="hombre" class="with-gap"/>
+          <label for="hombre">Hombre</label>
+        </span>
+        <span>
+          <input required name="genero" formControlName="genero" value="mujer "type="radio" id="mujer" class="with-gap"/>
+          <label for="mujer">Mujer</label>
+        </span>
+
+        <div class="input-field">
+          <input required id="email" type="email" class="validate" name="email" formControlName="email">
+          <label for="email" [attr.data-error]="erroremail">Correo electrónico del restaurante</label>
+        </div>
+        <div class="input-field">
+          <input  required id="password" type="password" class="validate" name="password" formControlName="password"><!--pattern="^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})"-->
+          <label for="password" [attr.data-error]="errorcontrasena">Contraseña</label>
+        </div>
+        <div class="input-field">
+          <input  required id="password2" type="password" Equalvalidate="password" class="validate" name="password2" formControlName="password2" >
+          <label for="password2" >Confirmar contraseña</label>
+        </div>
+        
+        <div class="input-field">
+          <input required id="tel" type="text" class="validate" name="tel" formControlName="tel">
+          <label for="tel" [attr.data-error]="errortel">Teléfono del restaurante</label>
+        </div>
+        <div class="input-field">
+          <input required id="cp" type="text" class="validate" name="cp" formControlName="cp">
+          <label for="cp" [attr.data-error]="errorcp">Código postal</label>
+        </div>
+        <div class="input-field">
+          <input required id="poblacion" type="text" class="validate" name="poblacion" formControlName="poblacion">
+          <label for="poblacion">Población</label>
+        </div>
+        <div class="input-field">
+          <input required id="calle" type="text" class="validate" name="calle" formControlName="calle">
+          <label for="calle">Calle, vía, etc.</label>
+        </div>
+        <div class="input-field">
+          <input required id="numero" type="text" class="validate" name="numero" formControlName="numero">
+          <label for="numero">Número</label>
+        </div>
+
+
+        <p>
+          <input required type="checkbox" id="rescheckcheck" />
+          <label for="rescheckcheck"> He leído y acepto
+            <a href="condiciones.html" target="_blank">las condiciones legales</a>
+          </label>
+        </p>
+
+        <div class="form-group text-center text-lg-left">
+          <button class="boton" type="submit">Crear cuenta</button>
+          <div id="errorenviar"></div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
