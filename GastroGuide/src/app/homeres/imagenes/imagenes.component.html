@@ -23,7 +23,7 @@
     <img class="responsive-img" src="../../assets/img/chutter.jpg">
     <img class="responsive-img" src="../../assets/img/jay.jpg">
   </div>
-  <div class="div-img" *ngIf="url">
-    <img class="responsive-img" [src]="url">
+  <div class="div-img" *ngIf="imagen.url">
+    <img *ngFor="let img of imagen.url; index as i" class="responsive-img" [src]="imagen.url[i]">
   </div>
 </div>

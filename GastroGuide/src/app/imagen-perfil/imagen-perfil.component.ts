@@ -1,16 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-imagenes',
-  templateUrl: './imagenes.component.html',
-  styleUrls: ['./imagenes.component.css']
+  selector: 'app-imagen-perfil',
+  templateUrl: './imagen-perfil.component.html',
+  styleUrls: ['./imagen-perfil.component.css']
 })
-
-export class ImagenesComponent implements OnInit {
-  imagen = {
-    url:[]
-  };
-
+export class ImagenPerfilComponent implements OnInit {
+ 
+  url = "/assets/img/GastroChef.png";
+ 
   constructor() { }
 
   ngOnInit() {
@@ -20,11 +18,12 @@ export class ImagenesComponent implements OnInit {
     if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();
       reader.onload = (event:any) => {
-        this.imagen.url.push(event.target.result);
+        this.url = event.target.result;
       }
       reader.readAsDataURL(event.target.files[0]);    
-      // let foto = this.imagen.url;
-      // this.imagen.url.push(foto);
     }
   }
 }
+
+
+
