@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-restaurante-videos',
@@ -8,14 +9,17 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class RestauranteVideosComponent implements OnInit {
   @Input() video: any;
+  videoUrl: string;
   safeURL;
-  constructor(public videoUrl: string, private _sanitize: DomSanitizer) {
-    this.videoUrl = this.video[0].videoUrl;
-    this.safeURL = this._sanitize.bypassSecurityTrustResourceUrl(videoUrl);
+  constructor(public _sanitize: DomSanitizer) {
+    
   }
 
   ngOnInit() {
     console.log("Video", this.video);
-  }
 
+    this.videoUrl = this.video[0].videoUrl;
+    this.safeURL = this._sanitize.bypassSecurityTrustResourceUrl(this.videoUrl);
+    console.log(this.safeURL.changingThisBreaksApplicationSecurity);
+  }
 }

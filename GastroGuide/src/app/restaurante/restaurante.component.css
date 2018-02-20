@@ -24,3 +24,13 @@ ul.tabs > li.tab > a.active {
   height: 500px;
   overflow-y: scroll;
 }
+.alargar{
+  height: 100%;
+}
+div h2{
+  margin: 0 !important;
+}
+.content-cabecera{
+  margin-top: 26px !important;
+  margin-bottom: 26px;
+}
