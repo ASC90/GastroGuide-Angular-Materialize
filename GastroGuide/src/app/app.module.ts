@@ -36,7 +36,7 @@ const appRoutes: Routes = [
   { path: 'condiciones-legales', component: CondicionesLegalesComponent },
   { path: 'filtrar', component: FiltrarComponent },
   { path: 'login-singup', component: LoginSingupComponent },
-  { path: 'registro-restaurante', component: RegistroRestauranteComponent }
+  { path: 'registro-restaurante', component: RegistroRestauranteComponent },
   { path: 'homeres', component: HomeresComponent },
   { path: 'restaurante/:id', component: RestauranteComponent}
 ];
@@ -64,7 +64,7 @@ const appRoutes: Routes = [
     RestauranteVideosComponent
     RestauranteComponent,
     LogChefComponent,
-    LogLoverComponent
+    LogLoverComponent,
     RegistroRestauranteComponent
   ],
   imports: [
