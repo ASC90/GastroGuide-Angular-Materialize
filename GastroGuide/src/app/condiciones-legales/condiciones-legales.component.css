@@ -1,6 +1,13 @@
 .condiciones-legales {
   background-color: antiquewhite;
-  height: 500px;
+  height: 400px;
   overflow-y: scroll;
   overflow-x: hidden;
+}
+
+.modal.bottom-sheet{
+  bottom:auto !important;
+  margin: auto !important;
+  max-height: 80% !important;
+  width: 80% !important;
 }

@@ -3,9 +3,9 @@ import { NgModule } from '@angular/core';
 import { MaterializeModule } from 'angular2-materialize';
 import { RouterModule, Routes } from '@angular/router';
 // ngModel
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 // Form select multiple
-import { MaterializeDirective } from "angular2-materialize";
+// import { MaterializeDirective } from "angular2-materialize";
 
 
 
@@ -19,7 +19,6 @@ import { HomeComponent } from './home/home.component';
 import { BuscadorComponent } from './buscador/buscador.component';
 import { FiltrarComponent } from './filtrar/filtrar.component';
 import { LoginSingupComponent } from './login-singup/login-singup.component';
-import { HomeresComponent } from './homeres/homeres.component';
 import { RegistroRestauranteComponent } from './registro-restaurante/registro-restaurante.component';
 import { RestauranteComponent } from './restaurante/restaurante.component';
 import { RestauranteMenuComponent } from './restaurante-menu/restaurante-menu.component';
@@ -29,6 +28,7 @@ import { RestauranteRecetasComponent } from './restaurante-recetas/restaurante-r
 import { RestauranteVideosComponent } from './restaurante-videos/restaurante-videos.component';
 import { LogChefComponent } from './log-chef/log-chef.component';
 import { LogLoverComponent } from './log-lover/log-lover.component';
+import { HomeresComponent } from './homeres/homeres.component';
 
 
 const appRoutes: Routes = [
@@ -36,7 +36,8 @@ const appRoutes: Routes = [
   { path: 'aviso-legal', component: AvisoLegalComponent },
   { path: 'condiciones-legales', component: CondicionesLegalesComponent },
   { path: 'filtrar', component: FiltrarComponent },
-  { path: 'loginSingup', component: LoginSingupComponent },
+  { path: 'login-singup', component: LoginSingupComponent },
+  { path: 'registro-restaurante', component: RegistroRestauranteComponent },
   { path: 'homeres', component: HomeresComponent },
   { path: 'restaurante/:id', component: RestauranteComponent}
 ];
@@ -51,7 +52,7 @@ const appRoutes: Routes = [
     AvisoLegalComponent,
     HomeComponent,
     BuscadorComponent,
-    MaterializeDirective,
+    // MaterializeDirective,
     FiltrarComponent,
     LoginSingupComponent,
     HomeresComponent,
@@ -64,7 +65,8 @@ const appRoutes: Routes = [
     RestauranteVideosComponent,
     RestauranteComponent,
     LogChefComponent,
-    LogLoverComponent
+    LogLoverComponent,
+    RegistroRestauranteComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +74,9 @@ const appRoutes: Routes = [
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
     ),
-    FormsModule
+    ReactiveFormsModule
+    MaterializeModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
