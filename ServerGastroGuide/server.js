@@ -14,7 +14,8 @@ var moduloRestaurantes = require("./RestaurantesPredeterminados");
 // Filtrar
 app.get("/filtrarRestaurante", function (req, res) {
     res.header('Access-Control-Allow-Origin', '*');
-    //let tipoCocinaID = req[0].tipoCocinaID;
+    // let obj = JSON.parse(req.body);
+    // let tipoCocinaID = obj[0].tipoCocinaID;
     let tipoCocinaID = [0, 1, 2, 3];
     let tipoAmbienteID = [0,3];
     var query = {$and: [
