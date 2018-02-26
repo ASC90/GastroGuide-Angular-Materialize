@@ -1,34 +1,40 @@
 var restaurantesArray = [{
-    nombre: "El Celler",
+    restaurante: "El Celler",
     _id: "0",
-    valoracion: "5",
+    nombre:"",
+    apellidos:'',
+    genero:'',
+    email:'',
+    password:'',
+    telefono:678907654,
+    localidad: "Barcelona",
+    valoracion: 5,
     tipoCocinaID: [8],
     tipoAmbienteID: [0, 3],
-    localidad: "Barcelona",
     adresa: "Avinguda Diagonal, 423 08036 Barcelona",
-    tipo: ["Mediterránea", "Con Amigos", "Moderno"],
+    tipo: ["MediterrÃ¡nea", "Con Amigos", "Moderno"],
     imagen: "/assets/img/celler.jpg",
     menu: [
         {
             titol: "Entrantes",
-            platos: "Duo de provolone (Trufa y virutas de jamón ibérico de bellota (5j) y sobrasada de menorca y miel) Carpaccio de ternera y escamas de parmesano y Ensalada Vino Tinto: Verde, salmón, ventresca de atún Ortiz, tomate de temporada, aguacate y queso de cabra con balsámico de higos"
+            platos: "Duo de provolone (Trufa y virutas de jamï¿½n ibï¿½rico de bellota (5j) y sobrasada de menorca y miel) Carpaccio de ternera y escamas de parmesano y Ensalada Vino Tinto: Verde, salmï¿½n, ventresca de atï¿½n Ortiz, tomate de temporada, aguacate y queso de cabra con balsï¿½mico de higos"
         },
         {
             titol: "Primeros",
-            "platos": "Tagliata de entrecot con rúcula y parma, Morro de Bacalao con salsa de miel pasas y piñones y Steak tartar clásico"
+            "platos": "Tagliata de entrecot con rï¿½cula y parma, Morro de Bacalao con salsa de miel pasas y piï¿½ones y Steak tartar clï¿½sico"
         },
         {
             titol: "Segundos",
-            platos: "Duo de canelones rellenos de foie y trufa, Solomillo de cerdo a la mostaza, Bacalao a la muselina de ajo con chips de verdura y Sashimi de salmón ahumado con un toque de miel, sésamo y salsa de eneldo."
+            platos: "Duo de canelones rellenos de foie y trufa, Solomillo de cerdo a la mostaza, Bacalao a la muselina de ajo con chips de verdura y Sashimi de salmï¿½n ahumado con un toque de miel, sï¿½samo y salsa de eneldo."
         },
         {
             titol: "Postres",
-            platos: "Tarta tatín de manzana,Queso manchego curado con membrillo y Brownie de 3 chocolates con helado de vainilla."
+            platos: "Tarta tatï¿½n de manzana,Queso manchego curado con membrillo y Brownie de 3 chocolates con helado de vainilla."
         },
 
         {
-            titol: "Menú semanal de 40 €",
-            platos: "Precio por persona (IVA incluido) y bebidas no incluidas. Se te solicitará una señal de 20 € directamente desde el restaurante para confirmar tu reserva."
+            titol: "Menï¿½ semanal de 40 ï¿½",
+            platos: "Precio por persona (IVA incluido) y bebidas no incluidas. Se te solicitarï¿½ una seï¿½al de 20 ï¿½ directamente desde el restaurante para confirmar tu reserva."
         }
     ],
     opiniones: [
@@ -47,7 +53,7 @@ var restaurantesArray = [{
         {
             imagen: "/assets/img/GastroLover.png",
             nombre: "Alba C.",
-            comentario: "Todo bueno. Justo lo que esperábamos encontrar de tantas veces que hemos ido a comer.",
+            comentario: "Todo bueno. Justo lo que esperï¿½bamos encontrar de tantas veces que hemos ido a comer.",
             valoracion: "10"
         },
         {
@@ -60,20 +66,20 @@ var restaurantesArray = [{
     promociones:
     {
         promocion: "-35% en Cuenta final",
-        descripcion: "Bebidas incluidas, menús no incluidos.Esta promoción se aplica sin consumo mínimo, ni restricciones de platos, para que comas y bebas lo que te apetezca y solamente prestes atención a disfrutar."
+        descripcion: "Bebidas incluidas, menï¿½s no incluidos.Esta promociï¿½n se aplica sin consumo mï¿½nimo, ni restricciones de platos, para que comas y bebas lo que te apetezca y solamente prestes atenciï¿½n a disfrutar."
     },
 
     recetas:
     {
         imagen: "/assets/img/fideua.jpg",
         nombre: "Fideua con gambas al estilo celler",
-        preparacion: [{ titulo: "Paso 1/5", descripcion: "Pelar las gambas reservando cabezas y cáscaras. Limpiar los calamares y cortarlos en anillas. Pelar y picar los ajos. Lavar, retirar las semillas, el tallo y los nervios de los pimientos. Picar en daditos pequeños. Pelar, lavar y picar en daditos pequeños la cebolla. Majar el azafrán en el mortero con un poco de sal. Cocer juntos los ingredientes para el caldo de pescado 15 minutos y colar." },
-        { titulo: "Paso 2/5", descripcion: "Colocar una paella con el aceite al fuego a calentar. Cuando está caliente rehogar el ajo, antes de que tome color, incorporar el pimiento y la cebolla muy picados. Seguir rehogando a fuego lento hasta que estén bien blandos. Añadir ahora el calamar y continuar rehogando 6 minutos más." },
-        { titulo: "Paso 3/5", descripcion: "Fuera del fuego poner el pimentón y de nuevo en el fuego incorporar el tomate. Seguir rehogando 8 minutos más." },
-        { titulo: "Paso 4/5", descripcion: "Bañar con el caldo de pescado y cuando esté hirviendo incorporar los fideos y las gambas. Cocer 5 minutos en el fuego y 5 minutos más en el horno." },
-        { titulo: "Paso 5/5", descripcion: "Servir en la misma paella, adornando las asas con servilletas. Se puede acompañar de salsa alioli elaborada con aceite de oliva." }
+        preparacion: [{ titulo: "Paso 1/5", descripcion: "Pelar las gambas reservando cabezas y cï¿½scaras. Limpiar los calamares y cortarlos en anillas. Pelar y picar los ajos. Lavar, retirar las semillas, el tallo y los nervios de los pimientos. Picar en daditos pequeï¿½os. Pelar, lavar y picar en daditos pequeï¿½os la cebolla. Majar el azafrï¿½n en el mortero con un poco de sal. Cocer juntos los ingredientes para el caldo de pescado 15 minutos y colar." },
+        { titulo: "Paso 2/5", descripcion: "Colocar una paella con el aceite al fuego a calentar. Cuando estï¿½ caliente rehogar el ajo, antes de que tome color, incorporar el pimiento y la cebolla muy picados. Seguir rehogando a fuego lento hasta que estï¿½n bien blandos. Aï¿½adir ahora el calamar y continuar rehogando 6 minutos mï¿½s." },
+        { titulo: "Paso 3/5", descripcion: "Fuera del fuego poner el pimentï¿½n y de nuevo en el fuego incorporar el tomate. Seguir rehogando 8 minutos mï¿½s." },
+        { titulo: "Paso 4/5", descripcion: "Baï¿½ar con el caldo de pescado y cuando estï¿½ hirviendo incorporar los fideos y las gambas. Cocer 5 minutos en el fuego y 5 minutos mï¿½s en el horno." },
+        { titulo: "Paso 5/5", descripcion: "Servir en la misma paella, adornando las asas con servilletas. Se puede acompaï¿½ar de salsa alioli elaborada con aceite de oliva." }
         ],
-        ingredientes: ["200g gambas", "300g calamar", "2 dientes de ajo", "1 pimiento verde", "150g cebolla", "1tsp pimentón", "10 ramitas azafrán", "1tbsp aceite de oliva", "150ml de pescado", "350g fideos nº3"]
+        ingredientes: ["200g gambas", "300g calamar", "2 dientes de ajo", "1 pimiento verde", "150g cebolla", "1tsp pimentï¿½n", "10 ramitas azafrï¿½n", "1tbsp aceite de oliva", "150ml de pescado", "350g fideos nï¿½3"]
     }
 }];
 
