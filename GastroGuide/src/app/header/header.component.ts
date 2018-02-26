@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
     $(document).ready(function () {
       $(".button-collapse").sideNav();
     });
+    localStorage.setItem("logUser", "0");
   }
 
 }

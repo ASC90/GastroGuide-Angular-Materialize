@@ -38,6 +38,29 @@ app.post("/filtrarRestaurante", function (req, res) {
     });
 });
 
+// Log-in
+app.post("/login", function (req, res) {
+    res.header('Access-Control-Allow-Origin', '*');
+    let _email = req.body.email;
+    let _password = req.body.password;
+    var query = {
+        $and: [
+            { email: { $elemMatch: { $in: _email } } },
+            { password: { $elemMatch: { $in: _password } } }
+        ]
+    };
+    var show = {};
+    dbo.collection("Restaurantes").find(query, show).toArray((err, result) => {
+        if (err) {
+            res.send({ 'error': err });
+        } else {
+            output = JSON.stringify(result);
+            console.log("set cache");
+            res.end(output);
+        }
+    });
+});
+
 // Crear restaurante
 app.post("/create", function (req, res) {
     res.header('Access-Control-Allow-Origin', '*');
