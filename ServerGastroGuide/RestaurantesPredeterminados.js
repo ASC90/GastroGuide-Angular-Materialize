@@ -17,11 +17,11 @@ var restaurantesArray = [{
     menu: [
         {
             titol: "Entrantes",
-            platos: "Duo de provolone (Trufa y virutas de jam�n ib�rico de bellota (5j) y sobrasada de menorca y miel) Carpaccio de ternera y escamas de parmesano y Ensalada Vino Tinto: Verde, salm�n, ventresca de at�n Ortiz, tomate de temporada, aguacate y queso de cabra con bals�mico de higos"
+            platos: "Duo de provolone (Trufa y virutas de jamón ibérico de bellota (5j) y sobrasada de menorca y miel) Carpaccio de ternera y escamas de parmesano y Ensalada Vino Tinto: Verde, salm�n, ventresca de at�n Ortiz, tomate de temporada, aguacate y queso de cabra con bals�mico de higos"
         },
         {
             titol: "Primeros",
-            "platos": "Tagliata de entrecot con r�cula y parma, Morro de Bacalao con salsa de miel pasas y pi�ones y Steak tartar cl�sico"
+            platos: "Tagliata de entrecot con r�cula y parma, Morro de Bacalao con salsa de miel pasas y pi�ones y Steak tartar cl�sico"
         },
         {
             titol: "Segundos",
@@ -73,12 +73,7 @@ var restaurantesArray = [{
     {
         imagen: "/assets/img/fideua.jpg",
         nombre: "Fideua con gambas al estilo celler",
-        preparacion: [{ titulo: "Paso 1/5", descripcion: "Pelar las gambas reservando cabezas y c�scaras. Limpiar los calamares y cortarlos en anillas. Pelar y picar los ajos. Lavar, retirar las semillas, el tallo y los nervios de los pimientos. Picar en daditos peque�os. Pelar, lavar y picar en daditos peque�os la cebolla. Majar el azafr�n en el mortero con un poco de sal. Cocer juntos los ingredientes para el caldo de pescado 15 minutos y colar." },
-        { titulo: "Paso 2/5", descripcion: "Colocar una paella con el aceite al fuego a calentar. Cuando est� caliente rehogar el ajo, antes de que tome color, incorporar el pimiento y la cebolla muy picados. Seguir rehogando a fuego lento hasta que est�n bien blandos. A�adir ahora el calamar y continuar rehogando 6 minutos m�s." },
-        { titulo: "Paso 3/5", descripcion: "Fuera del fuego poner el piment�n y de nuevo en el fuego incorporar el tomate. Seguir rehogando 8 minutos m�s." },
-        { titulo: "Paso 4/5", descripcion: "Ba�ar con el caldo de pescado y cuando est� hirviendo incorporar los fideos y las gambas. Cocer 5 minutos en el fuego y 5 minutos m�s en el horno." },
-        { titulo: "Paso 5/5", descripcion: "Servir en la misma paella, adornando las asas con servilletas. Se puede acompa�ar de salsa alioli elaborada con aceite de oliva." }
-        ],
+        preparacion: "Descripción",
         ingredientes: ["200g gambas", "300g calamar", "2 dientes de ajo", "1 pimiento verde", "150g cebolla", "1tsp piment�n", "10 ramitas azafr�n", "1tbsp aceite de oliva", "150ml de pescado", "350g fideos n�3"]
     }
 }];
