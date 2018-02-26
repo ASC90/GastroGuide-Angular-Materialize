@@ -19,7 +19,6 @@ app.post("/filtrarRestaurante", function (req, res) {
     // let tipoAmbienteID = obj[1].tipoAmbienteID;
     // let localidad = obj[2].localidad;
     // let valoracion = obj[6].valoracion;
-
     let tipoCocinaID = [0, 1, 2, 3, 8];
     let tipoAmbienteID = [0, 3];
     var query = {$and: [

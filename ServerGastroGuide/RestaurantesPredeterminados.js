@@ -74,7 +74,7 @@ var restaurantesArray = [{
         imagen: "/assets/img/fideua.jpg",
         nombre: "Fideua con gambas al estilo celler",
         preparacion: "Descripción",
-        ingredientes: ["200g gambas", "300g calamar", "2 dientes de ajo", "1 pimiento verde", "150g cebolla", "1tsp piment�n", "10 ramitas azafr�n", "1tbsp aceite de oliva", "150ml de pescado", "350g fideos n�3"]
+        ingredientes: ["200g gambas", "300g calamar", "2 dientes de ajo", "1 pimiento verde", "150g cebolla", "1tsp pimentón", "10 ramitas azafrán", "1tbsp aceite de oliva", "150ml de pescado", "350g fideos n�3"]
     }
 }];
 
