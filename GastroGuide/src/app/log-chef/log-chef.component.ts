@@ -3,10 +3,17 @@ import { FormGroup, FormBuilder, Validators, NgForm, PatternValidator } from '@a
 import { Router } from '@angular/router';
 import { LlamadasMockyService } from '../llamadas-mocky.service';
 
+import { FormControl, RadioControlValueAccessor } from '@angular/forms';
+import { Observable } from 'rxjs/Observable';
+
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+
 @Component({
   selector: 'app-log-chef',
   templateUrl: './log-chef.component.html',
-  styleUrls: ['./log-chef.component.css']
+  styleUrls: ['./log-chef.component.css'],
+  providers: [LlamadasMockyService]
 })
 export class LogChefComponent implements OnInit {
   //VALIDACION
