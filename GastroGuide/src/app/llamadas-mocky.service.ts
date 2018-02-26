@@ -48,12 +48,12 @@ export class LlamadasMockyService {
 
   getArrayRestaurantes() {
     let arrayRestaurantes = [];
-    arrayRestaurantes.push(elCellerMocky);// id 0
+    /*arrayRestaurantes.push(elCellerMocky);// id 0
     arrayRestaurantes.push(guzzoMocky);// id 1
     arrayRestaurantes.push(operaMocky);// id 2
     arrayRestaurantes.push(piazzaMocky);// id 3
     arrayRestaurantes.push(rocaBarMocky);// id 4
-    return arrayRestaurantes;
+    return arrayRestaurantes;*/
   }
   getTipoCocina() {
     return mockyTipoCocina;

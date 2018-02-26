@@ -33,7 +33,7 @@ export class LogChefComponent implements OnInit {
       this.send.getLogIn(this.login).subscribe(res => {
         if (localStorage.getItem("logUser"))
           localStorage.removeItem("logUser");
-        return localStorage.setItem("logUser", res._id);
+        return localStorage.setItem("logUser", res[0]._id);
       });
       let val = this.login.mailChef;
       if (localStorage.getItem("loginCHEF"))

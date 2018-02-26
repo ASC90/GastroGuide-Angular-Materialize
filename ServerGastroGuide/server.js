@@ -10,6 +10,12 @@ app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 // Trae a los restaurantes
 var moduloRestaurantes = require("./RestaurantesPredeterminados");
+// Cors
+const cors = require("cors")
+
+app.use(cors({
+    methods: ["POST"]
+}));
 
 // Filtrar
 app.post("/filtrarRestaurante", function (req, res) {
@@ -41,12 +47,15 @@ app.post("/filtrarRestaurante", function (req, res) {
 // Log-in
 app.post("/login", function (req, res) {
     res.header('Access-Control-Allow-Origin', '*');
-    let _email = req.body.email;
-    let _password = req.body.password;
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    let _email = req.body.mailChef;
+    let _password = req.body.passChef;
+    console.log("PASS", _email, _password);
     var query = {
         $and: [
-            { email: { $elemMatch: { $in: _email } } },
-            { password: { $elemMatch: { $in: _password } } }
+            { email: _email},
+            { password: _password }
         ]
     };
     var show = {};
