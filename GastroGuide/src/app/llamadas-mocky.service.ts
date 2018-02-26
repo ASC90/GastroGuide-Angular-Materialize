@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
 
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
+import { catchError, map, tap } from 'rxjs/operators';
+
 const elCellerMocky = JSON.parse(JSON.stringify({
   "nombre": "El Celler",
   "idRest": "0",
@@ -399,8 +404,20 @@ const mockyCiudades = [
 ];
 @Injectable()
 export class LlamadasMockyService {
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'my-auth-token'})
+  };
 
-  constructor() { }
+  url = "http://localhost:8080/restaurante";
+
+  constructor(private http: HttpClient) {
+    console.log("HTTP:", http)
+   }
+
+  addRestaurante (miMenu): Observable<any> {
+    return this.http.post(this.url, miMenu, this.httpOptions);
+  }
+
   getArrayRestaurantes() {
     let arrayRestaurantes = [];
     arrayRestaurantes.push(elCellerMocky);// id 0

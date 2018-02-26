@@ -6,9 +6,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 // Form select multiple
 // import { MaterializeDirective } from "angular2-materialize";
-
-
-
+import { HttpModule } from '@angular/http';
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -90,6 +89,8 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     MaterializeModule,
     FormsModule,
+    HttpModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
