@@ -12,12 +12,16 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 var moduloRestaurantes = require("./RestaurantesPredeterminados");
 
 // Filtrar
-app.get("/filtrarRestaurante", function (req, res) {
+app.post("/filtrarRestaurante", function (req, res) {
     res.header('Access-Control-Allow-Origin', '*');
     // let obj = JSON.parse(req.body);
     // let tipoCocinaID = obj[0].tipoCocinaID;
-    let tipoCocinaID = [0, 1, 2, 3];
-    let tipoAmbienteID = [0,3];
+    // let tipoAmbienteID = obj[1].tipoAmbienteID;
+    // let localidad = obj[2].localidad;
+    // let valoracion = obj[6].valoracion;
+
+    let tipoCocinaID = [0, 1, 2, 3, 8];
+    let tipoAmbienteID = [0, 3];
     var query = {$and: [
         { tipoCocinaID: { $elemMatch: { $in: tipoCocinaID } } },
         { tipoAmbienteID: { $elemMatch: { $in: tipoAmbienteID } } }
@@ -35,10 +39,35 @@ app.get("/filtrarRestaurante", function (req, res) {
     });
 });
 
+// Crear restaurante
+app.post("/create", function (req, res) {
+    res.header('Access-Control-Allow-Origin', '*');
+    let obj = {
+        restaurante: req.body.restaurante,
+        nombre: req.body.nombre,
+        apellidos: req.body.apellidos,
+        genero: req.body.genero,
+        email: req.body.email,
+        password: req.body.password,
+        telefono: req.body.telefono,
+        localidad: req.body.localidad,
+        valoracion: req.body.valoracion
+    }
+    dbo.collection("Restaurantes").save(obj).toArray((err, result) => {
+        if (err) {
+            res.send({ 'error': err });
+        } else {
+            output = JSON.stringify(result);
+            console.log("set cache");
+            res.end(output);
+        }
+    });
+});
+
 // Generate
 app.get("/generate", function (req, res) {
     res.header('Access-Control-Allow-Origin', '*');
-    var arrRest = moduloRestaurantes.restaurantesArray;
+    let arrRest = moduloRestaurantes.restaurantesArray;
     dbo.collection("Restaurantes").insertMany(arrRest, function (err, db) {
         if (err) throw err;
         console.log("result", db);
