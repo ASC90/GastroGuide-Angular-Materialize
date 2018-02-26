@@ -108,7 +108,7 @@ app.get("/generate", function (req, res) {
 
 
 // Delete
-app.get("/del", function (req, res) {
+app.delete("/del", function (req, res) {
     res.header('Access-Control-Allow-Origin', '*');
     dbo.collection("Restaurantes").drop(function (err, ok) {
         if (err) throw err;
