@@ -4,9 +4,13 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/Rx';
 
-import { HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
+import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { LlamadasMockyService } from "../llamadas-mocky.service";
+import { MaterializeDirective } from "angular2-materialize";
+// import { link } from 'fs';
+import { Router } from '@angular/router';
+
 
 declare var $: any;
 
@@ -23,12 +27,10 @@ export class HeaderComponent implements OnInit {
 
   nombreUsuario = "Nombre Usuario";
   emailUsuario = "Email Usuario";
+  variableLocal = '';
 
 
-
-
-
-  constructor(private send: LlamadasMockyService) {
+  constructor(private router: Router, private send: LlamadasMockyService) {
     //this.start();
   }
 
@@ -60,6 +62,19 @@ export class HeaderComponent implements OnInit {
     });
     localStorage.setItem("logUser", "0");
 
+    $('.dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrainWidth: false, // Does not change width of dropdown to that of the activator
+      hover: true, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: false, // Displays dropdown below the button
+      alignment: 'left', // Displays dropdown with edge aligned to the left of button
+      stopPropagation: false // Stops event propagation
+    }
+    );
+
+
     let self = this;
     let originalSetItem = localStorage.setItem;
     localStorage.setItem = function () {
@@ -71,17 +86,23 @@ export class HeaderComponent implements OnInit {
           self.nombreUsuario = res[0].restaurante;
           self.emailUsuario = res[0].email;
         });
+
       }
       else {
         self.nombreUsuario = "Nombre Usuario";
         self.emailUsuario = "Email Usuario";
       }
+      self.variableLocal = localStorage.getItem("logUser");
     }
-
+    
     /*var storageHandler = function () {
       alert("LocalStorage Change!");
     };
 
     window.addEventListener("storage", storageHandler);*/
+  }
+  logOut(){
+    localStorage.setItem("logUser", "0");
+    this.router.navigateByUrl("/")
   }
 }

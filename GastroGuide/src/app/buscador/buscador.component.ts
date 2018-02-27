@@ -1,33 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-declare var $: any;
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+import 'rxjs/Rx';
 
-// JSON de tipo de cocina
-const mockyTipoCocina = [
-  "Española", "India", "Japonesa", "China",
-  "Italiana", "Mexicana", "Tailandesa", "Coreana",
-  "Mediterránea", "Americana", "Marroquí", "Escandinava",
-  "Fusión"
-];
-// JSON de ambientes
-const mockyAmbientes = [
-  "Con amigos", "Romántico", "De fiesta", "Moderno",
-  "Tradicional", "De negocios", "Para grupos", "Família",
-  "Tranquilo","Ecológico"
-];
-// JSON ciudades
-const mockyCiudades = [
-  "Albacete", "Alicante", "Almería", "Ávila", "Badajoz", "Barcelona",
-  "Bilbao", "Burgos", "Cáceres", "Cádiz", "Castellón de la Plana",
-  "Ceuta", "Ciudad Real", "Córdoba", "Cuenca", "Gerona", "Granada", "Guadalajara",
-  "Huelva", "Huesca", "Jaén", "La Coruña", "Las Palmas de Gran Canaria", "León",
-  "Lérida", "Logroño", "Lugo", "Madrid", "Málaga", "Melilla", "Mérida", "Murcia",
-  "Orense", "Oviedo", "Palencia", "Palma", "Pamplona", "Pontevedra", "Salamanca",
-  "San Sebastián", "Santa Cruz de Tenerife", "Santander", "Santiago de Compostela",
-  "Segovia", "Sevilla", "Soria", "Tarragona", "Teruel", "Toledo", "Valencia", "Valladolid",
-  "Vitoria-Gasteiz", "Zamora", "Zaragoza"
-];
+import { Http } from '@angular/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { LlamadasMockyService } from "../llamadas-mocky.service";
+
+declare var $: any;
 
 @Component({
   selector: 'app-buscador',
@@ -37,9 +19,9 @@ const mockyCiudades = [
 
 export class BuscadorComponent implements OnInit {
   // Listas
-  tipoDeCocina = mockyTipoCocina;
-  ambientes = mockyAmbientes;
-  ciudades = mockyCiudades;
+  tipoDeCocina = [];
+  ambientes = [];
+  ciudades = [];
   // Captura de formulario
   optionsTipoCocina = [];
   optionsAmbientes = [];
@@ -58,7 +40,7 @@ export class BuscadorComponent implements OnInit {
   validarHora = "timepicker";
   errorHora = "El campo está vacío";
   validarComensales = "";
-  constructor(private router: Router) { }
+  constructor(private router: Router, public arrayRestaurantes: LlamadasMockyService) { }
 
   ngOnInit() {
     $(document).ready(function () {
@@ -85,6 +67,9 @@ export class BuscadorComponent implements OnInit {
       ampmclickable: true, // make AM PM clickable
       aftershow: function () { } //Function for after opening timepicker
     });
+    this.tipoDeCocina = this.arrayRestaurantes.getTipoCocina();
+    this.ambientes = this.arrayRestaurantes.getAmbientes();
+    this.ciudades = this.arrayRestaurantes.getLocalidades();
   }
   // Cuando hago click para buscar (button)
   getBuscador() {
