@@ -70,7 +70,7 @@ export class LlamadasMockyService {
   getLogIn(data): Observable<any> {
     return this.http.post("http://localhost:8080/login", data, this.httpOptions);
   }
-  getRestaurante(url): Observable<any> {
-    return this.http.get("http://localhost:8080/getRestaurante/" + url, this.httpOptions);
+  getRestaurante(urlid): Observable<any> {
+    return this.http.get("http://localhost:8080/getRestaurante/"+urlid, this.httpOptions);
   }
 }

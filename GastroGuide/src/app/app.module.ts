@@ -33,7 +33,8 @@ import { MenuComponent } from './homeres/menu/menu.component';
 import { OfertasComponent } from './homeres/ofertas/ofertas.component'; 
 import { RecetasComponent } from './homeres/recetas/recetas.component'; 
 import { ImagenesComponent } from './homeres/imagenes/imagenes.component';
-import { ImagenPerfilComponent } from './imagen-perfil/imagen-perfil.component'; 
+import { ImagenPerfilComponent } from './imagen-perfil/imagen-perfil.component';
+import { PerfilComponent } from './perfil/perfil.component'; 
 
 
 
@@ -78,7 +79,7 @@ const appRoutes: Routes = [
     MenuComponent, 
     OfertasComponent, 
     RecetasComponent, 
-    ImagenesComponent, ImagenPerfilComponent 
+    ImagenesComponent, ImagenPerfilComponent, PerfilComponent 
   ],
   imports: [
     BrowserModule,
