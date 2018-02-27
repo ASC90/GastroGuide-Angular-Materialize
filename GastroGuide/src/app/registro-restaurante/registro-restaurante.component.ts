@@ -49,7 +49,12 @@ export class RegistroRestauranteComponent implements OnInit {
       calle: this.form.get("calle").value,
       numero: this.form.get("numero").value
     }
-   this.envia.addChef({gastroChef}).subscribe(res => {console.log(res)});
-   // this.router.navigateByUrl("/homeres");
+    this.envia.addChef(gastroChef).subscribe(res => {
+      if (localStorage.getItem('logUser')) {
+        localStorage.removeItem('logUser')
+      }
+      return localStorage.setItem('logUser',res._id)
+    });
+    this.router.navigateByUrl("/homeres");
   }
 }

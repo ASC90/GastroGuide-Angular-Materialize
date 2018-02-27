@@ -1,3 +1,5 @@
+// import { read } from 'fs';
+
 //server.js
 var express = require('express');
 var mongo = require('mongodb');
@@ -27,9 +29,10 @@ app.post("/filtrarRestaurante", function (req, res) {
     // let valoracion = obj[6].valoracion;
     let tipoCocinaID = [0, 1, 2, 3, 8];
     let tipoAmbienteID = [0, 3];
-    let query = {$and: [
-        { tipoCocinaID: { $elemMatch: { $in: tipoCocinaID } } },
-        { tipoAmbienteID: { $elemMatch: { $in: tipoAmbienteID } } }
+    let query = {
+        $and: [
+            { tipoCocinaID: { $elemMatch: { $in: tipoCocinaID } } },
+            { tipoAmbienteID: { $elemMatch: { $in: tipoAmbienteID } } }
         ]
     };
     let show = {};
@@ -53,7 +56,7 @@ app.get("/getRestaurante/:id", function (req, res) {
             res.send({ 'error': err });
         } else {
             output = JSON.stringify(result);
-            console.log("Resultado:", result);
+            //console.log("Resultado:", result);
             res.send(output);
         }
     });
@@ -69,7 +72,7 @@ app.post("/login", function (req, res) {
     console.log("PASS", _email, _password);
     let query = {
         $and: [
-            { email: _email},
+            { email: _email },
             { password: _password }
         ]
     };
@@ -116,11 +119,42 @@ app.get("/generate", function (req, res) {
     let arrRest = moduloRestaurantes.restaurantesArray;
     dbo.collection("Restaurantes").insertMany(arrRest, function (err, db) {
         if (err) throw err;
-        console.log("result", db);
     });
     res.send(arrRest);
 });
+///////////////////POST REGISTRO RESTAURANTE////////////////////////
+app.post("/restaurante", function (req, res) {
+    res.header('Access-Control-Allow-Origin', '*');
+    dbo.collection("Restaurantes").insert(req.body, function (err, db) {
+        if (err) throw err;
+    });
+    res.json(req.body);
+});
 
+////////////////POST HOME RESTAURANTE/////////////////////////////
+app.post("/restaurante/:id", function (req, res) {
+    res.header('Access-Control-Allow-Origin', '*');
+    let pid = new mongo.ObjectId(req.params.id);
+    let query = { _id: pid };
+    let obj = {};
+
+    dbo.collection("Restaurantes").find(query).toArray((err, result) => {
+        if (err) {
+            res.send({ 'error': err });
+        }
+        else {
+            obj = result[0];
+            let completo = Object.assign(obj, req.body);
+            console.log('ESTO ES UNA BAINA: ', completo);
+            dbo.collection("Restaurantes").update(query, completo, function (err, result) {
+                output = JSON.stringify(result);
+                res.end(output);
+            });
+        }
+    });
+
+
+});
 
 // Delete
 app.delete("/del", function (req, res) {
