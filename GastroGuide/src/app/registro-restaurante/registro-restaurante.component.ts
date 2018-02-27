@@ -2,15 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, RadioControlValueAccessor } from '@angular/forms';
 import { matchOtherValidator } from '../1-match-other-validator'
 import { Router } from '@angular/router';
-
-
-
-
+import { LlamadasMockyService } from '../llamadas-mocky.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-registro-restaurante',
   templateUrl: './registro-restaurante.component.html',
-  styleUrls: ['./registro-restaurante.component.css']
+  styleUrls: ['./registro-restaurante.component.css'],
+  providers: [LlamadasMockyService]
 })
 export class RegistroRestauranteComponent implements OnInit {
 
@@ -31,7 +30,7 @@ export class RegistroRestauranteComponent implements OnInit {
     condiciones: new FormControl(false, Validators.requiredTrue)
   })
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private envia: LlamadasMockyService) { }
 
   ngOnInit() {
   }
@@ -50,8 +49,7 @@ export class RegistroRestauranteComponent implements OnInit {
       calle: this.form.get("calle").value,
       numero: this.form.get("numero").value
     }
-
-    this.router.navigateByUrl("/homeres");
+   this.envia.addChef({gastroChef}).subscribe(res => {console.log(res)});
+   // this.router.navigateByUrl("/homeres");
   }
-
 }

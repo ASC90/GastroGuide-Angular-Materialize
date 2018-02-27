@@ -1,16 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
+import { FormControl, RadioControlValueAccessor } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LlamadasMockyService } from '../../llamadas-mocky.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-ofertas',
   templateUrl: './ofertas.component.html',
-  styleUrls: ['./ofertas.component.css']
+  styleUrls: ['./ofertas.component.css'],
+  providers: [LlamadasMockyService]
 })
 export class OfertasComponent implements OnInit {
   miOferta = {
-    ofertas: '',
+    oferta: '',
+    ofertas: ''
   };
-  constructor() { }
+  constructor(private router: Router, private send: LlamadasMockyService) { }
 
   ngOnInit() {
   }
@@ -23,5 +29,6 @@ export class OfertasComponent implements OnInit {
       alert("LOS CAMPOS SON CORRECTOS!!");
       form3.resetForm();
     }
+    this.send.addRestaurante(this.miOferta).subscribe(res => {console.log(res)});
   }
 }

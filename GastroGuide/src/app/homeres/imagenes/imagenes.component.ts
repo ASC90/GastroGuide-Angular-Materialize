@@ -1,9 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
+import { FormControl, RadioControlValueAccessor } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LlamadasMockyService } from '../../llamadas-mocky.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-imagenes',
   templateUrl: './imagenes.component.html',
-  styleUrls: ['./imagenes.component.css']
+  styleUrls: ['./imagenes.component.css'],
+  providers: [LlamadasMockyService]
 })
 
 export class ImagenesComponent implements OnInit {
@@ -11,7 +17,7 @@ export class ImagenesComponent implements OnInit {
     url:[]
   };
 
-  constructor() { }
+  constructor(private router: Router, private send: LlamadasMockyService) { }
 
   ngOnInit() {
   }
@@ -23,8 +29,7 @@ export class ImagenesComponent implements OnInit {
         this.imagen.url.push(event.target.result);
       }
       reader.readAsDataURL(event.target.files[0]);    
-      // let foto = this.imagen.url;
-      // this.imagen.url.push(foto);
     }
+    this.send.addRestaurante(this.imagen).subscribe(res => {console.log(res)});
   }
 }

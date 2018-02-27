@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
+import { FormControl, RadioControlValueAccessor } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LlamadasMockyService } from '../../llamadas-mocky.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-recetas',
   templateUrl: './recetas.component.html',
-  styleUrls: ['./recetas.component.css']
+  styleUrls: ['./recetas.component.css'],
+  providers: [LlamadasMockyService]
 })
 export class RecetasComponent implements OnInit {
   ingredient = [];
@@ -14,12 +19,12 @@ export class RecetasComponent implements OnInit {
     ingredientes: '',
     preparacion: ''
   };
-  constructor() { }
+  constructor(private router: Router, private send: LlamadasMockyService) { }
 
   ngOnInit() {
   }
 
-  onSubmit(form: NgForm, form2: NgForm, form3: NgForm, form4: NgForm) {
+  onSubmit(form4: NgForm) {
     if (!form4.valid) {
       alert("HAY UN CAMPO INCORRECTO!!");
       return;
@@ -27,6 +32,7 @@ export class RecetasComponent implements OnInit {
       alert("LOS CAMPOS SON CORRECTOS!!");
       form4.resetForm();
     }
+    this.send.addRestaurante(this.miReceta).subscribe(res => {console.log(res)});
   }
 
   addIngredientes() {
@@ -35,5 +41,6 @@ export class RecetasComponent implements OnInit {
     console.log(this.ingredient);
     this.miReceta.ingredientes = "";
     console.log(this.miReceta.ingredientes);
+    this.send.addRestaurante(this.miReceta).subscribe(res => {console.log(res)});
   }
 }

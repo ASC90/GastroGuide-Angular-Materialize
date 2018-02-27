@@ -1,33 +1,45 @@
 <!--////////////////////////////////OFERTAS//////////////////////////////////////////////////////-->
 <div class="container">
-    <div class="row">
-      <form #form3="ngForm" class="col s12 m12 l12 xl12" (ngSubmit)="onSubmit(form3)">
-        <div class="row">
-          <p>
-            <input class="with-gap" name="group3" type="radio" id="test5" checked />
-            <label for="test5">Promociones</label>
-          </p>
-          <p>
-            <input class="with-gap" name="group3" type="radio" id="test5" checked />
-            <label for="test5">Descuentos</label>
-          </p>
-        </div>
-        <div class="row">
-          <div class="input-field col s12 m12 l12 xl12">
-            <textarea placeholder="Describe la oferta..." name="textareaOferta" class="materialize-textarea" required #oferta="ngModel"
-              [(ngModel)]="miOferta.ofertas"></textarea>
-            <div class="md-errors-spacer" [hidden]="oferta.valid || oferta.untouched">
-              <div class="error" *ngIf="oferta.errors && oferta.errors.required">
-                Por favor debes rellenar este campo
-              </div>
-              <div class="error" *ngIf="oferta.errors && oferta.errors.pattern">
-                Por favor debes rellenar este campo
-              </div>
+  <div class="row">
+    <form #form3="ngForm" class="col s12 m12 l12 xl12" (ngSubmit)="onSubmit(form3)">
+      <div class="row">
+        <p>
+          <input class="with-gap" name="group3" type="radio" id="test5" checked />
+          <label for="test5">Promociones</label>
+        </p>
+        <p>
+          <input class="with-gap" name="group3" type="radio" id="test5" checked />
+          <label for="test5">Descuentos</label>
+        </p>
+      </div>
+      <div class="row">
+        <div class="input-field col s12 m12 l12 xl12">
+          <input placeholder="Nombre de la oferta o promoción" name="oferta" type="text" class="validate" minlength="3" required #nomoferta="ngModel"
+            [(ngModel)]="miOferta.oferta">
+          <div class="md-errors-spacer" [hidden]="nomoferta.valid || nomoferta.untouched">
+            <div class="error" *ngIf="nomoferta.errors && nomoferta.errors.required">
+              Por favor debes rellenar este campo
+            </div>
+            <div class="error" *ngIf="nomoferta.errors && nomoferta.errors.pattern">
+              Por favor debes rellenar este campo
             </div>
           </div>
         </div>
-        <div class="input-field col col s12 m12 l12 xl12">
-          <button class="btn z-depth-5 center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4 right" [disabled]="form3.pristine || !form3.valid">Aplicar</button>
+        <div class="input-field col s12 m12 l12 xl12">
+          <textarea placeholder="Describe la oferta..." name="textareaOferta" class="materialize-textarea" required #oferta="ngModel"
+            [(ngModel)]="miOferta.ofertas"></textarea>
+          <div class="md-errors-spacer" [hidden]="oferta.valid || oferta.untouched">
+            <div class="error" *ngIf="oferta.errors && oferta.errors.required">
+              Por favor debes rellenar este campo
+            </div>
+            <div class="error" *ngIf="oferta.errors && oferta.errors.pattern">
+              Por favor debes rellenar este campo
+            </div>
+          </div>
         </div>
-      </form>
-    </div>
+      </div>
+      <div class="input-field col col s12 m12 l12 xl12">
+        <button class="btn z-depth-5 center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4 right" [disabled]="form3.pristine || !form3.valid">Aplicar</button>
+      </div>
+    </form>
+  </div>
