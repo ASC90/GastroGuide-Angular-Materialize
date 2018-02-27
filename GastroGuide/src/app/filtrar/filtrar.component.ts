@@ -40,6 +40,7 @@ export class FiltrarComponent implements OnInit {
     this.pintarRestaurantesFiltrados();
     console.log();
   }
+
   getFiltrar() {
     let arr = JSON.parse(localStorage.getItem("busqueda"));
     if (localStorage.getItem("busqueda"))
@@ -54,15 +55,13 @@ export class FiltrarComponent implements OnInit {
       if (this.arrayCheckAmbientes[i] == true)
           arr[1].push(i);
     }
-    //arr[0] = this.arrayCheckTipoCocina;
-    //arr[1] = this.arrayCheckAmbientes;
     arr[6] = this.range;
     localStorage.setItem("busqueda", JSON.stringify(arr));
     this.busquedaObj = JSON.parse(localStorage.getItem("busqueda"));
     this.inicializarRestaurantesLocalStorage();
     this.pintarRestaurantesFiltrados();
-    console.log(this.arrayCheckTipoCocina);
   }
+
   pintarRestaurantesFiltrados() {
     this.arrayRestaurantesPintados = [];
     for (let i = 0; i < this.arrayRestaurantes.getArrayRestaurantes().length; i++) {
@@ -76,8 +75,10 @@ export class FiltrarComponent implements OnInit {
         this.arrayRestaurantesPintados.push(this.arrayRestaurantes.getArrayRestaurantes()[i]);
       }
     }
+
     return this.arrayRestaurantesPintados;
   }
+
   inicializarRestaurantesLocalStorage() {
     this.arrayCheckTipoCocina = [];
     this.busquedaObj = JSON.parse(localStorage.getItem("busqueda"));
@@ -97,4 +98,5 @@ export class FiltrarComponent implements OnInit {
     } 
     this.range = this.busquedaObj[6];
   }
+
 }
