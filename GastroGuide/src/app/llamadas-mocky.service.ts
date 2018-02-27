@@ -47,6 +47,7 @@ export class LlamadasMockyService {
   }
 
   addChef (gastroChef): Observable<any> {
+    console.log(gastroChef)
     return this.http.post(this.url2, gastroChef, this.httpOptions);
   }
 

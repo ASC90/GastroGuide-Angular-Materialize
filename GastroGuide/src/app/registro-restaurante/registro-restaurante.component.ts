@@ -4,6 +4,7 @@ import { matchOtherValidator } from '../1-match-other-validator'
 import { Router } from '@angular/router';
 import { LlamadasMockyService } from '../llamadas-mocky.service';
 import { Observable } from 'rxjs/Observable';
+import { Restaurante } from '../restaurante.model';
 
 @Component({
   selector: 'app-registro-restaurante',
@@ -36,20 +37,21 @@ export class RegistroRestauranteComponent implements OnInit {
   }
 
   onSubmit() {
-    let gastroChef = {
-      restaurante: this.form.get("restaurante").value,
-      nombre: this.form.get("nombre").value,
-      apellidos: this.form.get("apellidos").value,
-      genero: this.form.get("genero").value,
-      email: this.form.get("email").value,
-      password: this.form.get("password").value,
-      tel: this.form.get("tel").value,
-      cp: this.form.get("cp").value,
-      poblacion: this.form.get("poblacion").value,
-      calle: this.form.get("calle").value,
-      numero: this.form.get("numero").value
-    }
+  if (this.form.valid) {
+  let gastroChef: Restaurante = {
+    restaurante:this.form.get("restaurante").value,
+    nombre: this.form.get("nombre").value,
+    apellidos: this.form.get("apellidos").value,
+    genero: this.form.get("genero").value,
+    email: this.form.get("email").value,
+    password: this.form.get("password").value,
+    telefono: this.form.get("tel").value,
+    adresa: this.form.get("calle").value +", "  + this.form.get("numero").value +" "+ this.form.get("cp").value +" "+ this.form.get("poblacion").value,
+    localidad: this.form.get("poblacion").value
+  };
+  
    this.envia.addChef({gastroChef}).subscribe(res => {console.log(res)});
    // this.router.navigateByUrl("/homeres");
   }
+}
 }
