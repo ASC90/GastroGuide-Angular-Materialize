@@ -32,7 +32,7 @@ export class RecetasComponent implements OnInit {
       alert("LOS CAMPOS SON CORRECTOS!!");
       form4.resetForm();
     }
-    this.send.addRestaurante(this.miReceta).subscribe(res => {console.log(res)});
+    this.send.addRestaurante(this.miReceta, localStorage.getItem('logUser')).subscribe(res => {console.log(res)});
   }
 
   addIngredientes() {
@@ -41,6 +41,6 @@ export class RecetasComponent implements OnInit {
     console.log(this.ingredient);
     this.miReceta.ingredientes = "";
     console.log(this.miReceta.ingredientes);
-    this.send.addRestaurante(this.miReceta).subscribe(res => {console.log(res)});
+    this.send.addRestaurante(this.miReceta, localStorage.getItem('logUser')).subscribe(res => {console.log(res)});
   }
 }

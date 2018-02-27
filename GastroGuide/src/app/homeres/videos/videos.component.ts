@@ -31,6 +31,6 @@ export class VideosComponent implements OnInit {
       alert("LOS CAMPOS SON CORRECTOS!!");
       form.resetForm();
     }
-    this.send.addRestaurante(this.miVideo).subscribe(res => {console.log(res)});
+    this.send.addRestaurante(this.miVideo, localStorage.getItem('logUser')).subscribe(res => {console.log(res)});
   }
 }
