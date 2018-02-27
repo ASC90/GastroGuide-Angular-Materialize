@@ -1,0 +1,48 @@
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+import 'rxjs/Rx';
+
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+import { LlamadasMockyService } from "../llamadas-mocky.service";
+
+@Component({
+  selector: 'app-perfil',
+  templateUrl: './perfil.component.html',
+  styleUrls: ['./perfil.component.css'],
+  providers: [LlamadasMockyService]
+})
+export class PerfilComponent implements OnInit {
+
+  NombreRestaurante = "Nombre del Restaurante";
+  DireccionRestarante = "Dirección del local";
+  TelefonoRestaurante = "Numero de telefono";
+  ImgRestaurante = ''
+
+  constructor(private send: LlamadasMockyService) { }
+
+  ngOnInit() {
+    let self = this;
+    let originalSetItem = localStorage.setItem;
+    localStorage.setItem = function () {
+      document.createEvent('Event').initEvent('itemInserted', true, true);
+      originalSetItem.apply(this, arguments);
+      alert("Something Changed");
+      if (localStorage.getItem("logUser") != "0" && localStorage.getItem("logUser")) {
+        self.send.getRestaurante(localStorage.getItem("logUser")).subscribe(res => {
+          self.NombreRestaurante = res[0].restaurante;
+          self.DireccionRestarante = res[0].adresa;
+          self.TelefonoRestaurante = res[0].telefono;
+          self.ImgRestaurante = res[0].imagen;
+        });
+      }
+      else {
+        self.NombreRestaurante = "Nombre del Restaurante";
+        self.DireccionRestarante = "Dirección del local";
+        self.TelefonoRestaurante = "Numero de telefono";
+      }
+    }
+  }
+
+}
