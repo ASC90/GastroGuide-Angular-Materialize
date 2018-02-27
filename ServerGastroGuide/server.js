@@ -27,19 +27,34 @@ app.post("/filtrarRestaurante", function (req, res) {
     // let valoracion = obj[6].valoracion;
     let tipoCocinaID = [0, 1, 2, 3, 8];
     let tipoAmbienteID = [0, 3];
-    var query = {$and: [
+    let query = {$and: [
         { tipoCocinaID: { $elemMatch: { $in: tipoCocinaID } } },
         { tipoAmbienteID: { $elemMatch: { $in: tipoAmbienteID } } }
         ]
     };
-    var show = {};
+    let show = {};
     dbo.collection("Restaurantes").find(query, show).toArray((err, result) => {
         if (err) {
             res.send({ 'error': err });
         } else {
             output = JSON.stringify(result);
-            console.log("set cache");
+            //console.log("set cache");
             res.end(output);
+        }
+    });
+});
+// Get Restaurante
+app.get("/getRestaurante/:id", function (req, res) {
+    console.log(req.params.id);
+    let pid = new mongo.ObjectId(req.params.id);
+    let query = { _id: pid };
+    dbo.collection("Restaurantes").find(query).toArray((err, result) => {
+        if (err) {
+            res.send({ 'error': err });
+        } else {
+            output = JSON.stringify(result);
+            console.log("Resultado:", result);
+            res.send(output);
         }
     });
 });
@@ -52,13 +67,13 @@ app.post("/login", function (req, res) {
     let _email = req.body.mailChef;
     let _password = req.body.passChef;
     console.log("PASS", _email, _password);
-    var query = {
+    let query = {
         $and: [
             { email: _email},
             { password: _password }
         ]
     };
-    var show = {};
+    let show = {};
     dbo.collection("Restaurantes").find(query, show).toArray((err, result) => {
         if (err) {
             res.send({ 'error': err });
@@ -121,9 +136,9 @@ app.delete("/del", function (req, res) {
 // Read 
 app.get('/read', function (req, res) {
     res.header('Access-Control-Allow-Origin', '*');
-    var query = {};
-    var show = {};
-    var sort = {};
+    let query = {};
+    let show = {};
+    let sort = {};
     dbo.collection("Restaurantes").find(query, show).sort(sort).toArray((err, result) => {
         if (err) {
             res.send({ 'error': err });

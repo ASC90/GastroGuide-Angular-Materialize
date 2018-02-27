@@ -3,13 +3,19 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/Rx';
+
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+import { LlamadasMockyService } from "../llamadas-mocky.service";
+
 declare var $: any;
 
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
+  providers: [LlamadasMockyService]
 })
 export class HeaderComponent implements OnInit {
   /*private onSubject = new Subject<{ key: string, value: any }>();
@@ -22,7 +28,7 @@ export class HeaderComponent implements OnInit {
 
 
 
-  constructor() {
+  constructor(private send: LlamadasMockyService) {
     //this.start();
   }
 
@@ -60,9 +66,11 @@ export class HeaderComponent implements OnInit {
       document.createEvent('Event').initEvent('itemInserted', true, true);
       originalSetItem.apply(this, arguments);
       alert("Something Changed");
-      if (localStorage.getItem("logUser") != "0") {
-        self.nombreUsuario = "Undefined";
-        self.emailUsuario = "Undefined";
+      if (localStorage.getItem("logUser") != "0" && localStorage.getItem("logUser")) {
+        self.send.getRestaurante(localStorage.getItem("logUser")).subscribe(res => {
+          self.nombreUsuario = res[0].restaurante;
+          self.emailUsuario = res[0].email;
+        });
       }
       else {
         self.nombreUsuario = "Nombre Usuario";
