@@ -6,6 +6,7 @@
       </h1>
     </div>
   </div>
+
   <form name="formularioRestaurantes" [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="row">
       <app-imagen-perfil class="col s12 xl3"></app-imagen-perfil>
@@ -164,8 +165,8 @@
 
         <div >
           
-            <button [disabled]="form.pristine || !form.valid" type="submit" class="btn center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4" id="submitRegRes">Registrar-se</button>
-            
+            <button [disabled]="form.pristine || !form.valid"  type="submit" class="btn center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4" id="submitRegRes">Registrar-se</button>
+
         </div>
       </div>
     </div>
