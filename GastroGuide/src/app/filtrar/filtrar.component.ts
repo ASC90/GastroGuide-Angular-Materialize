@@ -64,7 +64,7 @@ export class FiltrarComponent implements OnInit {
 
   pintarRestaurantesFiltrados() {
     this.arrayRestaurantesPintados = [];
-    for (let i = 0; i < this.arrayRestaurantes.getArrayRestaurantes().length; i++) {
+  /*   for (let i = 0; i < this.arrayRestaurantes.getArrayRestaurantes().length; i++) {
       let arrTipCoc = arrayCompare(this.busquedaObj[0], this.arrayRestaurantes.getArrayRestaurantes()[i].tipoCocinaID);
       let arrAmb = arrayCompare(this.busquedaObj[1], this.arrayRestaurantes.getArrayRestaurantes()[i].tipoAmbienteID);
       let Loc = this.arrayRestaurantes.getArrayRestaurantes()[i].localidad.includes(this.busquedaObj[2]);
@@ -74,7 +74,7 @@ export class FiltrarComponent implements OnInit {
       if (arrTipCoc && arrAmb && Loc && nota) {
         this.arrayRestaurantesPintados.push(this.arrayRestaurantes.getArrayRestaurantes()[i]);
       }
-    }
+    } */
 
     return this.arrayRestaurantesPintados;
   }
