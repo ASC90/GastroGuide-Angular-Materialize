@@ -29,6 +29,6 @@ export class OfertasComponent implements OnInit {
       alert("LOS CAMPOS SON CORRECTOS!!");
       form3.resetForm();
     }
-    this.send.addRestaurante(this.miOferta).subscribe(res => {console.log(res)});
+    this.send.addRestaurante(this.miOferta, localStorage.getItem('logUser')).subscribe(res => {console.log(res)});
   }
 }

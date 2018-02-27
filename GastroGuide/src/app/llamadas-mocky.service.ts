@@ -30,24 +30,23 @@ const mockyCiudades = [
   "Vitoria-Gasteiz", "Zamora", "Zaragoza"
 ];
 @Injectable()
-export class LlamadasMockyService { 
+export class LlamadasMockyService {
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'my-auth-token'})
+    headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'my-auth-token' })
   };
 
   url = "http://localhost:8080/restaurante";
-  url2 = "http://localhost:8080/chef";
 
   constructor(private http: HttpClient) {
     console.log("HTTP:", http)
-   }
-  
-  addRestaurante (miNuevoRestaurante): Observable<any> {
-    return this.http.post(this.url, miNuevoRestaurante, this.httpOptions);
   }
 
-  addChef (gastroChef): Observable<any> {
-    return this.http.post(this.url2, gastroChef, this.httpOptions);
+  addRestaurante(miNuevoRestaurante, id): Observable<any> {
+    return this.http.post(this.url + '/' + id, miNuevoRestaurante, this.httpOptions);
+  }
+
+  addChef(gastroChef): Observable<any> {
+    return this.http.post(this.url, gastroChef, this.httpOptions);
   }
 
   getArrayRestaurantes() {
@@ -65,13 +64,13 @@ export class LlamadasMockyService {
   getAmbientes() {
     return mockyAmbientes;
   }
-  getLocalidades(){
+  getLocalidades() {
     return mockyCiudades;
   }
   getLogIn(data): Observable<any> {
     return this.http.post("http://localhost:8080/login", data, this.httpOptions);
   }
   getRestaurante(url): Observable<any> {
-    return this.http.get("http://localhost:8080/getRestaurante/"+url, this.httpOptions);
+    return this.http.get("http://localhost:8080/getRestaurante/" + url, this.httpOptions);
   }
 }

@@ -5,7 +5,7 @@
       <div class="row">
         <div class="input-field col s12 m12 l12 xl12">
           <textarea placeholder="Introduce los entrantes..." name="textareaEntrantes" class="materialize-textarea" required #entrantes="ngModel"
-            [(ngModel)]="miMenu.entrantes"></textarea>
+            [(ngModel)]="pEntrantes"></textarea>
           <div class="md-errors-spacer" [hidden]="entrantes.valid || entrantes.untouched">
             <div class="error" *ngIf="entrantes.errors && entrantes.errors.required">
               Por favor debes rellenar este campo
@@ -19,7 +19,7 @@
       <div class="row">
         <div class="input-field col s12 m12 l12 xl12">
           <textarea placeholder="Introduce los primeros..." name="textareaPrimeros" class="materialize-textarea" required #primeros="ngModel"
-            [(ngModel)]="miMenu.primeros"></textarea>
+            [(ngModel)]="pPrimeros"></textarea>
           <div class="md-errors-spacer" [hidden]="primeros.valid || primeros.untouched">
             <div class="error" *ngIf="primeros.errors && primeros.errors.required">
               Por favor debes rellenar este campo
@@ -33,7 +33,7 @@
       <div class="row">
         <div class="input-field col s12 m12 l12 xl12">
           <textarea placeholder="Introduce los segundos..." name="textareaSegundos" class="materialize-textarea" required #segundos="ngModel"
-            [(ngModel)]="miMenu.segundos"></textarea>
+            [(ngModel)]="pSegundos"></textarea>
           <div class="md-errors-spacer" [hidden]="segundos.valid || segundos.untouched">
             <div class="error" *ngIf="segundos.errors && segundos.errors.required">
               Por favor debes rellenar este campo
@@ -47,7 +47,7 @@
       <div class="row">
         <div class="input-field col s12 m12 l12 xl12">
           <textarea placeholder="Introduce los postres..." name="textareaPostres" class="materialize-textarea" required #postres="ngModel"
-            [(ngModel)]="miMenu.postres"></textarea>
+            [(ngModel)]="pPostres"></textarea>
           <div class="md-errors-spacer" [hidden]="postres.valid || postres.untouched">
             <div class="error" *ngIf="postres.errors && postres.errors.required">
               Por favor debes rellenar este campo
