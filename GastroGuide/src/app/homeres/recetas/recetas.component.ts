@@ -13,34 +13,36 @@ import { Observable } from 'rxjs/Observable';
 })
 export class RecetasComponent implements OnInit {
   ingredient = [];
+  pNombre = '';
+  pIngredientes = '';
+  pPreparacion = '';
 
-  miReceta = {
-    nombre: '',
-    ingredientes: '',
-    preparacion: ''
-  };
   constructor(private router: Router, private send: LlamadasMockyService) { }
 
   ngOnInit() {
   }
 
   onSubmit(form4: NgForm) {
+    let receta = {};
+    let id = localStorage.getItem('logUser');
     if (!form4.valid) {
       alert("HAY UN CAMPO INCORRECTO!!");
       return;
     } else {
       alert("LOS CAMPOS SON CORRECTOS!!");
+      receta = { nombre: this.pNombre, ingredientes: this.pIngredientes, preparacion: this.pPreparacion };
+      console.log(receta);
       form4.resetForm();
     }
-    this.send.addRestaurante(this.miReceta, localStorage.getItem('logUser')).subscribe(res => {console.log(res)});
+    this.send.addRestaurante(receta, id).subscribe(res => { console.log(res) });
   }
 
-  addIngredientes() {
-    let palabra = this.miReceta.ingredientes;
-    this.ingredient.push(palabra);
-    console.log(this.ingredient);
-    this.miReceta.ingredientes = "";
-    console.log(this.miReceta.ingredientes);
-    this.send.addRestaurante(this.miReceta, localStorage.getItem('logUser')).subscribe(res => {console.log(res)});
-  }
+  // addIngredientes() {
+  //   let palabra = this.pIngredientes;
+  //   this.ingredient.push(palabra);
+  //   console.log(this.ingredient);
+  //   this.pIngredientes = "";
+  //   console.log(this.pIngredientes);
+  //   this.send.addRestaurante(receta, id).subscribe(res => { console.log(res) });
+  // }
 }

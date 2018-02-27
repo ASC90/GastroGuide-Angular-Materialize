@@ -5,7 +5,7 @@
       <div class="row">
         <div class="input-field col s12 m12 l12 xl12">
           <input placeholder="Nombre de la receta" name="receta" type="text" class="validate" minlength="3" required #nomreceta="ngModel"
-            [(ngModel)]="miReceta.nombre">
+            [(ngModel)]="pNombre">
           <div class="md-errors-spacer" [hidden]="nomreceta.valid || nomreceta.untouched">
             <div class="error" *ngIf="nomreceta.errors && nomreceta.errors.required">
               Por favor debes rellenar este campo
@@ -18,7 +18,7 @@
       </div>
       <div class="row">
         <div class="input-field col s12 m12 l12 xl12">
-          <input placeholder="Ingredientes" name="ingredientes" type="text" class="validate" [(ngModel)]="miReceta.ingredientes">
+          <input placeholder="Ingredientes" name="ingredientes" type="text" class="validate" [(ngModel)]="pIngredientes">
         </div>
       </div>
       <div class="row">
@@ -34,7 +34,7 @@
       <div class="row">
         <div class="input-field col s12 m12 l12 xl12">
           <textarea placeholder="Introduce la preparación de la receta..." name="textareaPreparacion" class="materialize-textarea"
-            required #prepreceta="ngModel" [(ngModel)]="miReceta.preparacion"></textarea>
+            required #prepreceta="ngModel" [(ngModel)]="pPreparacion"></textarea>
           <div class="md-errors-spacer" [hidden]="prepreceta.valid || prepreceta.untouched">
             <div class="error" *ngIf="prepreceta.errors && prepreceta.errors.required">
               Por favor debes rellenar este campo
