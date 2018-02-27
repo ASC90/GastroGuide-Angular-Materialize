@@ -5,14 +5,17 @@
       <form action="/" method="" name="filtrar">
         <ul class="collapsible" data-collapsible="accordion">
           <li>
-            <div class="collapsible-header amber accent-3"><h5>Filtrar la búsqueda</h5></div>
+            <div class="collapsible-header amber accent-3">
+              <h5>Filtrar la búsqueda</h5>
+            </div>
           </li>
           <li>
             <div class="collapsible-header">Tipo de cocina</div>
             <div class="collapsible-body">
               <ul>
                 <li *ngFor="let elem of arrayTipoCocina; index as i">
-                  <input name="filtrar" value={{i}} type="checkbox" id=tipo-cocina{{i}} [checked]="arrayCheckTipoCocina[i]" (change)="arrayCheckTipoCocina[i] = !arrayCheckTipoCocina[i]" />
+                  <input name="filtrar" value={{i}} type="checkbox" id=tipo-cocina{{i}} [checked]="arrayCheckTipoCocina[i]" (change)="arrayCheckTipoCocina[i] = !arrayCheckTipoCocina[i]"
+                  />
                   <label for=tipo-cocina{{i}}>{{elem}}</label>
                 </li>
               </ul>
@@ -23,7 +26,8 @@
             <div class="collapsible-body">
               <ul>
                 <li *ngFor="let elem of arrayAmbientes; index as i">
-                  <input name="filtrar" value="{{i}}" type="checkbox" id=ambientes{{i}} [checked]="arrayCheckAmbientes[i]" (change)="arrayCheckAmbientes[i] = !arrayCheckAmbientes[i]" />
+                  <input name="filtrar" value="{{i}}" type="checkbox" id=ambientes{{i}} [checked]="arrayCheckAmbientes[i]" (change)="arrayCheckAmbientes[i] = !arrayCheckAmbientes[i]"
+                  />
                   <label for="ambientes{{i}}">{{elem}}</label>
                 </li>
               </ul>
@@ -48,7 +52,38 @@
       </ul>-->
     </div>
     <div class="col s12 m8 l8 center-align">
-      <div *ngFor="let rest of arrayRestaurantesPintados" class="card horizontal z-depth-3" routerLink="/restaurante/{{rest.idRest}}">
+      <div *ngFor="let rest of arrayRestaurantesPintados" class="card col s12 m6">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img [src]="rest.imagen" class="imgRest responsive-img">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator">{{rest.nombre}}
+            <i class="material-icons right">more_vert</i>
+          </span>
+          <p>
+            <a routerLink="/restaurante/{{rest.idRest}}">{{rest.nombre}}</a>
+          </p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title">{{rest.nombre}}
+            <i class="material-icons right">close</i>
+          </span>
+          <p>
+            Dirección: {{rest.adresa}}
+          </p>
+          <div *ngFor="let tipo of rest.tipo" class="amber-text text-accent-3">
+            {{tipo}}
+          </div>
+        </div>
+<!--         <div class="">
+          <h2>{{rest.valoracion}}</h2>
+          <p>
+            {{rest.opiniones.length}} opiniones.
+          </p>
+        </div> -->
+      </div>
+      <div class="col s1"></div>
+      <!--       <div *ngFor="let rest of arrayRestaurantesPintados" class="card horizontal z-depth-3" routerLink="/restaurante/{{rest.idRest}}">
         <div class="card-image valign-wrapper">
           <img [src]="rest.imagen">
           <span class="card-title">{{rest.nombre}}</span>
@@ -80,7 +115,7 @@
             <a routerLink="/restaurante/{{rest.idRest}}">{{rest.nombre}}</a>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
