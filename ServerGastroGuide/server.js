@@ -46,6 +46,10 @@ app.post("/filtrarRestaurante", function (req, res) {
         }
     });
 });
+// Filtrar con get
+app.get("/restaurantes", function (req, res) {
+    console.log(req.query);
+});
 // Get Restaurante
 app.get("/getRestaurante/:id", function (req, res) {
     console.log(req.params.id);
