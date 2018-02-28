@@ -73,8 +73,8 @@ var restaurantesArray = [
         recetas:
             {
                 imagen: "/assets/img/fideua.jpg",
-                nombre: "Fideua con gambas al estilo celler",
-                preparacion: "Descripción",
+                nombre: "Fideua con gambas al estilo celler.",
+                preparacion: "Pelar las gambas reservando cabezas y cáscaras. \r Limpiar los calamares y cortarlos en anillas. Pelar y picar los ajos. Lavar, retirar las semillas, el tallo y los nervios de los pimientos. Picar en daditos pequeños. Pelar, lavar y picar en daditos pequeños la cebolla. Majar el azafrán en el mortero con un poco de sal. Cocer juntos los ingredientes para el caldo de pescado 15 minutos y colar.Colocar una paella con el aceite al fuego a calentar. Cuando está caliente rehogar el ajo, antes de que tome color, incorporar el pimiento y la cebolla muy picados. Seguir rehogando a fuego lento hasta que estén bien blandos. Añadir ahora el calamar y continuar rehogando 6 minutos más.Fuera del fuego poner el pimentón y de nuevo en el fuego incorporar el tomate. Seguir rehogando 8 minutos más.Bañar con el caldo de pescado y cuando esté hirviendo incorporar los fideos y las gambas. Cocer 5 minutos en el fuego y 5 minutos más en el horno.Servir en la misma paella, adornando las asas con servilletas. Se puede acompañar de salsa alioli elaborada con aceite de oliva.",
                 ingredientes: ["200g gambas", "300g calamar", "2 dientes de ajo", "1 pimiento verde", "150g cebolla", "1tsp pimentón", "10 ramitas azafrán", "1tbsp aceite de oliva", "150ml de pescado", "350g fideos nº3"]
             }
     },
