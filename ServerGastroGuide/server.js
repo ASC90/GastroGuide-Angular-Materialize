@@ -102,7 +102,7 @@ app.post("/login", function (req, res) {
         ]
     };
     let show = {};
-    dbo.collection("Restaurantes").find(query, show).toArray((err, result) => {
+    dbo.collection("Restaurantes").find(query, show, function (err, result) {
         if (err) {
             res.send({ 'error': err });
         } else {
