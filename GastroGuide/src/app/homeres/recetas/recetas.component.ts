@@ -37,12 +37,11 @@ export class RecetasComponent implements OnInit {
     this.send.addRestaurante(receta, id).subscribe(res => { console.log(res) });
   }
 
-  // addIngredientes() {
-  //   let palabra = this.pIngredientes;
-  //   this.ingredient.push(palabra);
-  //   console.log(this.ingredient);
-  //   this.pIngredientes = "";
-  //   console.log(this.pIngredientes);
-  //   this.send.addRestaurante(receta, id).subscribe(res => { console.log(res) });
-  // }
+  addIngredientes() {
+    let palabra = this.pIngredientes;
+    this.ingredient.push(palabra);
+    console.log(this.ingredient);
+    this.pIngredientes = "";
+    console.log(this.pIngredientes);
+  }
 }
