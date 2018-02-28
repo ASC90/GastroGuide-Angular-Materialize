@@ -90,9 +90,6 @@ export class BuscadorComponent implements OnInit {
       if (localStorage.getItem("busqueda"))
         localStorage.removeItem("busqueda");
       localStorage.setItem("busqueda", JSON.stringify(arr));
-      this.arrayRestaurantes.getBusqueda(localStorage.getItem("busqueda")).subscribe(res=>{
-        console.log(res);
-      })
       this.router.navigateByUrl("/filtrar");
     }
   }

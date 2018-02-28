@@ -62,7 +62,7 @@ export class FiltrarComponent implements OnInit {
   }
 
   pintarRestaurantesFiltrados() {
-    this.arrayRestaurantes.getArrayRestaurantes().subscribe((res: Array<any>) =>{
+    this.arrayRestaurantes.getBusqueda(this.busquedaObj[0],this.busquedaObj[1],this.busquedaObj[2],this.busquedaObj[6]).subscribe((res: Array<any>) =>{
       console.log("esto",res);
       this.arrayRestaurantesPintados = res;
     })

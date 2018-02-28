@@ -48,10 +48,10 @@ export class LlamadasMockyService {
   addChef(gastroChef): Observable<any> {
     return this.http.post(this.url, gastroChef, this.httpOptions);
   }
-
+/* 
   getArrayRestaurantes() {
     return this.http.get("http://localhost:8080/restaurantes", this.httpOptions);
-  }
+  } */
   getTipoCocina() {
     return mockyTipoCocina;
   }
