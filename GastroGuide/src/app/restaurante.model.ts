@@ -13,7 +13,7 @@ export class Restaurante {
     tipoAmbienteID?: number[]; 
     adresa?: string; 
     tipo?: string[]; 
-    imagen?: string; 
+    imagen?: any; 
     menu?: [ 
         { 
             titol: string, 

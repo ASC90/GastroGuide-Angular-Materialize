@@ -14,11 +14,11 @@
 
                 <div class="input-field">
                     <label for="avatar">Avatar</label>
-                    <input type="file" id="avatar" (change)="onFileChange($event)" #fileInput formControlName="imagen">
+                    <input type="file" id="avatar" (change)="onFileChange($event)" #fileInput>
                     <!-- <input type="button" class="btn center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4" (click)="clearFile()">clear file -->
                 </div>
 
-                {{this.form.get("imagen").value}}
+                {{this.form.get("imagen").value|json}}
                 {{this.form.value|json}}
 
 
@@ -116,7 +116,7 @@
                             Por favor introduzca su teléfono
                         </div>
                         <div class="error" *ngIf="form.get('tel').errors && form.get('tel').errors.pattern">
-                            Por favor introduzca una dirección correcta
+                            Por favor introduzca su teléfono en formato correcto
                         </div>
                     </div>
                 </div>
@@ -127,9 +127,6 @@
                         <div class="error" *ngIf="form.get('cp').errors && form.get('cp').errors.required">
                             Por favor introduzca su código postal
                         </div>
-                        <div class="error" *ngIf="form.get('cp').errors && form.get('cp').errors.pattern">
-                            Por favor introduzca una dirección correcta
-                        </div>
                     </div>
                 </div>
                 <div class="input-field">
@@ -138,9 +135,6 @@
                     <div [hidden]="form.get('poblacion').valid || form.get('poblacion').untouched">
                         <div class="error" *ngIf="form.get('poblacion').errors && form.get('poblacion').errors.required">
                             Por favor introduzca su población
-                        </div>
-                        <div class="error" *ngIf="form.get('poblacion').errors && form.get('poblacion').errors.pattern">
-                            Por favor introduzca una dirección correcta
                         </div>
                     </div>
                 </div>
@@ -151,9 +145,6 @@
                         <div class="error" *ngIf="form.get('calle').errors && form.get('calle').errors.required">
                             Por favor introduzca su calle, vía, etc.
                         </div>
-                        <div class="error" *ngIf="form.get('calle').errors && form.get('calle').errors.pattern">
-                            Por favor introduzca una dirección correcta
-                        </div>
                     </div>
                 </div>
                 <div class="input-field">
@@ -162,9 +153,6 @@
                     <div [hidden]="form.get('numero').valid || form.get('numero').untouched">
                         <div class="error" *ngIf="form.get('numero').errors && form.get('numero').errors.required">
                             Por favor introduzca su número
-                        </div>
-                        <div class="error" *ngIf="form.get('numero').errors && form.get('numero').errors.pattern">
-                            Por favor introduzca una dirección correcta
                         </div>
                     </div>
                 </div>
