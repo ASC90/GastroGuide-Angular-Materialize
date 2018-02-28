@@ -13,7 +13,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class RecetasComponent implements OnInit {
   ingredient = [];
-  pNombre = '';
+  pNombreReceta = '';
   pIngredientes = '';
   pPreparacion = '';
 
@@ -30,9 +30,11 @@ export class RecetasComponent implements OnInit {
       return;
     } else {
       alert("LOS CAMPOS SON CORRECTOS!!");
-      receta = { nombre: this.pNombre, ingredientes: this.pIngredientes, preparacion: this.pPreparacion };
+      receta = { nombreReceta: this.pNombreReceta, ingredientes: this.ingredient, preparacion: this.pPreparacion };
+      console.log(this.ingredient);
       console.log(receta);
       form4.resetForm();
+      this.ingredient = [];
     }
     this.send.addRestaurante(receta, id).subscribe(res => { console.log(res) });
   }
