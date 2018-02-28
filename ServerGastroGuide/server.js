@@ -105,7 +105,7 @@ app.post("/login", function (req, res) {
         if (err) {
             res.send({ 'error': err });
         } else {
-            output = JSON.stringify(result);
+            output = JSON.stringify(result[0]);
             console.log("set cache");
             res.end(output);
         }

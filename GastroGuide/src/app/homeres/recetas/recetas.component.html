@@ -5,7 +5,7 @@
       <div class="row">
         <div class="input-field col s12 m12 l12 xl12">
           <input placeholder="Nombre de la receta" name="receta" type="text" class="validate" minlength="3" required #nomreceta="ngModel"
-            [(ngModel)]="pNombre">
+            [(ngModel)]="pNombreReceta">
           <div class="md-errors-spacer" [hidden]="nomreceta.valid || nomreceta.untouched">
             <div class="error" *ngIf="nomreceta.errors && nomreceta.errors.required">
               Por favor debes rellenar este campo
@@ -23,12 +23,12 @@
       </div>
       <div class="row">
         <div class="input-field col s12 m12 l12 xl12">
-          <button class="btn z-depth-5 center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4 right" (click)="addIngredientes()">Añadir +</button>
+          <input type="button" class="btn z-depth-5 center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4 right" (click)="addIngredientes()" value="Añadir + "/>
         </div>
       </div>
       <div>
         <ul>
-          <!--<li *ngFor="let ing of ingredient">{{ing}} </li>-->
+          <li *ngFor="let ing of ingredient">{{ing}} </li>
         </ul>
       </div>
       <div class="row">
