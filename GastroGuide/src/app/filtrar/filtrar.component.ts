@@ -28,8 +28,7 @@ export class FiltrarComponent implements OnInit {
   arrayCheckTipoCocina = [];
   arrayCheckAmbientes = [];
   constructor(public arrayRestaurantes: LlamadasMockyService) {
-    this.inicializarRestaurantesLocalStorage();
-    this.pintarRestaurantesFiltrados();
+    // this.inicializarRestaurantesLocalStorage();
   }
 
   ngOnInit() {
@@ -37,8 +36,8 @@ export class FiltrarComponent implements OnInit {
     $(document).ready(function () {
       $('.collapsible').collapsible();
     });
-    this.pintarRestaurantesFiltrados();
-    console.log();
+    // this.pintarRestaurantesFiltrados();
+    // console.log();
   }
 
   getFiltrar() {
@@ -58,27 +57,17 @@ export class FiltrarComponent implements OnInit {
     arr[6] = this.range;
     localStorage.setItem("busqueda", JSON.stringify(arr));
     this.busquedaObj = JSON.parse(localStorage.getItem("busqueda"));
-    this.inicializarRestaurantesLocalStorage();
+    // this.inicializarRestaurantesLocalStorage();
     this.pintarRestaurantesFiltrados();
   }
 
   pintarRestaurantesFiltrados() {
-    this.arrayRestaurantesPintados = [];
-  /*   for (let i = 0; i < this.arrayRestaurantes.getArrayRestaurantes().length; i++) {
-      let arrTipCoc = arrayCompare(this.busquedaObj[0], this.arrayRestaurantes.getArrayRestaurantes()[i].tipoCocinaID);
-      let arrAmb = arrayCompare(this.busquedaObj[1], this.arrayRestaurantes.getArrayRestaurantes()[i].tipoAmbienteID);
-      let Loc = this.arrayRestaurantes.getArrayRestaurantes()[i].localidad.includes(this.busquedaObj[2]);
-      let nota = parseInt(this.busquedaObj[6]) <= parseInt(this.arrayRestaurantes.getArrayRestaurantes()[i].valoracion);
-      if(this.busquedaObj[0].length <1){arrTipCoc = true};
-      if(this.busquedaObj[1].length <1){arrAmb = true};
-      if (arrTipCoc && arrAmb && Loc && nota) {
-        this.arrayRestaurantesPintados.push(this.arrayRestaurantes.getArrayRestaurantes()[i]);
-      }
-    } */
-
-    return this.arrayRestaurantesPintados;
+    this.arrayRestaurantes.getArrayRestaurantes().subscribe((res: Array<any>) =>{
+      console.log("esto",res);
+      this.arrayRestaurantesPintados = res;
+    })
   }
-
+/* 
   inicializarRestaurantesLocalStorage() {
     this.arrayCheckTipoCocina = [];
     this.busquedaObj = JSON.parse(localStorage.getItem("busqueda"));
@@ -97,6 +86,6 @@ export class FiltrarComponent implements OnInit {
         this.arrayCheckAmbientes.push(false);
     } 
     this.range = this.busquedaObj[6];
-  }
+  } */
 
 }

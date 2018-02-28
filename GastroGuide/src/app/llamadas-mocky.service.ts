@@ -50,13 +50,7 @@ export class LlamadasMockyService {
   }
 
   getArrayRestaurantes() {
-    let arrayRestaurantes = [];
-    /*arrayRestaurantes.push(elCellerMocky);// id 0
-    arrayRestaurantes.push(guzzoMocky);// id 1
-    arrayRestaurantes.push(operaMocky);// id 2
-    arrayRestaurantes.push(piazzaMocky);// id 3
-    arrayRestaurantes.push(rocaBarMocky);// id 4
-    return arrayRestaurantes;*/
+    return this.http.get("http://localhost:8080/restaurantes", this.httpOptions);
   }
   getTipoCocina() {
     return mockyTipoCocina;
@@ -79,9 +73,6 @@ export class LlamadasMockyService {
       .set('ambiente', Tambiente)
       .set('localidad', Loc)
       .set('valoracion', valor)
-   /*    Tcocina=JSON.stringify(Tcocina)
-      Tcocina =Tcocina.replace("[","")
-      Tcocina =Tcocina.replace("]","") */
-    return this.http.get("http://localhost:8080/getRestaurante/",{headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'my-auth-token' }),params})
+    return this.http.get("http://localhost:8080/restaurantes/",{headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'my-auth-token' }),params})
   }
 }

@@ -48,7 +48,28 @@ app.post("/filtrarRestaurante", function (req, res) {
 });
 // Filtrar con get
 app.get("/restaurantes", function (req, res) {
-    console.log(req.query);
+    console.log(req.query);//cocina, ambiente, localidad, valoracion
+    let tCocina = req.query.cocina.split(',').map(x=>parseInt(x));
+    let tAmbiente = req.query.ambiente.split(',').map(x=>parseInt(x));
+    console.log("patata",tCocina,tAmbiente)
+    let valor = parseInt(req.query.valoracion);
+    let query = {
+        $and: [
+            { tipoCocinaID: { $elemMatch: { $in: tCocina } } },
+            { tipoAmbienteID: { $elemMatch: { $in: tAmbiente } } },
+            { localidad: req.query.localidad},
+            { valoracion: {$gt: valor}}
+        ]
+    };
+    dbo.collection("Restaurantes").find(query).toArray((err, result) => {
+        if (err) {
+            res.send({ 'error': err });
+        } else {
+            output = JSON.stringify(result);
+            //console.log("set cache");
+            res.end(output);
+        }
+    });
 });
 // Get Restaurante
 app.get("/getRestaurante/:id", function (req, res) {
