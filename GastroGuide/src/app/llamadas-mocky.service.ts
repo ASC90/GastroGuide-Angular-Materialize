@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -32,7 +32,7 @@ const mockyCiudades = [
 @Injectable()
 export class LlamadasMockyService {
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'my-auth-token' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'my-auth-token' }),
   };
 
   url = "http://localhost:8080/restaurante";
@@ -48,16 +48,10 @@ export class LlamadasMockyService {
   addChef(gastroChef): Observable<any> {
     return this.http.post(this.url, gastroChef, this.httpOptions);
   }
-
+/* 
   getArrayRestaurantes() {
-    let arrayRestaurantes = [];
-    /*arrayRestaurantes.push(elCellerMocky);// id 0
-    arrayRestaurantes.push(guzzoMocky);// id 1
-    arrayRestaurantes.push(operaMocky);// id 2
-    arrayRestaurantes.push(piazzaMocky);// id 3
-    arrayRestaurantes.push(rocaBarMocky);// id 4
-    return arrayRestaurantes;*/
-  }
+    return this.http.get("http://localhost:8080/restaurantes", this.httpOptions);
+  } */
   getTipoCocina() {
     return mockyTipoCocina;
   }
@@ -71,6 +65,14 @@ export class LlamadasMockyService {
     return this.http.post("http://localhost:8080/login", data, this.httpOptions);
   }
   getRestaurante(urlid): Observable<any> {
-    return this.http.get("http://localhost:8080/getRestaurante/"+urlid, this.httpOptions);
+    return this.http.get("http://localhost:8080/getRestaurante/" + urlid, this.httpOptions);
+  }
+  getBusqueda(Tcocina, Tambiente, Loc, valor): Observable<any> {
+    let params = new HttpParams()
+      .set('cocina', Tcocina)
+      .set('ambiente', Tambiente)
+      .set('localidad', Loc)
+      .set('valoracion', valor)
+    return this.http.get("http://localhost:8080/restaurantes/",{headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'my-auth-token' }),params})
   }
 }

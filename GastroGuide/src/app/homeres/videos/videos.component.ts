@@ -12,25 +12,29 @@ import { Observable } from 'rxjs/Observable';
   providers: [LlamadasMockyService]
 })
 export class VideosComponent implements OnInit {
-  miVideo = {
-    titulo: '',
-    descripcion: '',
-    url: '',
-    texto: ''
-  };
+  
+    pTitulo =  '';
+    pDescripcion =  '';
+    pUrl =  '';
+    pTexto =  '';
+
   constructor(private router: Router, private send: LlamadasMockyService) { }
 
   ngOnInit() {
   }
 
   onSubmit(form: NgForm) {
+    let videos = {};
+    let id = localStorage.getItem('logUser');
     if (!form.valid) {
       alert("HAY UN CAMPO INCORRECTO!!");
       return;
     } else {
       alert("LOS CAMPOS SON CORRECTOS!!");
+      videos = { tituloVideo: this.pTitulo, DescripcionVideo: this.pDescripcion, urlVideo: this.pUrl, textoVideo: this.pTexto };
+      console.log(videos);
       form.resetForm();
     }
-    this.send.addRestaurante(this.miVideo, localStorage.getItem('logUser')).subscribe(res => {console.log(res)});
+    this.send.addRestaurante(videos, id).subscribe(res => { console.log(res) });
   }
 }
