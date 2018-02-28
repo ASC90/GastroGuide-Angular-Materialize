@@ -83,6 +83,10 @@ export class BuscadorComponent implements OnInit {
     console.log("options", this.optionsTipoCocina, this.optionsAmbientes, this.localidad, this.fecha, this.hora, this.comensales);
     if (this.validarLocalidad == "valid") {
       let arr = [this.optionsTipoCocina, this.optionsAmbientes, this.localidad, this.fecha, this.hora, this.comensales, "5"];
+      if(this.optionsTipoCocina.length<1)
+      this.optionsTipoCocina = [0,1,2,3,4,5,6,7,8,9,10,11,12]
+      if(this.optionsAmbientes.length<1)
+      this.optionsAmbientes = [0,1,2,3,4,5,6,7,8,9]
       if (localStorage.getItem("busqueda"))
         localStorage.removeItem("busqueda");
       localStorage.setItem("busqueda", JSON.stringify(arr));
@@ -143,4 +147,5 @@ export class BuscadorComponent implements OnInit {
       this.validarComensales = "valid";
     }
   }
+
 }
