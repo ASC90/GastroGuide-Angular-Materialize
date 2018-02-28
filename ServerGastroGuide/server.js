@@ -102,11 +102,11 @@ app.post("/login", function (req, res) {
         ]
     };
     let show = {};
-    dbo.collection("Restaurantes").find(query, show, function (err, result) {
+    dbo.collection("Restaurantes").find(query, show).toArray((err, result) => {
         if (err) {
             res.send({ 'error': err });
         } else {
-            output = JSON.stringify(result);
+            output = JSON.stringify(result[0]);
             console.log("set cache");
             res.end(output);
         }
