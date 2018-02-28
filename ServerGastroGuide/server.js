@@ -48,17 +48,16 @@ app.post("/filtrarRestaurante", function (req, res) {
 });
 // Filtrar con get
 app.get("/restaurantes", function (req, res) {
-    console.log(req.query);//cocina, ambiente, localidad, valoracion
+    // console.log(req.query);//cocina, ambiente, localidad, valoracion
     let tCocina = req.query.cocina.split(',').map(x=>parseInt(x));
     let tAmbiente = req.query.ambiente.split(',').map(x=>parseInt(x));
-    console.log("patata",tCocina,tAmbiente)
     let valor = parseInt(req.query.valoracion);
     let query = {
         $and: [
             { tipoCocinaID: { $elemMatch: { $in: tCocina } } },
             { tipoAmbienteID: { $elemMatch: { $in: tAmbiente } } },
             { localidad: req.query.localidad},
-            { valoracion: {$gt: valor}}
+            { valoracion: {$gte: valor}}
         ]
     };
     dbo.collection("Restaurantes").find(query).toArray((err, result) => {
@@ -66,22 +65,22 @@ app.get("/restaurantes", function (req, res) {
             res.send({ 'error': err });
         } else {
             output = JSON.stringify(result);
-            //console.log("set cache");
+            // console.log("s",result);
             res.end(output);
         }
     });
 });
 // Get Restaurante
 app.get("/getRestaurante/:id", function (req, res) {
-    console.log(req.params.id);
+    console.log("este de qui",req.params.id);
     let pid = new mongo.ObjectId(req.params.id);
     let query = { _id: pid };
     dbo.collection("Restaurantes").find(query).toArray((err, result) => {
         if (err) {
             res.send({ 'error': err });
         } else {
-            output = JSON.stringify(result);
-            //console.log("Resultado:", result);
+            output = JSON.stringify(result[0]);
+            console.log("Resultado:", result);
             res.send(output);
         }
     });
@@ -102,11 +101,11 @@ app.post("/login", function (req, res) {
         ]
     };
     let show = {};
-    dbo.collection("Restaurantes").find(query, show, function (err, result) {
+    dbo.collection("Restaurantes").find(query, show).toArray((err, result) => {
         if (err) {
             res.send({ 'error': err });
         } else {
-            output = JSON.stringify(result);
+            output = JSON.stringify(result[0]);
             console.log("set cache");
             res.end(output);
         }

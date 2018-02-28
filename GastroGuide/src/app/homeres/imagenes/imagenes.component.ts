@@ -30,6 +30,5 @@ export class ImagenesComponent implements OnInit {
       }
       reader.readAsDataURL(event.target.files[0]);    
     }
-    this.send.addRestaurante(this.imagen, localStorage.getItem('logUser')).subscribe(res => {console.log(res)});
   }
 }

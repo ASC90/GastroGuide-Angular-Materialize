@@ -37,13 +37,14 @@ export class LogChefComponent implements OnInit {
       // Post al usuario le paso el mail y el passsword y me tiene que devolver una id y ponerla en el local storage
       this.send.getLogIn(this.login).subscribe(res => {
         console.log("resFormulario:", res);
-        if (res.length > 0) {
+        if (res) {
           if (localStorage.getItem("logUser"))
             localStorage.removeItem("logUser");
-            this.router.navigateByUrl("/homeres");
-          return localStorage.setItem("logUser", res[0]._id);
+          localStorage.setItem("logUser", res._id);
+          this.router.navigateByUrl("/homeres");
+          
         }
-        if (res.length < 1) {
+        if (res == null) {
           this.isREsOK = false;
         }
       });
