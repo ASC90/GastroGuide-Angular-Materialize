@@ -14,7 +14,8 @@ declare var $: any;
 @Component({
   selector: 'app-buscador',
   templateUrl: './buscador.component.html',
-  styleUrls: ['./buscador.component.css']
+  styleUrls: ['./buscador.component.css'],
+  providers: [LlamadasMockyService]
 })
 
 export class BuscadorComponent implements OnInit {

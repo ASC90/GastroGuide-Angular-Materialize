@@ -12,23 +12,27 @@ import { Observable } from 'rxjs/Observable';
   providers: [LlamadasMockyService]
 })
 export class OfertasComponent implements OnInit {
-  miOferta = {
-    oferta: '',
-    ofertas: ''
-  };
+  
+    pOferta = '';
+    pOfertas = '';
+  
   constructor(private router: Router, private send: LlamadasMockyService) { }
 
   ngOnInit() {
   }
 
   onSubmit(form3: NgForm) {
+    let oferta = {};
+    let id = localStorage.getItem('logUser');
     if (!form3.valid) {
       alert("HAY UN CAMPO INCORRECTO!!");
       return;
     } else {
       alert("LOS CAMPOS SON CORRECTOS!!");
+      oferta = { oferta: this.pOferta, ofertas: this.pOfertas };
+      console.log(oferta);
       form3.resetForm();
     }
-    this.send.addRestaurante(this.miOferta, localStorage.getItem('logUser')).subscribe(res => {console.log(res)});
+    this.send.addRestaurante(oferta, id).subscribe(res => { console.log(res) });
   }
 }

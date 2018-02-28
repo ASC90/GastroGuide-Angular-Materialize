@@ -117,7 +117,7 @@ app.post("/create", function (req, res) {
 app.get("/generate", function (req, res) {
     res.header('Access-Control-Allow-Origin', '*');
     let arrRest = moduloRestaurantes.restaurantesArray;
-    dbo.collection("Demo").insertMany(arrRest, function (err, db) {
+    dbo.collection("Restaurantes").insertMany(arrRest, function (err, db) {
         if (err) throw err;
     });
     res.send(arrRest);
