@@ -30,7 +30,8 @@ export class RegistroRestauranteComponent implements OnInit {
     numero: new FormControl("", Validators.required),
     condiciones: new FormControl(false, Validators.requiredTrue),
     cocina: new FormControl("", Validators.required),
-    ambiente: new FormControl("", Validators.required)
+    ambiente: new FormControl("", Validators.required),
+    imagen: new FormControl()
   })
 
   tipoDeCocina = this.service.getTipoCocina();
@@ -48,6 +49,13 @@ export class RegistroRestauranteComponent implements OnInit {
   constructor(private router: Router, private service: LlamadasMockyService) { }
 
   ngOnInit() {
+  }
+  
+  onFileChange(event) {
+    if(event.target.files.length > 0) {
+      let file = event.target.files[0];
+      this.form.get('imagen').setValue(file);
+    }
   }
 
   onSubmit() {
