@@ -28,6 +28,10 @@ export class RestauranteComponent implements OnInit, AfterViewInit {
         responsiveThreshold: 1920
       });
     }); */
+    $(document).ready(function () {
+      $('ul.tabs').tabs();
+    });
+
   }
   ngAfterViewInit() {
    /*  $(document).ready(function () {
