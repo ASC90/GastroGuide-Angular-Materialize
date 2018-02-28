@@ -74,7 +74,6 @@ export class HeaderComponent implements OnInit {
     }
     );
 
-
     let self = this;
     let originalSetItem = localStorage.setItem;
     localStorage.setItem = function () {
@@ -86,7 +85,6 @@ export class HeaderComponent implements OnInit {
           self.nombreUsuario = res[0].restaurante;
           self.emailUsuario = res[0].email;
         });
-
       }
       else {
         self.nombreUsuario = "Nombre Usuario";
@@ -98,7 +96,6 @@ export class HeaderComponent implements OnInit {
     /*var storageHandler = function () {
       alert("LocalStorage Change!");
     };
-
     window.addEventListener("storage", storageHandler);*/
   }
   logOut(){

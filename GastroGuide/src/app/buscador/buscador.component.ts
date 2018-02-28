@@ -86,6 +86,9 @@ export class BuscadorComponent implements OnInit {
       if (localStorage.getItem("busqueda"))
         localStorage.removeItem("busqueda");
       localStorage.setItem("busqueda", JSON.stringify(arr));
+      this.arrayRestaurantes.getBusqueda(this.optionsTipoCocina,this.optionsAmbientes, this.localidad, "5").subscribe(res=>{
+        console.log(res);
+      })
       this.router.navigateByUrl("/filtrar");
     }
   }
@@ -143,4 +146,5 @@ export class BuscadorComponent implements OnInit {
       this.validarComensales = "valid";
     }
   }
+
 }
