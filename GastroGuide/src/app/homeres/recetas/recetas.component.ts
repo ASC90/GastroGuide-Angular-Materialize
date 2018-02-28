@@ -30,8 +30,15 @@ export class RecetasComponent implements OnInit {
       return;
     } else {
       alert("LOS CAMPOS SON CORRECTOS!!");
-      receta = { nombreReceta: this.pNombreReceta, ingredientes: this.ingredient, preparacion: this.pPreparacion };
-      console.log(this.ingredient);
+      receta = {
+        recetas: {
+          imagen: "/assets/img/fideua.jpg",
+          nombre: this.pNombreReceta,
+          preparacion: this.pPreparacion,
+          ingredientes: this.ingredient
+        }
+      },
+        console.log(this.ingredient);
       console.log(receta);
       form4.resetForm();
       this.ingredient = [];

@@ -4,6 +4,7 @@ import { matchOtherValidator } from '../1-match-other-validator'
 import { Router } from '@angular/router';
 import { LlamadasMockyService } from '../llamadas-mocky.service';
 import { Observable } from 'rxjs/Observable';
+import { Restaurante } from '../restaurante.model';
 
 @Component({
   selector: 'app-registro-restaurante',
@@ -27,34 +28,60 @@ export class RegistroRestauranteComponent implements OnInit {
     poblacion: new FormControl("", Validators.required),
     calle: new FormControl("", Validators.required),
     numero: new FormControl("", Validators.required),
-    condiciones: new FormControl(false, Validators.requiredTrue)
+    condiciones: new FormControl(false, Validators.requiredTrue),
+    cocina: new FormControl("", Validators.required),
+    ambiente: new FormControl("", Validators.required),
+    imagen: new FormControl()
   })
 
-  constructor(private router: Router, private envia: LlamadasMockyService) { }
+  tipoDeCocina = this.service.getTipoCocina();
+  ambientes = this.service.getAmbientes();
+
+  restauranteString() {
+    let restNum = this.form.get("cocina").value;
+    let restStr = [];
+    for (let restaurante of restNum) {
+      restStr.push(this.tipoDeCocina[parseInt(restaurante)])
+    }
+    return restStr;
+  }
+
+  constructor(private router: Router, private service: LlamadasMockyService) { }
 
   ngOnInit() {
   }
+  
+  onFileChange(event) {
+    if(event.target.files.length > 0) {
+      let file = event.target.files[0];
+      this.form.get('imagen').setValue(file);
+    }
+  }
 
   onSubmit() {
-    let gastroChef = {
+    // if (this.form.valid) { 
+    let gastroChef: Restaurante = {
       restaurante: this.form.get("restaurante").value,
       nombre: this.form.get("nombre").value,
       apellidos: this.form.get("apellidos").value,
       genero: this.form.get("genero").value,
       email: this.form.get("email").value,
       password: this.form.get("password").value,
-      tel: this.form.get("tel").value,
-      cp: this.form.get("cp").value,
-      poblacion: this.form.get("poblacion").value,
-      calle: this.form.get("calle").value,
-      numero: this.form.get("numero").value
+      telefono: this.form.get("tel").value,
+      adresa: this.form.get("calle").value + ", " + this.form.get("numero").value + " " + this.form.get("cp").value + " " + this.form.get("poblacion").value,
+      localidad: this.form.get("poblacion").value,
+      tipo: this.restauranteString(),
+      tipoCocinaID: this.form.get("cocina").value,
+      tipoAmbienteID: this.form.get("ambiente").value,
+      valoracion: 5
     }
-    this.envia.addChef(gastroChef).subscribe(res => {
+    this.service.addChef(gastroChef).subscribe(res => {
       if (localStorage.getItem('logUser')) {
         localStorage.removeItem('logUser')
       }
-      return localStorage.setItem('logUser',res._id)
+      return localStorage.setItem('logUser', res._id)
     });
-    this.router.navigateByUrl("/homeres");
+    // this.router.navigateByUrl("/homeres");
+    // }
   }
 }
