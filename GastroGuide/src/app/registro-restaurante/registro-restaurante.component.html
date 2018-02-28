@@ -149,13 +149,28 @@
           <div [hidden]="form.get('numero').valid || form.get('numero').untouched">
               <div class="error" *ngIf="form.get('numero').errors && form.get('numero').errors.required">
                   Por favor introduzca su número
-              </div>
-              <div class="error" *ngIf="form.get('numero').errors && form.get('numero').errors.pattern">
+              </div>              <div class="error" *ngIf="form.get('numero').errors && form.get('numero').errors.pattern">
                   Por favor introduzca una dirección correcta
               </div>
           </div>
         </div>
-
+        <div class="input-field col s6">
+            <select name="cocina" multiple materialize="material_select" id="cocina" formControlName="cocina">
+              <option value="" disabled selected>Cocina</option>
+              <option *ngFor="let tip of tipoDeCocina; index as i" value="{{i}}">{{tip}}</option>
+            </select>
+            <label for="tipoCocina" data-error="Campo vacío" data-success="Correcto">Escoje tipo de cocina</label>
+          </div>
+          <div class="input-field col s6">
+            <select name="ambiente" multiple materialize="material_select" id="ambiente" formControlName="ambiente">
+              <option value="" disabled selected>Ambiente</option>
+              <option *ngFor="let amb of ambientes; index as i" value="{{i}}">{{amb}}</option>
+            </select>
+            <label for="ambiente" data-error="Campo vacío" data-success="Correcto">Escoje tipo de ambiente</label>
+          </div>
+          {{ this.form.get("cocina").value | json}}
+          {{this.form.get("ambiente").value}}
+          
 
         <p>
           <input [required] type="checkbox" id="rescheckcheck" formControlName="condiciones" />
@@ -165,8 +180,8 @@
 
         <div >
           
-            <button [disabled]="form.pristine || !form.valid"  type="submit" class="btn center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4" id="submitRegRes">Registrar-se</button>
-
+            <button  type="submit" class="btn center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4" id="submitRegRes">Registrar-se</button>
+            <!-- [disabled]="form.pristine || !form.valid"  -->
         </div>
       </div>
     </div>

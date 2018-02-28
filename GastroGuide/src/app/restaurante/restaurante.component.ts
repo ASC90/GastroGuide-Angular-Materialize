@@ -14,7 +14,7 @@ export class RestauranteComponent implements OnInit, AfterViewInit{
   restaurantObj = {};
   
   constructor(public arrayRestaurantes: LlamadasMockyService, private router: ActivatedRoute) {
-    this.restaurantObj = this.arrayRestaurantes.getArrayRestaurantes()[+this.router.snapshot.paramMap.get('id')];
+    // this.restaurantObj = this.arrayRestaurantes.getArrayRestaurantes()[+this.router.snapshot.paramMap.get('id')];
   }
 
   ngOnInit() {
