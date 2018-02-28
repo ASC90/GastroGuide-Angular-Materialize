@@ -45,7 +45,7 @@ app.use(cors({
             res.end(output);
         }
     });
-});
+});*/
 // Filtrar con get
 app.get("/restaurantes", function (req, res) {
     // console.log(req.query);//cocina, ambiente, localidad, valoracion
@@ -69,7 +69,7 @@ app.get("/restaurantes", function (req, res) {
             res.end(output);
         }
     });
-});*/
+});
 // Get Restaurante
 app.get("/getRestaurante/:id", function (req, res) {
     console.log("este de qui",req.params.id);
