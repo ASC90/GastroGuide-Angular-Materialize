@@ -27,10 +27,10 @@ export class PerfilComponent implements OnInit {
     let originalSetItem = localStorage.setItem;
     if (localStorage.getItem("logUser") != "0" && localStorage.getItem("logUser")) {
       self.send.getRestaurante(localStorage.getItem("logUser")).subscribe(res => {
-        self.NombreRestaurante = res[0].restaurante;
-        self.DireccionRestarante = res[0].adresa;
-        self.TelefonoRestaurante = res[0].telefono;
-        self.ImgRestaurante = res[0].imagen;
+        self.NombreRestaurante = res.restaurante;
+        self.DireccionRestarante = res.adresa;
+        self.TelefonoRestaurante = res.telefono;
+        self.ImgRestaurante = res.imagen;
       });
     }
     else {
@@ -43,10 +43,10 @@ export class PerfilComponent implements OnInit {
       originalSetItem.apply(this, arguments);
       if (localStorage.getItem("logUser") != "0" && localStorage.getItem("logUser")) {
         self.send.getRestaurante(localStorage.getItem("logUser")).subscribe(res => {
-          self.NombreRestaurante = res[0].restaurante;
-          self.DireccionRestarante = res[0].adresa;
-          self.TelefonoRestaurante = res[0].telefono;
-          self.ImgRestaurante = res[0].imagen;
+          self.NombreRestaurante = res.restaurante;
+          self.DireccionRestarante = res.adresa;
+          self.TelefonoRestaurante = res.telefono;
+          self.ImgRestaurante = res.imagen;
         });
       }
       else {

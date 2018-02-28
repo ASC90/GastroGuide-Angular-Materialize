@@ -82,8 +82,8 @@ export class HeaderComponent implements OnInit {
       alert("Something Changed");
       if (localStorage.getItem("logUser") != "0" && localStorage.getItem("logUser")) {
         self.send.getRestaurante(localStorage.getItem("logUser")).subscribe(res => {
-          self.nombreUsuario = res[0].restaurante;
-          self.emailUsuario = res[0].email;
+          self.nombreUsuario = res.restaurante;
+          self.emailUsuario = res.email;
         });
       }
       else {

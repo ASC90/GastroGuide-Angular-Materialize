@@ -29,7 +29,7 @@ export class OfertasComponent implements OnInit {
       return;
     } else {
       alert("LOS CAMPOS SON CORRECTOS!!");
-      oferta = { oferta: this.pOferta, ofertas: this.pOfertas };
+      oferta = {promociones: { promocion: this.pOferta, descripcion: this.pOfertas }};
       console.log(oferta);
       form3.resetForm();
     }
