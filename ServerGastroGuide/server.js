@@ -20,7 +20,7 @@ app.use(cors({
 }));
 
 // Filtrar
-app.post("/filtrarRestaurante", function (req, res) {
+/*app.post("/filtrarRestaurante", function (req, res) {
     res.header('Access-Control-Allow-Origin', '*');
     // let obj = JSON.parse(req.body);
     // let tipoCocinaID = obj[0].tipoCocinaID;
@@ -45,7 +45,7 @@ app.post("/filtrarRestaurante", function (req, res) {
             res.end(output);
         }
     });
-});
+});*/
 // Filtrar con get
 app.get("/restaurantes", function (req, res) {
     // console.log(req.query);//cocina, ambiente, localidad, valoracion
@@ -151,6 +151,8 @@ app.post("/restaurante", function (req, res) {
     res.header('Access-Control-Allow-Origin', '*');
     dbo.collection("Restaurantes").insert(req.body, function (err, db) {
         if (err) throw err;
+        else
+            res.send({ok: "Ok"});
     });
     res.json(req.body);
 });

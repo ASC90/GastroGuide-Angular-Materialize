@@ -34,7 +34,12 @@ export class MenuComponent implements OnInit {
       return;
     } else {
       alert("LOS CAMPOS SON CORRECTOS!!");
-      menu = { entrantes: this.pEntrantes, primeros: this.pPrimeros, segundos: this.pSegundos, postres: this.pPostres };
+      menu = {
+        menu: [{ titol: "Entrantes", platos: this.pEntrantes },
+        { titol: "Primeros", platos: this.pPrimeros },
+        { titol: "Segundos", platos: this.pSegundos },
+        { titol: "Postres", platos: this.pPostres }]
+      };
       console.log(menu);
       form2.resetForm();
     }
