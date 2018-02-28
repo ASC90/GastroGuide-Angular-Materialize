@@ -22,20 +22,20 @@ export class RestauranteComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    $(document).ready(function () {
+/*     $(document).ready(function () {
       $('ul.tabs').tabs({
         swipeable: true,
         responsiveThreshold: 1920
       });
-    });
+    }); */
   }
   ngAfterViewInit() {
-    $(document).ready(function () {
+   /*  $(document).ready(function () {
       $('ul.tabs').tabs({
         swipeable: true,
         responsiveThreshold: 1920
       });
-    });
+    }); */
   }
 
 
