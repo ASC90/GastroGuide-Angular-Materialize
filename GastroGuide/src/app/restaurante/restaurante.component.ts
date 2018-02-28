@@ -10,11 +10,15 @@ declare var $: any;
   templateUrl: './restaurante.component.html',
   styleUrls: ['./restaurante.component.css']
 })
-export class RestauranteComponent implements OnInit, AfterViewInit{
+export class RestauranteComponent implements OnInit, AfterViewInit {
   restaurantObj = {};
-  
+
   constructor(public arrayRestaurantes: LlamadasMockyService, private router: ActivatedRoute) {
-    //this.restaurantObj = this.arrayRestaurantes.getArrayRestaurantes()[+this.router.snapshot.paramMap.get('id')];
+    // this.restaurantObj = this.arrayRestaurantes.getArrayRestaurante()[+this.router.snapshot.paramMap.get('id')];
+    this.arrayRestaurantes.getRestaurante(this.router.snapshot.paramMap.get('id')).subscribe((res: any) =>{
+    console.log(res)
+      this.restaurantObj = res}
+    );
   }
 
   ngOnInit() {
@@ -24,7 +28,6 @@ export class RestauranteComponent implements OnInit, AfterViewInit{
         responsiveThreshold: 1920
       });
     });
-    console.log(this.restaurantObj);
   }
   ngAfterViewInit() {
     $(document).ready(function () {

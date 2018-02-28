@@ -13,7 +13,7 @@ function arrayCompare(pArrA: Array<any>, pArrB: Array<any>) {
 
 @Component({
   selector: 'app-filtrar',
-  providers: [ LlamadasMockyService ],
+  providers: [LlamadasMockyService],
   templateUrl: './filtrar.component.html',
   styleUrls: ['./filtrar.component.css']
 })
@@ -22,13 +22,14 @@ export class FiltrarComponent implements OnInit {
   arrayTipoCocina = [];
   arrayAmbientes = [];
   arrayRestaurantesPintados = [];
-  arraylocalidad = []
+  ciudades = [];
+  localidad: string;
   // Inputs
   range: number;
   arrayCheckTipoCocina = [];
   arrayCheckAmbientes = [];
   constructor(public arrayRestaurantes: LlamadasMockyService) {
-    // this.inicializarRestaurantesLocalStorage();
+    this.inicializarRestaurantesLocalStorage();
   }
 
   ngOnInit() {
@@ -36,38 +37,42 @@ export class FiltrarComponent implements OnInit {
     $(document).ready(function () {
       $('.collapsible').collapsible();
     });
-    // this.pintarRestaurantesFiltrados();
-    // console.log();
+    this.ciudades = this.arrayRestaurantes.getLocalidades();
+    this.pintarRestaurantesFiltrados();
   }
 
   getFiltrar() {
-    let arr = JSON.parse(localStorage.getItem("busqueda"));
+    this.busquedaObj = [localStorage.getItem("busqueda")];
     if (localStorage.getItem("busqueda"))
       localStorage.removeItem("busqueda");
-    arr[0] = [];
-    arr[1] = [];
+    this.busquedaObj[0] = [];
+    this.busquedaObj[1] = [];
+    this.busquedaObj[2] = this.localidad;
     for (let i = 0; i < this.arrayCheckTipoCocina.length; i++) {
       if (this.arrayCheckTipoCocina[i] == true)
-        arr[0].push(i);
+        this.busquedaObj[0].push(i);
     }
+    if (this.busquedaObj[0].length < 1)
+      this.busquedaObj[0] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     for (let i = 0; i < this.arrayCheckAmbientes.length; i++) {
       if (this.arrayCheckAmbientes[i] == true)
-          arr[1].push(i);
+        this.busquedaObj[1].push(i);
     }
-    arr[6] = this.range;
-    localStorage.setItem("busqueda", JSON.stringify(arr));
-    this.busquedaObj = JSON.parse(localStorage.getItem("busqueda"));
-    // this.inicializarRestaurantesLocalStorage();
+    if (this.busquedaObj[1].length < 1)
+      this.busquedaObj[1] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    this.busquedaObj[6] = this.range;
+    localStorage.setItem("busqueda", JSON.stringify(this.busquedaObj));
+    this.inicializarRestaurantesLocalStorage();
     this.pintarRestaurantesFiltrados();
   }
 
   pintarRestaurantesFiltrados() {
-    this.arrayRestaurantes.getBusqueda(this.busquedaObj[0],this.busquedaObj[1],this.busquedaObj[2],this.busquedaObj[6]).subscribe((res: Array<any>) =>{
-      console.log("esto",res);
+    this.arrayRestaurantes.getBusqueda(this.busquedaObj[0], this.busquedaObj[1], this.busquedaObj[2], this.busquedaObj[6]).subscribe((res: Array<any>) => {
+      console.log("esto", res);
       this.arrayRestaurantesPintados = res;
     })
   }
-/* 
+
   inicializarRestaurantesLocalStorage() {
     this.arrayCheckTipoCocina = [];
     this.busquedaObj = JSON.parse(localStorage.getItem("busqueda"));
@@ -84,8 +89,8 @@ export class FiltrarComponent implements OnInit {
         this.arrayCheckAmbientes.push(true);
       else
         this.arrayCheckAmbientes.push(false);
-    } 
+    }
     this.range = this.busquedaObj[6];
-  } */
+  }
 
 }

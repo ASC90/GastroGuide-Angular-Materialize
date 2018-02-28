@@ -3,7 +3,7 @@
   <form name="form" action="/" method="">
     <div class="row">
       <div class="input-field col hide-buscador m4 l2">
-        <select name="form" multiple materialize="material_select" [(ngModel)]="optionsTipoCocina" id="tipoCocina" [class]="validarTipoCocina"
+        <select name="form1" multiple materialize="material_select" [(ngModel)]="optionsTipoCocina" id="tipoCocina" [class]="validarTipoCocina"
           (change)="getValidarTipoDeCocina()">
           <option value="" disabled selected>Cocina</option>
           <option *ngFor="let tip of tipoDeCocina; index as i" value="{{i}}">{{tip}}</option>
@@ -11,7 +11,7 @@
         <label for="tipoCocina" data-error="Campo vacío" data-success="Correcto">Escoje tipo de cocina</label>
       </div>
       <div class="input-field col hide-buscador m4 l2">
-        <select name="form" multiple materialize="material_select" [(ngModel)]="optionsAmbientes" id="ambiente" [class]="validarAmbiente"
+        <select name="form2" multiple materialize="material_select" [(ngModel)]="optionsAmbientes" id="ambiente" [class]="validarAmbiente"
           (change)="getValidarAmbiente()">
           <option value="" disabled selected>Ambiente</option>
           <option *ngFor="let amb of ambientes; index as i" value="{{i}}">{{amb}}</option>
@@ -19,7 +19,7 @@
         <label for="ambiente" data-error="Campo vacío" data-success="Correcto">Escoje tipo de ambiente</label>
       </div>
       <div class="input-field col s8 m4 l2">
-        <select name="form"  materialize="material_select" [(ngModel)]="localidad" id="localidad" [class]="validarLocalidad"
+        <select name="form3"  materialize="material_select" [(ngModel)]="localidad" id="localidad" [class]="validarLocalidad"
           (change)="getValidarLocalidad()">
           <option value="" disabled selected>Localidad</option>
           <option *ngFor="let loc of ciudades; index as i" value="{{loc}}">{{loc}}</option>
@@ -27,17 +27,17 @@
         <label for="localidad" [attr.data-error]="errorLocalidad" data-success="Correcto">Introduce localidad</label>
       </div>
       <div class="input-field col hide-buscador m4 l2">
-        <input name="form" id="date" type="text" [class]="validarFecha" materialize-date-picker materialize="pickadate" readonly
-          [(ngModel)]="fecha" (ngModelChange)="getValidarFecha()" />
+        <input name="form4" id="date" type="text" [class]="validarFecha" materialize-date-picker materialize="pickadate" 
+          [(ngModel)]="fecha" (ngModelChange)="getValidarFecha()"/>
         <label for="date" [attr.data-error]="errorFecha" data-success="Correcto">Introduce fecha</label>
       </div>
       <div class="input-field col hide-buscador m2 l1">
-        <input name="form" id="time" type="text" [class]="validarHora" materialize-time-picker materialize="pickatime" readonly [(ngModel)]="hora"
+        <input name="form5" id="time" type="text" [class]="validarHora" materialize-time-picker materialize="pickatime" [(ngModel)]="hora"
           (ngModelChange)="getValidarHora()">
         <label for="time" [attr.data-error]="errorHora" data-success="Correcto">Hora</label>
       </div>
       <div class="input-field col hide-buscador m2 l1">
-        <select name="form" [class]="validarComensales" materialize="material_select" [(ngModel)]="comensales" id="comensalesId"
+        <select name="form6" [class]="validarComensales" materialize="material_select" [(ngModel)]="comensales" id="comensalesId"
           (ngModelChange)="getValidarComensales()">
           <option value="" disabled selected>Personas</option>
           <option value="1">1 persona</option>
