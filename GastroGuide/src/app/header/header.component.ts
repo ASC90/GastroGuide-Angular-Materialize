@@ -25,6 +25,7 @@ export class HeaderComponent implements OnInit {
   nombreUsuario = "Nombre Usuario";
   emailUsuario = "Email Usuario";
   variableLocal = '';
+  uid = localStorage.getItem("logUser")
 
 
   constructor(private router: Router, private send: LlamadasMockyService) {
@@ -70,5 +71,9 @@ export class HeaderComponent implements OnInit {
   logOut(){
     localStorage.setItem("logUser", "0");
     this.router.navigateByUrl("/")
+  }
+  vista(){
+    let uid = localStorage.getItem("logUser"); 
+    this.router.navigateByUrl("/restaurante/"+uid)
   }
 }

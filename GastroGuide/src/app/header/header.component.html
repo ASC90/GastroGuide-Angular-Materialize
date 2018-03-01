@@ -7,8 +7,9 @@
       <li *ngIf="variableLocal != 0"><a materialize="dropdown" data-activates='dropdown1' class="dropdown-button btn amber accent-3 waves-effect waves-orange blue-grey-text text-darken-4"><i class="material-icons left icon-dark">person</i>{{nombreUsuario}}</a></li>
       <ul id='dropdown1' class='dropdown-content'>
           <li><a routerLink="/homeres">Editar perfil</a></li>
+          <li><a (click)="vista()">Ver restaurante</a></li>
           <li class="divider"></li>
-          <li><a href="#!">Log out</a></li>
+          <li><a (click)="logOut()">Log out</a></li>
         </ul>
     </ul>
     <ul class="side-nav blue-grey darken-4" id="mobile-demo">
@@ -26,8 +27,9 @@
       <li *ngIf="variableLocal != 0"><a materialize="dropdown" data-activates='menuperfil' href='#' class="dropdown-button btn amber accent-3 waves-effect waves-orange blue-grey-text text-darken-4"><i class="material-icons left icon-dark">person</i>{{nombreUsuario}}</a></li>
       <ul id='menuperfil' class='dropdown-content'>
           <li><a routerLink="/homeres">Editar perfil</a></li>
+          <li><a (click)="vista()">Ver restaurante</a></li>
           <li class="divider"></li>
-          <li><a href="#!" (click)="logOut">Log out</a></li>
+          <li><a (click)="logOut()">Log out</a></li>
         </ul>
     </ul>
   </div>
