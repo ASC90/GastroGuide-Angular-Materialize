@@ -50,13 +50,6 @@ export class RegistroRestauranteComponent implements OnInit {
 
   ngOnInit() {
   }
-  
-  onFileChange(event) {
-    if(event.target.files.length > 0) {
-      let file = event.target.files[0];
-      this.form.get('imagen').setValue(file);
-    }
-  }
 
   onSubmit() {
     let cocina = JSON.parse("["+this.form.get("cocina").value+"]");
