@@ -26,10 +26,8 @@ export class RecetasComponent implements OnInit {
     let receta = {};
     let id = localStorage.getItem('logUser');
     if (!form4.valid) {
-      alert("HAY UN CAMPO INCORRECTO!!");
       return;
     } else {
-      alert("LOS CAMPOS SON CORRECTOS!!");
       receta = {
         recetas: {
           imagen: "/assets/img/fideua.jpg",

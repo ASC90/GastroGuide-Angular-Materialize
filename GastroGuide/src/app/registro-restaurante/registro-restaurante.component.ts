@@ -38,9 +38,13 @@ export class RegistroRestauranteComponent implements OnInit {
 
   restauranteString() {
     let restNum = this.form.get("cocina").value;
+    let restNum2 = this.form.get("ambiente").value;
     let restStr = [];
     for (let restaurante of restNum) {
-      restStr.push(this.tipoDeCocina[parseInt(restaurante)])
+      restStr.push(this.tipoDeCocina[parseInt(restaurante)]);
+    }
+    for (let restaurante of restNum2) {
+      restStr.push(this.ambientes[parseInt(restaurante)]);
     }
     return restStr;
   }

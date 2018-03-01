@@ -30,10 +30,8 @@ export class MenuComponent implements OnInit {
     let id = localStorage.getItem('logUser');
 
     if (!form2.valid) {
-      alert("HAY UN CAMPO INCORRECTO!!");
       return;
     } else {
-      alert("LOS CAMPOS SON CORRECTOS!!");
       menu = {
         menu: [{ titol: "Entrantes", platos: this.pEntrantes },
         { titol: "Primeros", platos: this.pPrimeros },
