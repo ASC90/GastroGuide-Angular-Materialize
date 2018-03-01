@@ -8,9 +8,8 @@ import { Http } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 import { LlamadasMockyService } from "../llamadas-mocky.service";
 import { MaterializeDirective } from "angular2-materialize";
-// import { link } from 'fs';
-import { Router } from '@angular/router';
 
+import { Router } from '@angular/router';
 
 declare var $: any;
 
@@ -22,8 +21,6 @@ declare var $: any;
   providers: [LlamadasMockyService]
 })
 export class HeaderComponent implements OnInit {
-  /*private onSubject = new Subject<{ key: string, value: any }>();
-  public changes = this.onSubject.asObservable().share();*/
 
   nombreUsuario = "Nombre Usuario";
   emailUsuario = "Email Usuario";
@@ -31,30 +28,7 @@ export class HeaderComponent implements OnInit {
 
 
   constructor(private router: Router, private send: LlamadasMockyService) {
-    //this.start();
   }
-
-  /*private start(): void {
-    window.addEventListener("storage", this.storageEventListener.bind(this));
-  }
-  private storageEventListener(event: StorageEvent) {
-    if (event.storageArea == localStorage) {
-      let v;
-      try { v = JSON.parse(event.newValue); }
-      catch (e) { v = event.newValue; }
-      this.onSubject.next({ key: event.key, value: v });
-      console.log("EVENT: ", event);
-      alert("Change");
-      if (event.newValue != "0") {
-        this.nombreUsuario = "Undefined";
-        this.emailUsuario = "Undefined";
-      }
-      else {
-        this.nombreUsuario = "Nombre Usuario";
-        this.emailUsuario = "Email Usuario";
-      }
-    }
-  }*/
 
   ngOnInit() {
     $(document).ready(function () {
@@ -79,7 +53,7 @@ export class HeaderComponent implements OnInit {
     localStorage.setItem = function () {
       document.createEvent('Event').initEvent('itemInserted', true, true);
       originalSetItem.apply(this, arguments);
-      alert("Something Changed");
+      
       if (localStorage.getItem("logUser") != "0" && localStorage.getItem("logUser")) {
         self.send.getRestaurante(localStorage.getItem("logUser")).subscribe(res => {
           self.nombreUsuario = res.restaurante;
@@ -92,11 +66,6 @@ export class HeaderComponent implements OnInit {
       }
       self.variableLocal = localStorage.getItem("logUser");
     }
-    
-    /*var storageHandler = function () {
-      alert("LocalStorage Change!");
-    };
-    window.addEventListener("storage", storageHandler);*/
   }
   logOut(){
     localStorage.setItem("logUser", "0");
