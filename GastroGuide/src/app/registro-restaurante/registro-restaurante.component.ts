@@ -76,7 +76,7 @@ export class RegistroRestauranteComponent implements OnInit {
       tipoCocinaID: cocina,
       tipoAmbienteID: ambiente,
       valoracion: 5,
-      imagen:this.form.get("imagen").value
+      imagen: "/assets/img/1stefan.jpg"
     }
     this.service.addChef(gastroChef).subscribe(res => {
       if (localStorage.getItem('logUser')) {
