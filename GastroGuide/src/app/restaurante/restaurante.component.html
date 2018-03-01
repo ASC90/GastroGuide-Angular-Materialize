@@ -1,4 +1,5 @@
 <div class="container">
+  <div class="row"></div>
   <div class="row">
     <button routerLink="/filtrar" class="btn amber accent-3 waves-effect waves-orange blue-grey-text text-darken-4">Volver a filtros</button>
   </div>
@@ -16,7 +17,7 @@
   </div>
   <div class="row">
     <div class="col s12">
-      <img class="image z-depth-2" [src]="restaurantObj.imagen" alt="Alternate Text" />
+      <img *ngIf="restaurantObj.imagen" class="image z-depth-2" [src]="restaurantObj.imagen" alt="Alternate Text" />
     </div>
   </div>
   <div class="row">
