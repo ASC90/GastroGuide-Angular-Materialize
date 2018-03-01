@@ -30,8 +30,7 @@ export class RegistroRestauranteComponent implements OnInit {
     numero: new FormControl("", Validators.required),
     condiciones: new FormControl(false, Validators.requiredTrue),
     cocina: new FormControl("", Validators.required),
-    ambiente: new FormControl("", Validators.required),
-    imagen: new FormControl()
+    ambiente: new FormControl("", Validators.required)
   })
 
   tipoDeCocina = this.service.getTipoCocina();
@@ -68,8 +67,7 @@ export class RegistroRestauranteComponent implements OnInit {
       tipo: this.restauranteString(),
       tipoCocinaID: cocina,
       tipoAmbienteID: ambiente,
-      valoracion: 5,
-      imagen:this.form.get("imagen").value
+      valoracion: 5
     }
     this.service.addChef(gastroChef).subscribe(res => {
       if (localStorage.getItem('logUser')) {
