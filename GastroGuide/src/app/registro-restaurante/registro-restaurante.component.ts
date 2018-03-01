@@ -59,7 +59,9 @@ export class RegistroRestauranteComponent implements OnInit {
   }
 
   onSubmit() {
-    // if (this.form.valid) { 
+    let cocina = JSON.parse("["+this.form.get("cocina").value+"]");
+    let ambiente = JSON.parse("["+this.form.get("ambiente").value+"]");
+    if (this.form.valid) { 
     let gastroChef: Restaurante = {
       restaurante: this.form.get("restaurante").value,
       nombre: this.form.get("nombre").value,
@@ -71,8 +73,8 @@ export class RegistroRestauranteComponent implements OnInit {
       adresa: this.form.get("calle").value + ", " + this.form.get("numero").value + " " + this.form.get("cp").value + " " + this.form.get("poblacion").value,
       localidad: this.form.get("poblacion").value,
       tipo: this.restauranteString(),
-      tipoCocinaID: this.form.get("cocina").value,
-      tipoAmbienteID: this.form.get("ambiente").value,
+      tipoCocinaID: cocina,
+      tipoAmbienteID: ambiente,
       valoracion: 5,
       imagen:this.form.get("imagen").value
     }
@@ -82,7 +84,7 @@ export class RegistroRestauranteComponent implements OnInit {
       }
       return localStorage.setItem('logUser', res._id)
     });
-    // this.router.navigateByUrl("/homeres");
-    // }
+    this.router.navigateByUrl("/homeres");
+    }
   }
 }

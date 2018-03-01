@@ -17,11 +17,6 @@
                     <input type="file" id="avatar" (change)="onFileChange($event)" #fileInput>
                     <!-- <input type="button" class="btn center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4" (click)="clearFile()">clear file -->
                 </div>
-
-                {{this.form.get("imagen").value|json}}
-                {{this.form.value|json}}
-
-
                 <!-- <input type="submit" [disabled]="form.invalid || loading" class="btn center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4">Submit
                 <i class="fa fa-spinner fa-spin fa-fw" *ngIf="loading"></i> -->
 
@@ -170,7 +165,6 @@
                     </select>
                     <label for="ambiente" data-error="Campo vacío" data-success="Correcto">Escoje tipo de ambiente</label>
                 </div>
-                {{ this.form.get("cocina").value | json}} {{this.form.get("ambiente").value}}
 
 
                 <p>
@@ -181,8 +175,8 @@
 
                 <div>
 
-                    <button type="submit" class="btn center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4" id="submitRegRes">Registrar-se</button>
-                    <!-- [disabled]="form.pristine || !form.valid"  -->
+                    <button [disabled]="form.pristine || !form.valid" type="submit" class="btn center waves-effect waves-orange amber accent-3 blue-grey-text text-darken-4" id="submitRegRes">Registrar-se</button>
+                    
                 </div>
             </div>
         </div>
