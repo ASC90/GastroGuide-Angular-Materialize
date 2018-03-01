@@ -25,7 +25,6 @@ export class LogLoverComponent implements OnInit {
       if (localStorage.getItem("loginLOVER"))
         localStorage.removeItem("loginLOVER");
       localStorage.setItem("loginLOVER", val);
-      // this.router.navigateByUrl("/filtrar");
 		}
 	}
 
