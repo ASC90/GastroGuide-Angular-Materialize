@@ -19,33 +19,6 @@ app.use(cors({
     methods: ["POST"]
 }));
 
-// Filtrar
-/*app.post("/filtrarRestaurante", function (req, res) {
-    res.header('Access-Control-Allow-Origin', '*');
-    // let obj = JSON.parse(req.body);
-    // let tipoCocinaID = obj[0].tipoCocinaID;
-    // let tipoAmbienteID = obj[1].tipoAmbienteID;
-    // let localidad = obj[2].localidad;
-    // let valoracion = obj[6].valoracion;
-    let tipoCocinaID = [0, 1, 2, 3, 8];
-    let tipoAmbienteID = [0, 3];
-    let query = {
-        $and: [
-            { tipoCocinaID: { $elemMatch: { $in: tipoCocinaID } } },
-            { tipoAmbienteID: { $elemMatch: { $in: tipoAmbienteID } } }
-        ]
-    };
-    let show = {};
-    dbo.collection("Restaurantes").find(query, show).toArray((err, result) => {
-        if (err) {
-            res.send({ 'error': err });
-        } else {
-            output = JSON.stringify(result);
-            //console.log("set cache");
-            res.end(output);
-        }
-    });
-});*/
 // Filtrar con get
 app.get("/restaurantes", function (req, res) {
     // console.log(req.query);//cocina, ambiente, localidad, valoracion

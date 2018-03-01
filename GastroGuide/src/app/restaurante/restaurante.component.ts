@@ -14,7 +14,6 @@ export class RestauranteComponent implements OnInit, AfterViewInit {
   restaurantObj = {};
 
   constructor(public arrayRestaurantes: LlamadasMockyService, private router: ActivatedRoute) {
-    // this.restaurantObj = this.arrayRestaurantes.getArrayRestaurante()[+this.router.snapshot.paramMap.get('id')];
     this.arrayRestaurantes.getRestaurante(this.router.snapshot.paramMap.get('id')).subscribe((res: any) =>{
     console.log(res)
       this.restaurantObj = res}
@@ -22,24 +21,12 @@ export class RestauranteComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-/*     $(document).ready(function () {
-      $('ul.tabs').tabs({
-        swipeable: true,
-        responsiveThreshold: 1920
-      });
-    }); */
     $(document).ready(function () {
       $('ul.tabs').tabs();
     });
 
   }
   ngAfterViewInit() {
-   /*  $(document).ready(function () {
-      $('ul.tabs').tabs({
-        swipeable: true,
-        responsiveThreshold: 1920
-      });
-    }); */
   }
 
 
