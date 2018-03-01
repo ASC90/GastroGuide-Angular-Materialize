@@ -27,10 +27,8 @@ export class VideosComponent implements OnInit {
     let videos = {};
     let id = localStorage.getItem('logUser');
     if (!form.valid) {
-      alert("HAY UN CAMPO INCORRECTO!!");
       return;
     } else {
-      alert("LOS CAMPOS SON CORRECTOS!!");
       videos = { tituloVideo: this.pTitulo, DescripcionVideo: this.pDescripcion, urlVideo: this.pUrl, textoVideo: this.pTexto };
       console.log(videos);
       form.resetForm();

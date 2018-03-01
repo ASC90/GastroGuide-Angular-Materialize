@@ -25,10 +25,8 @@ export class OfertasComponent implements OnInit {
     let oferta = {};
     let id = localStorage.getItem('logUser');
     if (!form3.valid) {
-      alert("HAY UN CAMPO INCORRECTO!!");
       return;
     } else {
-      alert("LOS CAMPOS SON CORRECTOS!!");
       oferta = {promociones: { promocion: this.pOferta, descripcion: this.pOfertas }};
       console.log(oferta);
       form3.resetForm();
