@@ -1,11 +1,37 @@
-.img-portada {
-  background-image: url(../../assets/img/Large_portada.png);
-  width: 100vw;
-  height: 560px;
-  background-size: 1920px 498px;
-  background-repeat: no-repeat;
-  background-position-x: center;
+.banner {
+    border-radius: 5%;
 }
-img {
- border-radius: 5%;
+
+.portada {
+    width: 100vw;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    h1 {
+        font-size: 3rem !important;
+    }
+    h2 {
+        font-size: 2.5rem !important;
+    }
+    h3 {
+        font-size: 2rem !important;
+    }
+    h4 {
+        font-size: 1.5rem !important;
+    }
+    h5 {
+        font-size: 1.2rem !important;
+    }
+    .img-portada{
+      overflow: hidden;
+    }
+    .portada {
+      width: 150vw;
+      position: relative;
+      left: -25%;
+  }
+  div.nav-wrapper {
+    min-height: 65px !important;
+  }
 }
